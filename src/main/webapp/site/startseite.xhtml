@@ -1,0 +1,92 @@
+<ui:composition
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      lang="en"
+>
+
+    <div id="header">
+        <div id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <h:button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </h:button>
+
+                    <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
+                        <h:graphicImage value="/layout/images/logo.png" alt="logo" />
+                    </h:link>
+
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="scroll active"><a href="#home">#{msg['navListe_Startseite']}</a></li>
+                        <li class="scroll"><a href="#allgInfo">#{msg['navListe_allgInfo']}</a></li>
+                        <li class="scroll"><a href="#projekte">#{msg['navListe_Projekte']}</a></li>
+                        <li class="scroll"><a href="#karriere">#{msg['navListe_Karriere']}</a></li>
+                        <li class="scroll"><a href="#mitgliederber">#{msg['navListe_Mitgliederber']}</a></li>
+                        <li class="scroll"><a href="#get-in-touch">#{msg['navListe_Kontakt']}</a></li>
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </div><!--/nav-->
+    </div><!--/header-->
+
+    <div id="main-slider" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+            <li data-target="#main-slider" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill">
+                    <h:graphicImage  library="images" name="slider/bg1.jpg" width="100%"/>
+                </div>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Test</h1>
+                        <p>#{msg['slider_pic1_text']}</p>
+                        <h:link styleClass="btn btn-large btn-primary">Mehr Lesen</h:link>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <h:graphicImage library="images" name="slider/bg2.jpg" width="100%"/>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>#{msg['slider_pic2_caption']}</h1>
+                        <p>#{msg['slider_pic2_text']}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls
+        <h:link class="left carousel-control" href="#main-slider" data-slide="prev">
+            <span class="icon-prev"></span>
+        </h:link>
+        <h:link class="right carousel-control" href="#main-slider" data-slide="next">
+            <span class="icon-next"></span>
+        </h:link>-->
+    </div><!--/#main-slider-->
+
+    <div id="cta" class="wow fadeIn">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                <h2>#{msg['startseite_caption']}</h2>
+                <p>#{msg['startseite_text']}
+                </p>
+            </div>
+            <div class="col-sm-3 text-right">
+                <h:link class="btn btn-primary btn-lg" href="#">Wird der Button gebraucht?</h:link>
+            </div>
+        </div>
+    </div>
+    </div>
+</ui:composition>

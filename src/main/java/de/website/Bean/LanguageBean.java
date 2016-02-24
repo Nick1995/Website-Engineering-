@@ -1,4 +1,4 @@
-package de.website.messageBean;
+package de.website.Bean;
 
 /**
  * Created by Tobi on 16.02.2016.
