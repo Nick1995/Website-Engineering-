@@ -5,7 +5,7 @@
         xmlns:ui="http://java.sun.com/jsf/facelets"
         lang="en"
 >
-    <section id="karriere">
+    <section id="portfolio"> <!--Karriere-->
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">#{msg['projekte_caption']}</h2>
@@ -14,10 +14,10 @@
 
             <div class="text-center">
                 <ul class="portfolio-filter">
-                    <li><a class="active" href="#" data-filter="*">#{msg['projekte_auswahl_alle']}</a></li>
-                    <li><a href="#" data-filter=".creative">#{msg['projekte_auswahl_eins']}</a></li>
-                    <li><a href="#" data-filter=".corporate">#{msg['projekte_auswahl_zwei']}</a></li>
-                    <li><a href="#" data-filter=".portfolio">#{msg['projekte_auswahl_drei']}</a></li>
+                    <li><h:link class="active" href="#" data-filter="*">#{msg['projekte_auswahl_alle']}</h:link></li>
+                    <li><h:link href="#" data-filter=".creative">#{msg['projekte_auswahl_eins']}</h:link></li>
+                    <li><h:link href="#" data-filter=".corporate">#{msg['projekte_auswahl_zwei']}</h:link></li>
+                    <li><h:link href="#" data-filter=".portfolio">#{msg['projekte_auswahl_drei']}</h:link></li>
                 </ul><!--/#portfolio-filter-->
             </div>
 

@@ -18,7 +18,7 @@
                     </h:button>
 
                     <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
-                        <h:graphicImage value="/layout/images/logo.png" alt="logo" />
+                        <h:graphicImage library="images" value="logo.png" alt="logo" />
                     </h:link>
 
                 </div>
@@ -37,43 +37,16 @@
         </div><!--/nav-->
     </div><!--/header-->
 
-    <div id="main-slider" class="carousel slide">
-        <ol class="carousel-indicators">
-            <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-            <li data-target="#main-slider" data-slide-to="1"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill">
-                    <h:graphicImage  library="images" name="slider/bg1.jpg" width="100%"/>
-                </div>
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Test</h1>
-                        <p>#{msg['slider_pic1_text']}</p>
-                        <h:link styleClass="btn btn-large btn-primary">Mehr Lesen</h:link>
-                    </div>
-                </div>
+    <div class="owl-carousel">
+        <div id="main-slider">
+            <div class="item">
+                <h:graphicImage library="images" name="slider/bg1.jpg" />
             </div>
             <div class="item">
-                <h:graphicImage library="images" name="slider/bg2.jpg" width="100%"/>
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>#{msg['slider_pic2_caption']}</h1>
-                        <p>#{msg['slider_pic2_text']}</p>
-                    </div>
-                </div>
+                <h:graphicImage library="images" name="slider/bg2.jpg" />
             </div>
         </div>
-
-        <!-- Controls
-        <h:link class="left carousel-control" href="#main-slider" data-slide="prev">
-            <span class="icon-prev"></span>
-        </h:link>
-        <h:link class="right carousel-control" href="#main-slider" data-slide="next">
-            <span class="icon-next"></span>
-        </h:link>-->
-    </div><!--/#main-slider-->
+    </div>
 
     <div id="cta" class="wow fadeIn">
     <div class="container">
