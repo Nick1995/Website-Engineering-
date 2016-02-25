@@ -44,13 +44,12 @@ jQuery(function($) {'use strict';
 	 	$(this).closest('.panel-heading').toggleClass('active');
 	});
 
-	$(document).ready(function(){
-		$(".owl-carousel").owlCarousel();
-	});
-
 	//Slider
 	$(document).ready(function() {
 		var time = 7; // time in seconds
+		var name = nope;
+
+		console.log("das ist ein kleiner Test");
 
 	 	var $progressBar,
 	      $bar, 
@@ -60,17 +59,27 @@ jQuery(function($) {'use strict';
 	      percentTime;
 	 
 	    //Init the carousel
+	    $("#main-slider").find('.owl-carousel').owlCarousel({
 
-		$("#main-slider").owlCarousel({
+	      slideSpeed : 500,
+	      paginationSpeed : 500,
+	      singleItem : true,
+	      navigation : true,
+			navigationText: [
+			"<i class='fa fa-angle-left'></i>",
+			"<i class='fa fa-angle-right'></i>"
+			],
+	      afterInit : progressBar,
+	      afterMove : moved,
+	      startDragging : pauseOnDragging,
+	      //autoHeight : true,
+	      transitionStyle : "fadeUp",
+			name:'yes'
 
-			autoPlay: 3000, //Set AutoPlay to 3 seconds
+	    });
 
-			items : 2,
-			itemsDesktop : [1199,3],
-			itemsDesktopSmall : [979,3]
-
-		});
-
+		console.log(name);
+	 
 	    //Init progressBar where elem is $("#owl-demo")
 	    function progressBar(elem){
 	      $elem = elem;
@@ -79,7 +88,7 @@ jQuery(function($) {'use strict';
 	      //start counting
 	      start();
 	    }
-
+	 
 	    //create div#progressBar and div#bar then append to $(".owl-carousel")
 	    function buildProgressBar(){
 	      $progressBar = $("<div>",{
@@ -90,7 +99,7 @@ jQuery(function($) {'use strict';
 	      });
 	      $progressBar.append($bar).appendTo($elem);
 	    }
-
+	 
 	    function start() {
 	      //reset timer
 	      percentTime = 0;
@@ -98,7 +107,7 @@ jQuery(function($) {'use strict';
 	      //run interval every 0.01 second
 	      tick = setInterval(interval, 10);
 	    };
-
+	 
 	    function interval() {
 	      if(isPause === false){
 	        percentTime += 1 / time;
@@ -107,17 +116,17 @@ jQuery(function($) {'use strict';
 	         });
 	        //if percentTime is equal or greater than 100
 	        if(percentTime >= 100){
-	          //slide to next item
+	          //slide to next item 
 	          $elem.trigger('owl.next')
 	        }
 	      }
 	    }
-
-	    //pause while dragging
+	 
+	    //pause while dragging 
 	    function pauseOnDragging(){
 	      isPause = true;
 	    }
-
+	 
 	    //moved callback
 	    function moved(){
 	      //clear interval

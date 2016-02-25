@@ -17,9 +17,11 @@
                         <span class="icon-bar"></span>
                     </h:button>
 
-                    <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
-                        <h:graphicImage library="images" value="logo.png" alt="logo" />
-                    </h:link>
+                    <div class="navbar-brand">
+                        <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
+                            <h:graphicImage library="images" name="logo.png"/>
+                        </h:link>
+                    </div>
 
                 </div>
 
@@ -37,16 +39,16 @@
         </div><!--/nav-->
     </div><!--/header-->
 
-    <div class="owl-carousel">
-        <div id="main-slider">
-            <div class="item">
-                <h:graphicImage library="images" name="slider/bg1.jpg" />
-            </div>
-            <div class="item">
-                <h:graphicImage library="images" name="slider/bg2.jpg" />
-            </div>
+
+    <!--
+    <div id="main-slider" class="owl-carousel">
+        <div class="item">
+            <h:graphicImage library="images" name="slider/bg1.jpg" />
         </div>
-    </div>
+        <div class="item">
+            <h:graphicImage library="images" name="slider/bg2.jpg" />
+        </div>
+    </div> -->
 
     <div id="cta" class="wow fadeIn">
     <div class="container">
