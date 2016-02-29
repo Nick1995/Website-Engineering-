@@ -5,6 +5,15 @@
         xmlns:ui="http://java.sun.com/jsf/facelets"
         lang="en"
 >
+    <section id="get-in-touch">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Get in Touch</h2>
+                <p class="text-center wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br/> et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div id="google-map" style="height:650px" data-latitude="52.365629" data-longitude="4.871331"></div>
         <div class="container-wrapper">
@@ -18,10 +27,10 @@
                                 <strong>#{msg['impressum_name']}</strong><br/>
                                 #{msg['impressum_strasse']}<br/>
                                 #{msg['impressum_ort']}<br/>
-                                Tel: #{msg['impressum_tel']}
-                                Fax: #{msg['impressum_fax']}
-                                Mobil: #{msg['impressum_mobil']}
-
+                                Tel: #{msg['impressum_tel']}<br/>
+                                Fax: #{msg['impressum_fax']}<br/>
+                                Mobil: #{msg['impressum_mobil']}<br/>
+                                <br/>
                                 E-Mail: #{msg['impressum_email']}
                             </address>
 

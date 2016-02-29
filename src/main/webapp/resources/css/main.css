@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,700,100italic,300italic,400italic,700italic);
+/*@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,700,100italic,300italic,400italic,700italic);
 /*
 Template Name: Multi
 Version: 1.0
@@ -320,15 +320,17 @@ ul.nostyle i {
 #cta2 h2 > span {
   color: #45aed6;
 }
+#allgInfo {
+  padding: 100px 0;
+}
+
 #features {
   padding: 100px 0;
 }
-#features .media.service-box:first-child {
+#allgInfo .media.service-box:first-child {
   margin-top: 80px;
 }
-#services {
-  padding: 100px 0 75px;
-}
+
 .media.service-box {
   margin: 25px 0;
 }
@@ -368,35 +370,35 @@ ul.nostyle i {
   box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.8);
   -webkit-box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.8);
 }
-#portfolio {
+#projekte {
   padding: 100px 0;
   background: #f5f5f5;
 }
-#portfolio .portfolio-filter {
+#projekte .portfolio-filter {
   list-style: none;
   padding: 0;
   margin: 0 0 50px;
   display: inline-block;
 }
-#portfolio .portfolio-filter > li {
+#projekte .portfolio-filter > li {
   float: left;
   display: block;
 }
-#portfolio .portfolio-filter > li a {
+#projekte .portfolio-filter > li a {
   display: block;
   padding: 7px 15px;
   background: #e5e5e5;
   color: #64686d;
   position: relative;
 }
-#portfolio .portfolio-filter > li a:hover,
-#portfolio .portfolio-filter > li a.active {
+#projekte .portfolio-filter > li a:hover,
+#projekte .portfolio-filter > li a.active {
   background: #45aed6;
   color: #fff;
   box-shadow: 0 -3px 0 0 #318daf inset;
   -webkit-box-shadow: 0 -3px 0 0 #318daf inset;
 }
-#portfolio .portfolio-filter > li a.active:after {
+#projekte .portfolio-filter > li a.active:after {
   content: " ";
   position: absolute;
   bottom: -17px;
@@ -406,16 +408,16 @@ ul.nostyle i {
   border-style: solid;
   border-color: #318daf transparent transparent transparent;
 }
-#portfolio .portfolio-filter > li:first-child a {
+#projekte .portfolio-filter > li:first-child a {
   border-radius: 4px 0 0 4px;
 }
-#portfolio .portfolio-filter > li:last-child a {
+#projekte .portfolio-filter > li:last-child a {
   border-radius: 0 4px 4px 0;
 }
-#portfolio .portfolio-items {
+#projekte .portfolio-items {
   margin: -15px;
 }
-#portfolio .portfolio-item {
+#projekte .portfolio-item {
   width: 24.9%;
   float: left;
   padding: 15px;
@@ -425,10 +427,10 @@ ul.nostyle i {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-#portfolio .portfolio-item .portfolio-item-inner {
+#projekte .portfolio-item .portfolio-item-inner {
   position: relative;
 }
-#portfolio .portfolio-item .portfolio-item-inner .portfolio-info {
+#projekte .portfolio-item .portfolio-item-inner .portfolio-info {
   opacity: 0;
   transition: opacity 400ms;
   -webkit-transition: opacity 400ms;
@@ -440,13 +442,13 @@ ul.nostyle i {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
 }
-#portfolio .portfolio-item .portfolio-item-inner .portfolio-info h3 {
+#projekte .portfolio-item .portfolio-item-inner .portfolio-info h3 {
   font-size: 16px;
   line-height: 1;
   margin: 0;
   color: #fff;
 }
-#portfolio .portfolio-item .portfolio-item-inner .portfolio-info .preview {
+#projekte .portfolio-item .portfolio-item-inner .portfolio-info .preview {
   position: absolute;
   top: -18px;
   right: 12px;
@@ -462,7 +464,7 @@ ul.nostyle i {
   box-shadow: 0 0 0 2px #fff;
   -webkit-box-shadow: 0 0 0 2px #fff;
 }
-#portfolio .portfolio-item:hover .portfolio-info {
+#projekte .portfolio-item:hover .portfolio-info {
   opacity: 1;
 }
 /* Start: Recommended Isotope styles */
@@ -534,8 +536,9 @@ ul.nostyle i {
 #testimonial .btns {
   margin-top: 10px;
 }
-#about {
+#mitgliederber {
   padding: 100px 0;
+  background: #f5f5f5;
 }
 #work-process {
   padding: 100px 0 50px;
