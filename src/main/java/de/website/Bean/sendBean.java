@@ -1,6 +1,7 @@
 package de.website.Bean;
 
 import org.apache.commons.mail.*;
+import org.apache.log4j.Logger;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -10,9 +11,9 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean(name="sendMail")
 @RequestScoped
-public class sendBean {
+public class SendBean {
     
-    final static Logger logger = Logger.getLogger(sendBean.class);
+    final static Logger logger = Logger.getLogger(SendBean.class);
 
     public void mailSend(String name, String email, String subject, String text){
         
@@ -36,11 +37,9 @@ public class sendBean {
             
             logger.error("Fehler beim senden der E-Mail: ", e);
 
-        }
+        }catch (Exception ex){
         
-    } catch (Exception ex){
-            
-            logger.error("Fehler beim senden der E-Mail: ", ex);
+           logger.error("Fehler beim senden der E-Mail: ", ex);
 
         }
     }

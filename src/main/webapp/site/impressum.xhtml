@@ -6,7 +6,8 @@
         xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
         lang="en"
 >
-    <section id="get-in-touch">
+
+    <section id="impressum">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">Get in Touch</h2>
@@ -37,7 +38,7 @@
 
                             <form id="main-contact-form" name="contact-form" method="post" action="#">
                                 <div class="form-group">
-                                    <h:inputText binding="#{name}"  class="form-control" a:placeholder="Name"/>
+                                    <h:inputText  binding="#{name}"  class="form-control" a:placeholder="Name"/>
                                 </div>
                                 <div class="form-group">
                                     <h:inputText binding="#{email}"  class="form-control" a:placeholder="E-Mail"/>
@@ -48,7 +49,7 @@
                                 <div class="form-group">
                                     <h:inputTextarea binding="#{text}" class="form-control" a:placeholder="Message" rows="8" />
                                 </div>
-                                <h:commandButton action="#{sendMail.mailSend(name.value, email.value, subject.value, text.value)}" class="btn btn-primary" value="Send Message"/>
+                               <!-- <h:commandButton action="#{sendMail.mailSend(name.value, email.value, subject.value, text.value)}" class="btn btn-primary" value="Send Message"/>-->
                             </form>
                         </div>
                     </div>

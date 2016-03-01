@@ -320,14 +320,14 @@ ul.nostyle i {
 #cta2 h2 > span {
   color: #45aed6;
 }
-#allgInfo {
+#info {
   padding: 100px 0;
 }
 
-#features {
+#karriere {
   padding: 100px 0;
 }
-#allgInfo .media.service-box:first-child {
+#info .media.service-box:first-child {
   margin-top: 80px;
 }
 
@@ -775,15 +775,15 @@ ul.nostyle i {
 #pricing ul.pricing.featured li.plan-header .plan-name {
   color: #fff;
 }
-#get-in-touch {
+#impressum {
   padding: 100px 0 50px;
   background-image: -moz-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
   background-image: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
   background-image: -ms-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
   color: #fff;
 }
-#get-in-touch h1,
-#get-in-touch h2 {
+#impressum h1,
+#impressum h2 {
   color: #fff;
 }
 #blog {

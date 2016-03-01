@@ -5,7 +5,7 @@
         xmlns:ui="http://java.sun.com/jsf/facelets"
         lang="en"
 >
-    <section id="mitgliederberLogin">
+    <section id="login">
         <div class="container">
 
             <div class="section-header">
@@ -20,25 +20,25 @@
                         <h:graphicImage library="images" name="team/04.jpg"  />
                     </div>
                 </div>
+                <h:form>
+                    <div class="col-sm-6 wow fadeInRight">
+                        <h3 class="column-title">#{msg['mitgliederber_login_caption']}</h3>
+                        <p>#{msg['mitgliederber_login_text']}</p>
 
-                <div class="col-sm-6 wow fadeInRight">
-                    <h3 class="column-title">#{msg['mitgliederber_login_caption']}</h3>
-                    <p>#{msg['mitgliederber_login_text']}</p>
 
+                        <div class="input-group">
+                            <label for="usr">Name:</label>
+                            <h:inputText type="text" class="form-control" id="usr" value="#{login.user}"/>
+                        </div>
 
-                    <div class="input-group">
-                        <label for="usr">Name:</label>
-                        <h:inputText type="text" class="form-control" id="usr"/>
+                        <div class="input-group">
+                            <label for="pwd">Password:</label>
+                            <h:inputSecret type="password" class="form-control" id="pwd" value="#{login.pwd}"/>
+                        </div>
+
+                        <h:commandButton action="#{login.login}" class="btn btn-primary" value="login"/>
                     </div>
-
-                    <div class="input-group">
-                        <label for="pwd">Password:</label>
-                        <h:inputSecret type="password" class="form-control" id="pwd"/>
-                    </div>
-
-                    <a class="btn btn-primary" href="#">#{msg['mitgliederber_login_button']}</a>
-
-                </div>
+                </h:form>
             </div>
         </div>
     </section>

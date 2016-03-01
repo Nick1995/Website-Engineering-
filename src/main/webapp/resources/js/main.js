@@ -46,8 +46,6 @@ $('.accordion-toggle').on('click', function(){
 $(document).ready(function() {
 	var time = 7; // time in seconds
 
-	console.log("das ist ein kleiner Test");
-
 	var $progressBar,
 	  $bar,
 	  $elem,
@@ -136,7 +134,6 @@ smoothScroll.init();
 
 // portfolio filter
 $(window).load(function(){
-	console.log("Test");
 	var $projekte_selectors = $('.portfolio-filter >li>a');
 	var $projekte = $('.portfolio-items');
 	$projekte.isotope({

@@ -1,7 +1,10 @@
 package de.website.Bean;
 
+import de.webiste.database.Data;
 import de.webiste.database.Nutzer;
+import org.apache.log4j.Logger;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -12,16 +15,18 @@ import java.util.ArrayList;
  * Created by Nick on 29.02.2016.
  */
 public class DbQuery {
+
+    final static Logger logger = Logger.getLogger(DbQuery.class);
+
     Connection connection;
     Nutzer user = Nutzer.getInstance();
     String username = user.getUser();
     String passwd = user.getPassword();
     public DbQuery() {
         try {
-            //TODO hier eventuell für Login den Nutzer eintragen
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projektdaten", username, passwd);
         } catch (Exception exception) {
-            exception.printStackTrace();
+            throw new UnsupportedOperationException();
         }
     }
 //Abfragen
@@ -38,7 +43,7 @@ public class DbQuery {
         }
         return categories;
     }
-    public ArrayList<String> getSektor(String categoryID){
+    public ArrayList<String> getSektor(int categoryID){
         ArrayList<String> sectors = new ArrayList<String>();
         ArrayList<String> sectorsID = new ArrayList<String>();
         try {
@@ -55,7 +60,7 @@ public class DbQuery {
         return sectors;
     }
     //sucht nach Projekt anhand von Sektor oder Kategorie ID
-    public ArrayList<String> getProjects(String ID){
+    public ArrayList<String> getProjects(int ID){
         ArrayList<String> projects = new ArrayList<String>();
         ArrayList<String> projectsID = new ArrayList<String>();
         try {
@@ -73,22 +78,65 @@ public class DbQuery {
 
             }catch (Exception exception){
                 System.out.println("first Exception: ");
-                exception.printStackTrace();
+                logger.error("Fehler bei der DB Abfrage: ", exc);
                 System.out.println("second Exception: ");
-                exc.printStackTrace();
+                logger.error("Fehler bei der DB Abfrage: ", exception);
             }
         }
         return projects;
     }
-    public void getData(String ID){
+    //Daten abfragen und in website.database.Data speichern
+    public void getData(String PID){
+        String ort;
+        String bauherr;
+        String zeitraum;
+        String massnahmen;
+        String bauvolumen;
+        String leistung;
+        String architekt;
+        byte[]  picture;
+        Data daten = Data.getInstance();
         try {
             Statement myState = connection.createStatement();
-            ResultSet result = myState.executeQuery("SELECT * FROM sektor WHERE PID =" + ID);
+            ResultSet result = myState.executeQuery("SELECT * FROM daten WHERE PID =" + PID);
             while (result.next()){
-                //TODO wie sollen Daten verarbeitet werden??
+                ort = result.getString("ort");
+                bauherr = result.getString("bauherr");
+                zeitraum = result.getString("zeitraum");
+                bauvolumen = result.getString("bauvolumen");
+                leistung = result.getString("leistung");
+                massnahmen = result.getString("Massnahmen");
+                architekt = result.getString("architekt");
+                picture = result.getBytes("Bilder");
+
+                daten.setOrt(ort);
+                daten.setBauherr(bauherr);
+                daten.setZeitraum(zeitraum);
+                daten.setBauvolumen(bauvolumen);
+                daten.setLeistung(leistung);
+                daten.setMassnahmen(massnahmen);
+                daten.setArchitekt(architekt);
+                daten.setPicture(picture);
+
             }
         }catch(Exception exc){
             System.out.println(exc.toString());
         }
     }
+//Abfragen Ende
+
+//Inserts
+    //neuen Datensatz anlegen
+    public void insertData(File image,String bauherr, String architekt, String ort, String zeitraum, String bauvolumen,
+            String leistung, String massnahmen,int pid){
+        try {
+            Statement myState = connection.createStatement();
+            ResultSet result = myState.executeQuery("INSERT INTO daten (Bilder, bauherr, architekt, ort, zeitraum, " +
+                    "bauvolumen, leistung, massnahmen, pid) VALUES(" + image + "," + bauherr + ","  + architekt + ","  +
+                    ort + "," + zeitraum + ","  + bauvolumen + "," + leistung + "," + massnahmen + "," + pid + ");");
+
+        }catch (Exception exc){
+            logger.error("Fehler Datenbankabfrage: ", exc);
+        }
+}
 }
