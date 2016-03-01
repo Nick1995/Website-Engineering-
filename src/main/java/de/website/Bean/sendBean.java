@@ -19,13 +19,13 @@ public class sendBean {
         String authuser = "...@gmail.com";
         String authpwd = "xxxx";
 
-        Email simMail = new SimpleEmail();
-        simMail.setHostName("smtp.googlemail.com");
-        simMail.setSmtpPort(465);
-        simMail.setAuthenticator(new DefaultAuthenticator(authuser, authpwd));
-        simMail.setSSLOnConnect(true);
-
         try {
+            
+            Email simMail = new SimpleEmail();
+            simMail.setHostName("smtp.googlemail.com");
+            simMail.setSmtpPort(465);
+            simMail.setAuthenticator(new DefaultAuthenticator(authuser, authpwd));
+            simMail.setSSLOnConnect(true);
             simMail.setFrom(email);
             simMail.setSubject(subject);
             simMail.setMsg(text);
@@ -35,6 +35,12 @@ public class sendBean {
         } catch (EmailException e){
             
             logger.error("Fehler beim senden der E-Mail: ", e);
+
+        }
+        
+    } catch (Exception ex){
+            
+            logger.error("Fehler beim senden der E-Mail: ", ex);
 
         }
     }
