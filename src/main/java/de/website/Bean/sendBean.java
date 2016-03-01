@@ -7,21 +7,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 /**
- * Created by Tobi on 29.02.2016.
+ * Created by Nick on 01.03.2016.
  */
 @ManagedBean(name="sendMail")
 @RequestScoped
-public class SendBean {
-    
-    final static Logger logger = Logger.getLogger(SendBean.class);
+public class sendBean {
+    final static Logger logger = Logger.getLogger(sendBean.class);
 
     public void mailSend(String name, String email, String subject, String text){
-        
+
         String authuser = "...@gmail.com";
         String authpwd = "xxxx";
 
         try {
-            
+
             Email simMail = new SimpleEmail();
             simMail.setHostName("smtp.googlemail.com");
             simMail.setSmtpPort(465);
@@ -34,12 +33,12 @@ public class SendBean {
             simMail.send();
 
         } catch (EmailException e){
-            
+
             logger.error("Fehler beim senden der E-Mail: ", e);
 
         }catch (Exception ex){
-        
-           logger.error("Fehler beim senden der E-Mail: ", ex);
+
+            logger.error("Fehler beim senden der E-Mail: ", ex);
 
         }
     }
