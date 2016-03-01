@@ -12,19 +12,23 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class sendBean {
 
-    public void sendMail(){
+    public void mailSend(String name, String email, String subject, String text){
 
-            Email email = new SimpleEmail();
-            email.setHostName("smtp.googlemail.com");
-            email.setSmtpPort(465);
-            email.setAuthenticator(new DefaultAuthenticator("username", "password"));
-            email.setSSLOnConnect(true);
-            //email.setFrom("user@gmail.com");
-            email.setSubject("TestMail");
-           // email.setMsg("This is a test mail ... :-)");
+        Email simMail = new SimpleEmail();
+        simMail.setHostName("smtp.googlemail.com");
+        simMail.setSmtpPort(465);
+        simMail.setAuthenticator(new DefaultAuthenticator("username", "password"));
+        simMail.setSSLOnConnect(true);
+
+        try {
+            simMail.setFrom(email);
+            simMail.setSubject(subject);
+            simMail.setMsg(text);
             //email.addTo("foo@bar.com");
-           // email.send();
+            simMail.send();
 
+        } catch (EmailException e){
 
+        }
     }
 }
