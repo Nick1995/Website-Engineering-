@@ -11,6 +11,8 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean(name="sendMail")
 @RequestScoped
 public class sendBean {
+    
+    final static Logger logger = Logger.getLogger(sendBean.class);
 
     public void mailSend(String name, String email, String subject, String text){
         
@@ -31,6 +33,8 @@ public class sendBean {
             simMail.send();
 
         } catch (EmailException e){
+            
+            logger.error("Fehler beim senden der E-Mail: ", e);
 
         }
     }
