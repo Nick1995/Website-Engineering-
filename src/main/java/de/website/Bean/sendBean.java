@@ -9,6 +9,8 @@ import javax.faces.bean.RequestScoped;
 /**
  * Created by Nick on 01.03.2016.
  */
+
+// Tobi stinkt nach Kot
 @ManagedBean(name="sendMail")
 @RequestScoped
 public class sendBean {
