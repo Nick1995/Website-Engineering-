@@ -22,7 +22,8 @@ import de.webiste.database.Customer;
 @SessionScoped
 public class CustomerBean implements Serializable {
     //resource injection
-    @Resource(name="jdbc/mkyongdb")
+    @Resource(name="jdbc/projektdaten") //Datenbank name
+
     private DataSource ds;
 
     //if resource injection is not support, you still can get it manually.

@@ -10,7 +10,7 @@ public class Customer {
     public String name;
     public String address;
     public Date created_date;
-
+    public long customerID;
 
     public long getCustomerID() {
         return customerID;
@@ -19,8 +19,6 @@ public class Customer {
     public void setCustomerID(long customerID) {
         this.customerID = customerID;
     }
-
-    public long customerID;
 
     public String getName() {
         return name;

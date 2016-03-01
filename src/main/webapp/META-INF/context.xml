@@ -1,5 +1,5 @@
 <Context>
-
+ <!-- Datenbankanbindung -->
     <Resource name="jdbc/mkyongdb" auth="Container" type="javax.sql.DataSource"
               maxActive="50" maxIdle="30" maxWait="10000"
               username="mysqluser" password="mysqlpassword"
