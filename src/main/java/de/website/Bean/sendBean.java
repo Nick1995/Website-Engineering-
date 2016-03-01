@@ -14,10 +14,13 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class sendBean {
     final static Logger logger = Logger.getLogger(sendBean.class);
+    String name;
+    String email;
+    String subject;
+    String text;
+    public void mailSend(){
 
-    public void mailSend(String name, String email, String subject, String text){
-
-        String authuser = "...@gmail.com";
+        String authuser = "nick.fahrendorff@gmail.com";
         String authpwd = "xxxx";
 
         try {
@@ -27,9 +30,9 @@ public class sendBean {
             simMail.setSmtpPort(465);
             simMail.setAuthenticator(new DefaultAuthenticator(authuser, authpwd));
             simMail.setSSLOnConnect(true);
-            simMail.setFrom(email);
-            simMail.setSubject(subject);
-            simMail.setMsg(text);
+            simMail.setFrom(getEmail());
+            simMail.setSubject(getSubject());
+            simMail.setMsg(getText());
             //email.addTo("foo@bar.com");
             simMail.send();
 
@@ -42,5 +45,36 @@ public class sendBean {
             logger.error("Fehler beim senden der E-Mail: ", ex);
 
         }
+    }
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

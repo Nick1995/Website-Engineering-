@@ -29,7 +29,7 @@ public class LoginBean {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
-    public void login(){
+    public void start(){
         Nutzer nutzer = Nutzer.getInstance();
         nutzer.setUser(getUser());
         nutzer.setPassword(getPwd());
@@ -41,11 +41,11 @@ public class LoginBean {
             //TODO PW falsch
         }
     }
-    public String moveToAdminPage(){
+    private String moveToAdminPage(){
         return "mitgliederber";
     }
 
-    public String moveToErrorPage(){
+    private String moveToErrorPage(){
         return "error";
     }
 }
