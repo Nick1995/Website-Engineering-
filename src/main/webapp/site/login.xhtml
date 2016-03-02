@@ -35,7 +35,9 @@
                                 <h:inputSecret binding="#{passwd}" type="password" class="form-control" id="pwd"/>
                             </div>
 
-                            <h:commandButton action="#{login.start(username.value, passwd.value)}" class="btn btn-primary" value="login"/>
+                            <div id="loginButton">
+                                <h:commandButton action="#{login.start(username.value, passwd.value)}" class="btn btn-primary" value="login"/>
+                            </div>
                         </h:form>
                     </div>
             </div>
