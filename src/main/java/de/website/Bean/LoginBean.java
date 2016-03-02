@@ -13,11 +13,13 @@ import javax.faces.bean.RequestScoped;
 public class LoginBean {
   public  String username;
     String passwd;
-
+    Nutzer nutzer = Nutzer.getInstance();
     public String start(String username, String passwd){
         try {
             DbQuery dBcon = new DbQuery(username, passwd);
+            nutzer.setDbCon(dBcon);
             return moveToAdminPage();
+
         }catch (Exception exc){
             return moveToErrorPage();
             //TODO PW falsch

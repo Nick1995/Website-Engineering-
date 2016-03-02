@@ -1,11 +1,22 @@
 package de.webiste.database;
 
+import de.website.Bean.DbQuery;
+import sun.security.pkcs11.Secmod;
+
 /**
  * Created by Nick on 29.02.2016.
  */
 public class Nutzer {
     public String user = "open";
     public String password = "";
+    private DbQuery dbCon;
+
+    public DbQuery getDbCon() {
+        return dbCon;
+    }
+    public void setDbCon(DbQuery dbCon) {
+        this.dbCon = dbCon;
+    }
 
     public String getUser() {
         return user;
