@@ -24,19 +24,19 @@
                         <h3 class="column-title">#{msg['mitgliederber_login_caption']}</h3>
                         <p>#{msg['mitgliederber_login_text']}</p>
 
+                        <h:form>
+                            <div class="input-group">
+                                <label for="usr">Name:</label>
+                                <h:inputText type="text" class="form-control" id="usr" value="#{login.user}"/>
+                            </div>
 
-                        <div class="input-group">
-                            <label for="usr">Name:</label>
-                            <h:inputText type="text" class="form-control" id="usr" value="#{login.user}"/>
-                        </div>
+                            <div class="input-group">
+                                <label for="pwd">Password:</label>
+                                <h:inputSecret type="password" class="form-control" id="pwd" value="#{login.pwd}"/>
+                            </div>
 
-                        <div class="input-group">
-                            <label for="pwd">Password:</label>
-                            <h:inputSecret type="password" class="form-control" id="pwd" value="#{login.pwd}"/>
-                        </div>
-
-                       <h:commandButton action="#{login.start}" class="btn btn-primary" value="login"/>
-
+                            <h:commandButton action="#{login.start(test)}" class="btn btn-primary" value="login"/>
+                        </h:form>
                     </div>
             </div>
         </div>

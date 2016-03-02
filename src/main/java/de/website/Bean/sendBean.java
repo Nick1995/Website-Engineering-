@@ -14,11 +14,13 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class sendBean {
     final static Logger logger = Logger.getLogger(sendBean.class);
+
     String name;
     String email;
     String subject;
     String text;
-    public void mailSend(){
+
+    public void mailSend(String name, String email, String subject, String text){
 
         String authuser = "nick.fahrendorff@gmail.com";
         String authpwd = "xxxx";
@@ -30,9 +32,9 @@ public class sendBean {
             simMail.setSmtpPort(465);
             simMail.setAuthenticator(new DefaultAuthenticator(authuser, authpwd));
             simMail.setSSLOnConnect(true);
-            simMail.setFrom(getEmail());
-            simMail.setSubject(getSubject());
-            simMail.setMsg(getText());
+            simMail.setFrom(email);
+            simMail.setSubject(subject);
+            simMail.setMsg(text);
             //email.addTo("foo@bar.com");
             simMail.send();
 
@@ -46,7 +48,7 @@ public class sendBean {
 
         }
     }
-    public String getText() {
+    /*public String getText() {
         return text;
     }
 
@@ -76,5 +78,5 @@ public class sendBean {
 
     public void setName(String name) {
         this.name = name;
-    }
+    } */
 }

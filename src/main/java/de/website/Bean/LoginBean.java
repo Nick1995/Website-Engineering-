@@ -29,7 +29,10 @@ public class LoginBean {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
-    public void start(){
+    public void start(String test){
+
+        System.out.println(test);
+
         Nutzer nutzer = Nutzer.getInstance();
         nutzer.setUser(getUser());
         nutzer.setPassword(getPwd());
