@@ -22,21 +22,23 @@ public class sendBean {
 
     public void mailSend(){
 
-        String authuser = "nick.fahrendorff@gmail.com";
-        String authpwd = "xxxx";
-
         try {
 
-            Email simMail = new SimpleEmail();
-            simMail.setHostName("mail.gmx.net");
-            simMail.setSmtpPort(587);
-            simMail.setAuthenticator(new DefaultAuthenticator(authuser, authpwd));
-            simMail.setSSLOnConnect(true);
-            simMail.setFrom(getEmail());
-            simMail.setSubject(getSubject());
-            simMail.setMsg(getText());
-            //email.addTo("foo@bar.com");
-            simMail.send();
+            // Create the email message
+            HtmlEmail email = new HtmlEmail();
+            email.setHostName("smtp.gmail.com");
+            email.addTo("nick.fahrendorff@gmail.com", "Nick Fahrendorff");
+            email.setFrom(getEmail(), getName());
+            email.setSubject(getSubject());
+
+            // set the html message
+            email.setHtmlMsg("<html>Test</html>");
+
+            // set the alternative message
+            email.setTextMsg(getText());
+
+            // send the email
+            email.send();
 
         } catch (EmailException e){
 
