@@ -26,8 +26,11 @@ public class sendBean {
 
             // Create the email message
             HtmlEmail email = new HtmlEmail();
+            email.setSmtpPort(465);
+            //email.setSslSmtpPort("465");
+            email.setSSLOnConnect(true);
             email.setHostName("smtp.gmail.com");
-            email.addTo("nick.fahrendorff@gmail.com", "Nick Fahrendorff");
+            email.addTo("testbeule2@gmail.com", "testBeule");
             email.setFrom(getEmail(), getName());
             email.setSubject(getSubject());
 
