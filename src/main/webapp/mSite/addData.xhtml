@@ -1,0 +1,78 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        lang="en"
+>
+    <div id="header">
+        <div id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <h:button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </h:button>
+
+                    <div class="navbar-brand">
+                        <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
+                            <h:graphicImage library="images" name="logo.png"/>
+                        </h:link>
+                    </div>
+
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <!--<li class="scroll active"><h:link href="#home">#{msg['navListe_Startseite']}</h:link></li>
+                        <li class="scroll"><a href="#info">#{msg['navListe_allgInfo']}</h:link></li>
+                        <li class="scroll"><a href="#projekte">#{msg['navListe_Projekte']}</h:link></li>
+                        <li class="scroll"><a href="#karriere">#{msg['navListe_Karriere']}</h:link></li>
+                        <li class="scroll"><a href="#start">#{msg['navListe_Login']}</h:link></li>-->
+                        <li class="scroll"><h:link value="#{msg['navListe_Startseite']}" fragment="home"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_allgInfo']}" fragment="info"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_Projekte']}" fragment="projekte"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_Karriere']}" fragment="karriere"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_Login']}" fragment="login"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_Kontakt']}" fragment="impressum"/></li>
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </div><!--/nav-->
+    </div><!--/header-->
+
+    <section id="addData">
+        <div class="container">
+
+
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">#{msg['addData_caption']}</h2>
+                <p class="text-center wow fadeInDown">#{msg['addData_text']}</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6 wow fadeInLeft">
+                    <!--<h3 class="column-title">#{msg['mitgliederber_login_caption']}</h3>
+                    <p>#{msg['mitgliederber_login_text']}</p>-->
+
+                    <h:form>
+                        <div class="input-group">
+                            <label for="usr">Name:</label>
+                            <h:inputText binding="#{username}" type="text" class="form-control" id="usr"/>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="pwd">Password:</label>
+                            <h:inputSecret binding="#{passwd}" type="password" class="form-control" id="pwd"/>
+                        </div>
+
+                        <h:commandButton action="#{login.start(username.value, passwd.value)}" class="btn btn-primary" value="login"/>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </section>
+</ui:composition>

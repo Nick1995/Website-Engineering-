@@ -20,15 +20,14 @@ public class DbQuery {
 
     Connection connection;
     public DbQuery(String username, String passwd) {
-        if (username == ""){
-            username = "open";
-        }else if (username == null){
-            username = "open";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
         }
-        if (passwd == null){
-            passwd = "";
+        catch (ClassNotFoundException e) {
+            throw new UnsupportedOperationException();
         }
         try {
+//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projektdaten", "open", "");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projektdaten", username, passwd);
         } catch (Exception exception) {
             throw new UnsupportedOperationException();
