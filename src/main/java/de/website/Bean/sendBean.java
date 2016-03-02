@@ -20,7 +20,7 @@ public class sendBean {
     String subject;
     String text;
 
-    public void mailSend(String name, String email, String subject, String text){
+    public void mailSend(){
 
         String authuser = "nick.fahrendorff@gmail.com";
         String authpwd = "xxxx";
@@ -28,13 +28,13 @@ public class sendBean {
         try {
 
             Email simMail = new SimpleEmail();
-            simMail.setHostName("smtp.googlemail.com");
-            simMail.setSmtpPort(465);
+            simMail.setHostName("mail.gmx.net");
+            simMail.setSmtpPort(587);
             simMail.setAuthenticator(new DefaultAuthenticator(authuser, authpwd));
             simMail.setSSLOnConnect(true);
-            simMail.setFrom(email);
-            simMail.setSubject(subject);
-            simMail.setMsg(text);
+            simMail.setFrom(getEmail());
+            simMail.setSubject(getSubject());
+            simMail.setMsg(getText());
             //email.addTo("foo@bar.com");
             simMail.send();
 
@@ -48,7 +48,7 @@ public class sendBean {
 
         }
     }
-    /*public String getText() {
+    public String getText() {
         return text;
     }
 
@@ -78,5 +78,5 @@ public class sendBean {
 
     public void setName(String name) {
         this.name = name;
-    } */
+    }
 }
