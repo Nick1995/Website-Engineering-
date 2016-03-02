@@ -11,36 +11,15 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean(name = "login")
 @RequestScoped
 public class LoginBean {
-    String user;
-    String pwd;
+  public  String username;
+    String passwd;
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
-    public void start(String test){
-
-        System.out.println(test);
-
-        Nutzer nutzer = Nutzer.getInstance();
-        nutzer.setUser(getUser());
-        nutzer.setPassword(getPwd());
+    public String start(String username, String passwd){
         try {
-            DbQuery dBcon = new DbQuery();
-            moveToAdminPage();
+            DbQuery dBcon = new DbQuery(username, passwd);
+            return moveToAdminPage();
         }catch (Exception exc){
-            moveToErrorPage();
+            return moveToErrorPage();
             //TODO PW falsch
         }
     }

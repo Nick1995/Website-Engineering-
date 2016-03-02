@@ -27,15 +27,15 @@
                         <h:form>
                             <div class="input-group">
                                 <label for="usr">Name:</label>
-                                <h:inputText type="text" class="form-control" id="usr" value="#{login.user}"/>
+                                <h:inputText binding="#{username}" type="text" class="form-control" id="usr"/>
                             </div>
 
                             <div class="input-group">
                                 <label for="pwd">Password:</label>
-                                <h:inputSecret type="password" class="form-control" id="pwd" value="#{login.pwd}"/>
+                                <h:inputSecret binding="#{passwd}" type="password" class="form-control" id="pwd"/>
                             </div>
 
-                            <h:commandButton action="#{login.start(test)}" class="btn btn-primary" value="login"/>
+                            <h:commandButton action="#{login.start(username.value, passwd.value)}" class="btn btn-primary" value="login"/>
                         </h:form>
                     </div>
             </div>

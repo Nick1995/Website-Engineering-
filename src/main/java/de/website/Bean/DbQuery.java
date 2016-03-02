@@ -19,10 +19,15 @@ public class DbQuery {
     final static Logger logger = Logger.getLogger(DbQuery.class);
 
     Connection connection;
-    Nutzer user = Nutzer.getInstance();
-    String username = user.getUser();
-    String passwd = user.getPassword();
-    public DbQuery() {
+    public DbQuery(String username, String passwd) {
+        if (username == ""){
+            username = "open";
+        }else if (username == null){
+            username = "open";
+        }
+        if (passwd == null){
+            passwd = "";
+        }
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projektdaten", username, passwd);
         } catch (Exception exception) {
