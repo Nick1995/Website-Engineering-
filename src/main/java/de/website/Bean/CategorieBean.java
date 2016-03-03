@@ -17,23 +17,26 @@ import java.util.List;
 
 @ManagedBean(name = "categories")
 @RequestScoped
-public class CategoryBean {
+public class CategorieBean {
 
     private String selectedItem; // +getter +setter
     private List<String> categories; // +getter (no setter necessary)
+    private String cat;
 
     Nutzer nutzer = Nutzer.getInstance();
+    Exchange ex = Exchange.getInstance();
     DbQuery dbCon =  nutzer.getDbCon();
-
+    int i;
     @PostConstruct
     public void init() {
         categories = new ArrayList<String >();
         categories = dbCon.getCategories();
     }
-
+//
     public void valueChanged(ValueChangeEvent event){
-        int i = 0;
-        i++;
+        int cid = dbCon.getCID(selectedItem);
+        ex.setCid(cid);
+
     }
 
     public String getSelectedItem() {
@@ -50,5 +53,9 @@ public class CategoryBean {
 
     public void setCategories(List<String> categories) {
         this.categories = categories;
+    }
+
+    public void setCat(String cat) {
+        this.cat = cat;
     }
 }

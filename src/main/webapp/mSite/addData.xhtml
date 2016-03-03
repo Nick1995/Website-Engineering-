@@ -60,11 +60,9 @@
                             <div class="input-group">
                                 <label for ="cat">Kategorie: </label>
                             <h:selectOneMenu id="cat" value="#{categories.selectedItem}" onchange="submit()"
-                                valueChangeListener="categories.valueChanged">
+                                valueChangeListener="#{categories.valueChanged}">
                                 <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen" />
-                                <!--<f:valueChangeListener type="javax.faces.event.ValueChangeListener"/>-->
                                 <f:selectItems value="#{categories.categories}" />
-                                <!--<f:ajax listener="categories.valueChanged"/>-->
                             </h:selectOneMenu>
                             </div>
                         </h:form>

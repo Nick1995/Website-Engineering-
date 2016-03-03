@@ -20,13 +20,14 @@ public class SectorBean {
     private List<String> sec; // +getter (no setter necessary)
     private String category;
     private int cid;
+    Exchange ex = Exchange.getInstance();
     Nutzer nutzer = Nutzer.getInstance();
     DbQuery dbCon = nutzer.getDbCon();
 
     @PostConstruct
     public void init() {
         sec = new ArrayList<String>();
-        sec = dbCon.getSektor(cid);
+        sec = dbCon.getSektor(ex.getCid());
     }
 
     public int getCid() {
