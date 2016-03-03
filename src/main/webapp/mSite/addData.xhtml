@@ -57,33 +57,91 @@
                 <div class="col-sm-6 wow fadeInLeft">
                     <!--<h3 class="column-title">#{msg['mitgliederber_login_caption']}</h3>
                     <p>#{msg['mitgliederber_login_text']}</p>-->
-                    <h:selectOneMenu >
-                        <f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
-                        <f:selectItem itemValue="Extreme Mocha" itemLabel="Coffee3 - Extreme Mocha" />
-                        <f:selectItem itemValue="Buena Vista" itemLabel="Coffee3 - Buena Vista" />
-                    </h:selectOneMenu>
-                    <h:selectOneMenu>
-                        <f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
-                        <f:selectItem itemValue="Extreme Mocha" itemLabel="Coffee3 - Extreme Mocha" />
-                        <f:selectItem itemValue="Buena Vista" itemLabel="Coffee3 - Buena Vista" />
-                    </h:selectOneMenu>
-                    <h:selectOneMenu>
-                        <f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
-                        <f:selectItem itemValue="Extreme Mocha" itemLabel="Coffee3 - Extreme Mocha" />
-                        <f:selectItem itemValue="Buena Vista" itemLabel="Coffee3 - Buena Vista" />
-                    </h:selectOneMenu>
+
+
+                    <div class="input-group">
+                        <!--<label for="cat">Kategorie:</label>-->
+                        <h:form>
+                            <h:selectOneMenu value="#{categories.selectedItem}">
+                                <f:selectItem itemValue="#{null}" itemLabel="-- select one --" />
+                                <f:selectItems value="#{categories.categories}" />
+                            </h:selectOneMenu>
+                            <h:commandButton value="Submit" action="#{categories.submit}" />
+                        </h:form>
+                        <!--<h:selectOneMenu value="data.cat" id="cat">
+                            <ui:repeat var="test" value="#{data.catList}" varStatus="loop">
+
+                                <f:selectItem itemLabel="#{test[loop.index]}" />
+                                "#{loop.index}"
+                        </ui:repeat>
+
+                            <f:selectItem itemLabel="#{data.catList}" />
+                        </h:selectOneMenu>-->
+
+                    </div>
+                    <div class="input-group">
+                        <label for="sek">Sektor: </label>
+                        <h:selectOneMenu id="sek">
+                            <!--<c:forEach items="#{cotBean.form.conductor}" varStatus="numReg">
+                                <f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
+                            </c:forEach>-->
+
+                            <f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
+                            <f:selectItem itemValue="Extreme Mocha" itemLabel="Coffee3 - Extreme Mocha" />
+                            <f:selectItem itemValue="Buena Vista" itemLabel="Coffee3 - Buena Vista" />
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="input-group">
+                        <label for="project">Projekt:</label>
+                        <h:selectOneMenu id="project">
+                            <f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
+                            <f:selectItem itemValue="Extreme Mocha" itemLabel="Coffee3 - Extreme Mocha" />
+                            <f:selectItem itemValue="Buena Vista" itemLabel="Coffee3 - Buena Vista" />
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="location">Ort:</label>
+                        <h:inputText binding="#{location}" type="text" class="form-control" id="location"/>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="bauherr">Bauherr:</label>
+                        <h:inputText binding="#{bauherr}" type="text" class="form-control" id="bauherr"/>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="architekt">Architekt/Planer:</label>
+                        <h:inputText binding="#{architekt}" type="text" class="form-control" id="architekt"/>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="time_start">Beginn Bau: </label>
+                        <h:inputText binding="#{timeStart}" type="text" class="form-control" id="time_start"/>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="time_end">Ort:</label>
+                        <h:inputText binding="#{timeEnd}" type="text" class="form-control" id="time_end"/>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="bauvol">Bauvolumen:</label>
+                        <h:inputText binding="#{bauvol}" type="text" class="form-control" id="bauvol"/>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="massnahmen">Maßnahmen:</label>
+                        <h:inputText binding="#{massnahmen}" type="text" class="form-control" id="massnahmen"/>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="pic">Bilder:</label>
+                        <h:inputText binding="#{picPath}" type="text" class="form-control" id="pic"/>
+                    </div>
+                    <h:commandButton class="btn btn-primary" value="Bilder durchsuchen"/>
                     <h:form>
-                        <div class="input-group">
-                            <label for="usr">Name:</label>
-                            <h:inputText binding="#{username}" type="text" class="form-control" id="usr"/>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="pwd">Password:</label>
-                            <h:inputSecret binding="#{passwd}" type="password" class="form-control" id="pwd"/>
-                        </div>
-
-                        <h:commandButton action="#{login.start(username.value, passwd.value)}" class="btn btn-primary" value="login"/>
+                        <h:commandButton action="#{login.start(username.value, passwd.value)}" class="btn btn-primary" value="Projekt speichern"/>
                     </h:form>
                 </div>
             </div>

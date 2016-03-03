@@ -18,7 +18,7 @@ public class DbQuery {
 
     final static Logger logger = Logger.getLogger(DbQuery.class);
 
-    Connection connection;
+    private Connection connection;
     public DbQuery(String username, String passwd) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
