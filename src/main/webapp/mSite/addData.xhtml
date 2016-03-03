@@ -59,14 +59,14 @@
                         <h:form>
                             <div class="input-group">
                                 <label for ="cat">Kategorie: </label>
-                            <h:selectOneMenu id="cat"  value="#{categories.selectedItem}" >
-                                <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen" />
-                                <f:selectItems value="#{categories.categories}" />
-                                <f:ajax listener="#{categories.ajaxListener}" />
-                            </h:selectOneMenu>
+                                    <h:selectOneMenu id="cat"  value="#{categories.selectedItem}" >
+                                        <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen" />
+                                        <f:selectItems value="#{categories.categories}" />
+                                        <f:ajax listener="#{categories.ajaxListener}" render="test" />
+                                    </h:selectOneMenu>
                             </div>
                         </h:form>
-                        <h:form>
+                        <h:form id="test">
 
                             <div class="input-group">
                             <label for="sek">Sektor: </label>
