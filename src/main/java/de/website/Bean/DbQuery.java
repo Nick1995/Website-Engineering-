@@ -1,7 +1,6 @@
 package de.website.Bean;
 
-import de.webiste.database.Data;
-import de.webiste.database.Nutzer;
+import de.website.database.Data;
 import org.apache.log4j.Logger;
 
 import java.io.File;

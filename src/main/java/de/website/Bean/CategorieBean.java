@@ -1,15 +1,11 @@
 package de.website.Bean;
 
-import de.webiste.database.Nutzer;
+import de.website.database.Nutzer;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.AjaxBehaviorEvent;
-import javax.faces.event.ValueChangeEvent;
-import javax.faces.event.ValueChangeListener;
-import javax.faces.model.SelectItem;
 import java.util.ArrayList;
 import java.util.List;
 

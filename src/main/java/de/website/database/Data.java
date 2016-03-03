@@ -1,6 +1,4 @@
-package de.webiste.database;
-
-import java.awt.*;
+package de.website.database;
 
 /**
  * Created by Nick on 01.03.2016.

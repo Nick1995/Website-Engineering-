@@ -1,7 +1,6 @@
-package de.webiste.database;
+package de.website.database;
 
 import de.website.Bean.DbQuery;
-import sun.security.pkcs11.Secmod;
 
 /**
  * Created by Nick on 29.02.2016.

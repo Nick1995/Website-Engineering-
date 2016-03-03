@@ -1,6 +1,6 @@
 package de.website.Bean;
 
-import de.webiste.database.Nutzer;
+import de.website.database.Nutzer;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;

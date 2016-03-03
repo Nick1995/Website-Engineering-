@@ -3,6 +3,7 @@
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
         lang="en"
 >
     <div id="header">
@@ -126,6 +127,20 @@
                         <label for="pic">Bilder:</label>
                         <h:inputText binding="#{picPath}" type="text" class="form-control" id="pic"/>
                     </div>
+
+                <h:form enctype="multipart/form-data">
+
+                    <p:messages showDetail="true" />
+
+                    <p:fileUpload value="#{imageStoreBean.file}" mode="simple" />
+
+                    <p:commandButton value="Submit" ajax="false" actionListener="#{imageStoreBean.storeImage}" />
+
+                    <h:graphicImage id="image" alt="uploaded image" url="/image"/>
+
+                </h:form>
+
+
                     <h:commandButton class="btn btn-primary" value="Bilder durchsuchen"/>
                     <h:form>
                         <h:commandButton action="#{login.start(username.value, passwd.value)}" class="btn btn-primary" value="Projekt speichern"/>
