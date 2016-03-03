@@ -55,50 +55,39 @@
             <div class="row">
 
                 <div class="col-sm-6 wow fadeInLeft">
-                    <!--<h3 class="column-title">#{msg['mitgliederber_login_caption']}</h3>
-                    <p>#{msg['mitgliederber_login_text']}</p>-->
 
-
-                    <div class="input-group">
-                        <!--<label for="cat">Kategorie:</label>-->
                         <h:form>
-                            <h:selectOneMenu value="#{categories.selectedItem}">
-                                <f:selectItem itemValue="#{null}" itemLabel="-- select one --" />
+                            <div class="input-group">
+                                <label for ="cat">Kategorie: </label>
+                            <h:selectOneMenu id="cat" value="#{categories.selectedItem}" onchange="submit()"
+                                valueChangeListener="categories.valueChanged">
+                                <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen" />
+                                <!--<f:valueChangeListener type="javax.faces.event.ValueChangeListener"/>-->
                                 <f:selectItems value="#{categories.categories}" />
+                                <!--<f:ajax listener="categories.valueChanged"/>-->
                             </h:selectOneMenu>
-                            <h:commandButton value="Submit" action="#{categories.submit}" />
+                            </div>
                         </h:form>
-                        <!--<h:selectOneMenu value="data.cat" id="cat">
-                            <ui:repeat var="test" value="#{data.catList}" varStatus="loop">
+                        <h:form>
 
-                                <f:selectItem itemLabel="#{test[loop.index]}" />
-                                "#{loop.index}"
-                        </ui:repeat>
-
-                            <f:selectItem itemLabel="#{data.catList}" />
-                        </h:selectOneMenu>-->
+                            <div class="input-group">
+                            <label for="sek">Sektor: </label>
+                            <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
+                                <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen" />
+                                <f:selectItems value="#{sectors.sec}" />
+                            </h:selectOneMenu>
+                        </div>
+                        </h:form>
+                        <h:form class="input-group">
+                            <label for="pro"> Projekt: </label>
+                            <h:selectOneMenu id="pro" value="#{project.selectedItem}">
+                                <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen" />
+                                <f:selectItems value="#{project.pro}" />
+                            </h:selectOneMenu>
+                        </h:form>
 
                     </div>
-                    <div class="input-group">
-                        <label for="sek">Sektor: </label>
-                        <h:selectOneMenu id="sek">
-                            <!--<c:forEach items="#{cotBean.form.conductor}" varStatus="numReg">
-                                <f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
-                            </c:forEach>-->
 
-                            <f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
-                            <f:selectItem itemValue="Extreme Mocha" itemLabel="Coffee3 - Extreme Mocha" />
-                            <f:selectItem itemValue="Buena Vista" itemLabel="Coffee3 - Buena Vista" />
-                        </h:selectOneMenu>
-                    </div>
-                    <div class="input-group">
-                        <label for="project">Projekt:</label>
-                        <h:selectOneMenu id="project">
-                            <f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
-                            <f:selectItem itemValue="Extreme Mocha" itemLabel="Coffee3 - Extreme Mocha" />
-                            <f:selectItem itemValue="Buena Vista" itemLabel="Coffee3 - Buena Vista" />
-                        </h:selectOneMenu>
-                    </div>
 
                     <div class="input-group">
                         <label for="location">Ort:</label>
@@ -121,7 +110,7 @@
                     </div>
 
                     <div class="input-group">
-                        <label for="time_end">Ort:</label>
+                        <label for="time_end">Ende Bau:</label>
                         <h:inputText binding="#{timeEnd}" type="text" class="form-control" id="time_end"/>
                     </div>
 
@@ -145,6 +134,5 @@
                     </h:form>
                 </div>
             </div>
-        </div>
     </section>
 </ui:composition>

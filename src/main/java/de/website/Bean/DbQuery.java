@@ -47,6 +47,21 @@ public class DbQuery {
         }
         return categories;
     }
+    public int getCID(String name){
+        int cid = 0;
+        ArrayList<Integer> allCid = new ArrayList<Integer>();
+        try {
+            Statement myState = connection.createStatement();
+            ResultSet result = myState.executeQuery("SELECT ID FROM kategorie WHERE Name =" + name);
+            while (result.next()){
+                allCid.add(Integer.parseInt(result.getString("ID")));
+                cid = allCid.get(0);
+            }
+        }catch(Exception exc){
+            exc.printStackTrace();
+        }
+        return cid;
+    }
     public ArrayList<String> getSektor(int categoryID){
         ArrayList<String> sectors = new ArrayList<String>();
         ArrayList<String> sectorsID = new ArrayList<String>();
