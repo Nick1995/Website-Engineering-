@@ -5,6 +5,8 @@ import de.webiste.database.Nutzer;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.event.ValueChangeEvent;
+import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,11 @@ public class CategoryBean {
     public void init() {
         categories = new ArrayList<String >();
         categories = dbCon.getCategories();
+    }
+
+    public void valueChanged(ValueChangeEvent event){
+        int i = 0;
+        i++;
     }
 
     public String getSelectedItem() {
