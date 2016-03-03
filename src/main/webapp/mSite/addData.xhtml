@@ -59,10 +59,10 @@
                         <h:form>
                             <div class="input-group">
                                 <label for ="cat">Kategorie: </label>
-                            <h:selectOneMenu id="cat" value="#{categories.selectedItem}" onchange="submit()"
-                                valueChangeListener="#{categories.valueChanged}">
+                            <h:selectOneMenu id="cat"  value="#{categories.selectedItem}" >
                                 <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen" />
                                 <f:selectItems value="#{categories.categories}" />
+                                <f:ajax listener="#{categories.ajaxListener}" />
                             </h:selectOneMenu>
                             </div>
                         </h:form>

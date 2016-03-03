@@ -5,6 +5,8 @@ import de.webiste.database.Nutzer;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 import javax.faces.model.SelectItem;
@@ -16,7 +18,7 @@ import java.util.List;
  */
 
 @ManagedBean(name = "categories")
-@RequestScoped
+@SessionScoped
 public class CategorieBean {
 
     private String selectedItem; // +getter +setter
@@ -33,7 +35,8 @@ public class CategorieBean {
         categories = dbCon.getCategories();
     }
 //
-    public void valueChanged(ValueChangeEvent event){
+    public void ajaxListener(AjaxBehaviorEvent event) {
+        String blah = getSelectedItem();
         int cid = dbCon.getCID(selectedItem);
         ex.setCid(cid);
 

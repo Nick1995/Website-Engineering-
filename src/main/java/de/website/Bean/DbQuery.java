@@ -52,7 +52,7 @@ public class DbQuery {
         ArrayList<Integer> allCid = new ArrayList<Integer>();
         try {
             Statement myState = connection.createStatement();
-            ResultSet result = myState.executeQuery("SELECT ID FROM kategorie WHERE Name =" + name);
+            ResultSet result = myState.executeQuery("SELECT ID FROM kategorien WHERE Name =" + "'" + name + "'");
             while (result.next()){
                 allCid.add(Integer.parseInt(result.getString("ID")));
                 cid = allCid.get(0);
