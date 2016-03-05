@@ -1,11 +1,40 @@
 package de.website.Bean;
 
+import java.sql.Connection;
+
 /**
  * Created by Nick on 03.03.2016.
  */
 public class Exchange {
 
     private int cid;
+    private int sid;
+    private int pid;
+    private Connection connection;
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
+    public int getPid() {
+        return pid;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
+    }
+
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
 
     public int getCid() {
         return cid;

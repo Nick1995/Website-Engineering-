@@ -1,5 +1,8 @@
-//package de.website.Bean;
+//package de.website.servlet;
 //
+///**
+// * Created by Tobi on 04.03.2016.
+// */
 //import java.sql.Connection;
 //import java.sql.DriverManager;
 //import java.sql.PreparedStatement;
@@ -9,6 +12,8 @@
 //import javax.faces.bean.RequestScoped;
 //import javax.faces.context.FacesContext;
 //
+//import de.website.Bean.Exchange;
+//import de.website.database.Nutzer;
 //import org.primefaces.model.UploadedFile;
 //
 //@ManagedBean
@@ -16,15 +21,13 @@
 //public class ImageStoreBean {
 //
 //    private UploadedFile file;
-//
+//    Exchange ex = Exchange.getInstance();
 //    // Store file in the database
 //    public void storeImage() {
 //        // Create connection
 //        try {
-//            // Load driver
-//            Class.forName("com.mysql.jdbc.Driver");
 //            // Connect to the database
-//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/itcuties?user=uploader&password=password");
+//            Connection connection = ex.getConnection();
 //            // Set autocommit to false to manage it by hand
 //            connection.setAutoCommit(false);
 //
@@ -38,10 +41,10 @@
 //
 //            // Commit & close
 //            connection.commit();    // when autocommit=false
-//            connection.close();
+////            connection.close();
 //
-////            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Upload success", file.getFileName() + " is uploaded.");
-////            FacesContext.getCurrentInstance().addMessage(null, msg);
+//            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Upload success", file.getFileName() + " is uploaded.");
+//            FacesContext.getCurrentInstance().addMessage(null, msg);
 //
 //        } catch (Exception e) {
 //            e.printStackTrace();

@@ -5,6 +5,7 @@ import de.website.database.Nutzer;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,14 +19,22 @@ public class ProjectBean {
 
     private String selectedItem; // +getter +setter
     private List<String> pro; // +getter (no setter necessary)
-
+    Exchange ex = Exchange.getInstance();
     Nutzer nutzer = Nutzer.getInstance();
     DbQuery dbCon =  nutzer.getDbCon();
 
     @PostConstruct
     public void init() {
         pro = new ArrayList<String >();
-        pro = dbCon.getCategories();
+        pro = dbCon.getProjectsBySid(ex.getSid());
+        if (pro.isEmpty()){
+            pro = dbCon.getProjectsByCid(ex.getCid());
+        }
+    }
+    public void ajaxListener(AjaxBehaviorEvent event) {
+        int pid = dbCon.getPID(selectedItem);
+        ex.setPid(pid);
+
     }
 
     public String getSelectedItem() {

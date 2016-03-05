@@ -5,6 +5,7 @@ import de.website.database.Nutzer;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +19,6 @@ public class SectorBean {
 
     private String selectedItem; // +getter +setter
     private List<String> sec; // +getter (no setter necessary)
-    private String category;
-    private int cid;
     Exchange ex = Exchange.getInstance();
     Nutzer nutzer = Nutzer.getInstance();
     DbQuery dbCon = nutzer.getDbCon();
@@ -30,12 +29,10 @@ public class SectorBean {
         sec = dbCon.getSektor(ex.getCid());
     }
 
-    public int getCid() {
-        return cid;
-    }
+    public void ajaxListener(AjaxBehaviorEvent event) {
+        int sid = dbCon.getSID(selectedItem);
+        ex.setSid(sid);
 
-    public void setCid(int cid) {
-        this.cid = cid;
     }
 
     public String getSelectedItem() {
@@ -52,13 +49,5 @@ public class SectorBean {
 
     public void setSec(List<String> sec) {
         this.sec = sec;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 }

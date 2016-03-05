@@ -6,7 +6,7 @@
    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          id="WebApp_ID" version="2.5">
   <welcome-file-list>
-    <welcome-file>faces/home.xhtml</welcome-file>
+    <welcome-file>home.xhtml</welcome-file>
   </welcome-file-list>
   <!--
      FacesServlet is main servlet responsible to handle all request.
@@ -20,7 +20,7 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   <!-- JSF URL mapping -->
-  <servlet-mapping>
+  <!--<servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
@@ -31,42 +31,40 @@
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.faces</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
 
   <!-- Servlet that displays latest uploaded file -->
-  <servlet>
-    <servlet-class>de.website.Bean.ImageStoreBean</servlet-class>
-    <servlet-name>ImageServlet</servlet-name>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ImageServlet</servlet-name>
-    <url-pattern>/image</url-pattern>
-  </servlet-mapping>
+  <!--<servlet>-->
+    <!--<servlet-name>ImageServlet</servlet-name>-->
+    <!--<servlet-class>de.website.servlet.ImageServlet</servlet-class>-->
+  <!--</servlet>-->
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>ImageServlet</servlet-name>-->
+    <!--<url-pattern>/image</url-pattern>-->
+  <!--</servlet-mapping>-->
 
-  <!-- Upload filter configuration -->
-  <filter>
-    <filter-name>PrimeFaces FileUpload Filter</filter-name>
-    <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+  <!--&lt;!&ndash; Upload filter configuration &ndash;&gt;-->
+  <!--<filter>-->
+    <!--<filter-name>PrimeFaces FileUpload Filter</filter-name>-->
+    <!--<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>-->
+    <!--<init-param>-->
+      <!--<param-name>thresholdSize</param-name>-->
+      <!--<param-value>51200</param-value>-->
+    <!--</init-param>-->
+    <!--<init-param>-->
+      <!--<param-name>uploadDirectory</param-name>-->
+      <!--<param-value>c:/tmp</param-value>-->
+    <!--</init-param>-->
 
-    <!--
-    <init-param>
-      <param-name>thresholdSize</param-name>
-      <param-value>51200</param-value>
-    </init-param>
-    <init-param>
-      <param-name>uploadDirectory</param-name>
-      <param-value>c:/tmp</param-value>
-    </init-param> -->
-
-  </filter>
-  <filter-mapping>
-    <filter-name>PrimeFaces FileUpload Filter</filter-name>
-    <servlet-name>Faces Servlet</servlet-name>
-  </filter-mapping>
+  <!--</filter>-->
+  <!--<filter-mapping>-->
+    <!--<filter-name>PrimeFaces FileUpload Filter</filter-name>-->
+    <!--<servlet-name>Faces Servlet</servlet-name>-->
+  <!--</filter-mapping>-->
 
   <resource-ref>
     <description>MySQL Datasource example</description>

@@ -34,6 +34,7 @@ public class CategorieBean {
     public void ajaxListener(AjaxBehaviorEvent event) {
         int cid = dbCon.getCID(selectedItem);
         ex.setCid(cid);
+        ex.setSid(0);
 
     }
 
