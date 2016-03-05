@@ -5,6 +5,7 @@ import de.website.database.Nutzer;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by Nick on 04.03.2016.
@@ -15,25 +16,15 @@ public class UpdateBean {
     Nutzer nutzer = Nutzer.getInstance();
     DbQuery dbCon = nutzer.getDbCon();
     Exchange ex = Exchange.getInstance();
-    private File image;
-    //(File image,String bauherr, String architekt, String ort, String zeitraum, String bauvolumen,
-   // String leistung, String massnahmen,int pid){
-    public void insertData(String bauherr, String architekt, String ort, String zeitraum, String bauvolumen,
+    //(bauherr, architekt, ort, startzeit, endzeit, bauvolumen, leistung, massnahmen, ID
+    public void insertData(String bauherr, String architekt, String ort, String startzeit, String endzeit, String bauvolumen,
                            String leistung, String massnahmen){
         int pid =ex.getPid();
-        dbCon.insertTextData(bauherr, architekt, ort, zeitraum, bauvolumen, leistung, massnahmen,pid);
-        //TODO Bilder hinzufügen
+        dbCon.insertTextData(bauherr, architekt, ort, startzeit, endzeit, bauvolumen, leistung, massnahmen,pid);
     }
-    public void insertImage(){
-        int pid = ex.getPid();
-        dbCon.insertImages(getImage(), pid);
-    }
-
-    public File getImage() {
-        return image;
+    public void insertImage(File image){
+        int iid = ex.getPid();
+        dbCon.insertImages(image, iid);
     }
 
-    public void setImage(File image) {
-        this.image = image;
-    }
 }

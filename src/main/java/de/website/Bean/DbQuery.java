@@ -1,5 +1,6 @@
 package de.website.Bean;
 
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import de.website.database.Data;
 import org.apache.log4j.Logger;
 
@@ -15,6 +16,7 @@ public class DbQuery {
 
     final static Logger logger = Logger.getLogger(DbQuery.class);
     Exchange ex = Exchange.getInstance();
+    int imageID;
 
     private Connection connection;
     public DbQuery(String username, String passwd) {
@@ -176,30 +178,58 @@ public class DbQuery {
             System.out.println(exc.toString());
         }
     }
+    //prüfen ob Projekt gleichen Namens bereits existiert
+    public boolean checkIfProjetExists(String name){
+        try{
+            Statement myState = connection.createStatement();
+            ResultSet result = myState.executeQuery("SELECT IID FROM daten WHERE NAME =" + name + ";");
+            if (result != null){
+                while (result.next()){
+                    imageID = result.getInt("IID");
+                }
+                return true;
+            }else return false;
+        } catch (Exception exc){
+            logger.error("Fehler Datenbank Insert: ", exc);
+            return false;
+    }
+    }
 //Abfragen Ende
 
 //Inserts
     //neuen Datensatz anlegen
-    public void insertTextData(String bauherr, String architekt, String ort, String zeitraum, String bauvolumen,
+    public void insertTextData(String bauherr, String architekt, String ort, String startzeit, String endzeit,String bauvolumen,
                                String leistung, String massnahmen, int pid){
         try {
-            Statement myState = connection.createStatement();
-            ResultSet result = myState.executeQuery("INSERT INTO daten (id, bauherr, architekt, ort, zeitraum, " +
-                    "bauvolumen, leistung, massnahmen, pid) VALUES(0, " + bauherr + ", "  + architekt + ", "  +
-                    ort + ", " + zeitraum + ", "  + bauvolumen + ", " + leistung + ", " + massnahmen + ", " + pid + ");");
+            PreparedStatement prepState = connection.prepareStatement("INSERT INTO daten (bauherr, architekt, ort, startzeit, endzeit, " +
+                    "bauvolumen, leistung, massnahmen, ID) VALUES( '" + bauherr + "', '"  + architekt + "', '"  +
+                    ort + "', '" + startzeit + "', '"  + endzeit + "', '"  + bauvolumen + "', '" + leistung + "', '" + massnahmen + "', '" + pid + "');");
+            prepState.execute();
 
-        }catch (Exception exc){
-            logger.error("Fehler Datenbank Insert: ", exc);
+        }catch(Exception exc){
+            try {
+                PreparedStatement prepState = connection.prepareStatement("UPDATE daten SET bauherr = '" + bauherr + "', architekt = '" + architekt + "', ort ='" + ort + "', startzeit = '" +
+                        startzeit + "', endzeit = '" + endzeit + "', bauvolumen = '" + bauvolumen + "', leistung = '" + leistung + "', massnahmen = '" + massnahmen + "' WHERE ID = '" + pid + "';");
+                prepState.execute();
+            }catch (Exception exception){
+                logger.error("Fehler Datenbank-Update: ", exception);
+            }
         }
 }
-    public void insertImages(File image, int pid) {
+    public void insertImages(File image, int pid ) {
         try {
             FileInputStream is = new FileInputStream(image);
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO daten (Bilder, pid) VALUES" + image + "," + pid + ");");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO bilder (Bilder, IID) VALUES" + image + "," + pid + ");");
             statement.setBinaryStream(1, is, image.length());
             statement.execute();
         } catch (Exception exc) {
             logger.error("Fehler Datenbank Insert: ", exc);
         }
+    }
+
+    //Getter and Setter
+
+    public int getImageID() {
+        return imageID;
     }
 }

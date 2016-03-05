@@ -57,36 +57,37 @@
 
                 <div class="col-sm-6 wow fadeInLeft">
 
-                        <h:form>
-                            <div class="input-group">
-                                <label for ="cat">Kategorie: </label>
-                                    <h:selectOneMenu id="cat"  value="#{categories.selectedItem}" >
-                                        <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen" />
-                                        <f:selectItems value="#{categories.categories}" />
-                                        <f:ajax listener="#{categories.ajaxListener}" render="sektor project"/>
-                                    </h:selectOneMenu>
-                            </div>
-                        </h:form>
-
-                        <h:form class="input-group" id="sektor">
-                                <label for="sek">Sektor: </label>
-                                <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
-                                    <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen" />
-                                    <f:selectItems value="#{sectors.sec}" />
-                                    <f:ajax listener="#{sectors.ajaxListener}" render="project" />
-                                </h:selectOneMenu>
-                        </h:form>
-                        <h:form class="input-group" id="project">
-                            <label for="pro"> Projekt: </label>
-                            <h:selectOneMenu id="pro" value="#{project.selectedItem}">
-                                <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen" />
-                                <f:selectItems value="#{project.pro}" />
-                                <f:ajax listener="#{project.ajaxListener}" render="input" />
+                    <h:form>
+                        <div class="input-group">
+                            <label for="cat">Kategorie: </label>
+                            <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
+                                <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
+                                <f:selectItems value="#{categories.categories}"/>
+                                <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
                             </h:selectOneMenu>
-                        </h:form>
-                    </div>
+                        </div>
+                    </h:form>
 
-<div id="input">
+                    <h:form class="input-group" id="sektor">
+                        <label for="sek">Sektor: </label>
+                        <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
+                            <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
+                            <f:selectItems value="#{sectors.sec}"/>
+                            <f:ajax listener="#{sectors.ajaxListener}" render="project  input"/>
+                        </h:selectOneMenu>
+                    </h:form>
+                    <h:form class="input-group" id="project">
+                        <label for="pro"> Projekt: </label>
+                        <h:selectOneMenu id="pro" value="#{project.selectedItem}">
+                            <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
+                            <f:selectItems value="#{project.pro}"/>
+                            <f:ajax listener="#{project.ajaxListener}" render="input"/>
+                        </h:selectOneMenu>
+                    </h:form>
+                </div>
+
+
+                <h:form id="input">
                     <div class="input-group">
                         <label for="location">Ort:</label>
                         <h:inputText binding="#{location}" type="text" class="form-control" id="location"/>
@@ -94,7 +95,8 @@
 
                     <div class="input-group">
                         <label for="bauherr">Bauherr:</label>
-                        <h:inputText binding="#{bauherr}" type="text" class="form-control" id="bauherr"/>
+                        <h:inputText binding="#{bauherr}" type="text" class="form-control"
+                                     id="bauherr"/>
                     </div>
 
                     <div class="input-group">
@@ -119,37 +121,36 @@
 
                     <div class="input-group">
                         <label for="massnahmen">Maßnahmen:</label>
-                        <h:inputText binding="#{massnahmen}" type="text" class="form-control" id="massnahmen"/>
+                        <h:inputText binding="#{massnahmen}" value="blah" type="text" class="form-control"
+                                     id="massnahmen"/>
                     </div>
+                    <h:commandButton
+                            action="#{update.insertData(bauherr.value, architekt.value, location.value, timeStart.value, timeEnd.value ,bauvol.value, leistung.value, massnahmen.value)}"
+                            class="btn btn-primary" value=" Texte speichern"/>
 
-                    <div class="input-group">
-                        <label for="pic">Bilder:</label>
-                        <h:inputText binding="#{picPath}" type="text" class="form-control" id="pic"/>
-                    </div>
-</div>
-                <h:form enctype="multipart/form-data">
+                    <h:form enctype="multipart/form-data">
 
-                    <p:messages showDetail="true" />
+                        <p:messages showDetail="true"/>
 
-                    <p:fileUpload value="#{update.image}" mode="simple" />
+                        <p:fileUpload binding="#{image}" mode="simple"/>
 
-                    <!--<p:commandButton value="Submit" ajax="false" actionListener="#{imageStoreBean.storeImage}" />-->
+                        <!--<p:commandButton value="Submit" ajax="false" actionListener="#{imageStoreBean.storeImage}" />-->
 
-                    <!--<h:graphicImage id="image" alt="uploaded image" url="/image"/>-->
+                        <!--<h:graphicImage id="image" alt="uploaded image" url="/image"/>-->
+                        <h:commandButton action="#{update.insertImage(image.value)}" class="btn btn-primary"
+                                         value="Bilder speichern"/>
+                    </h:form>
 
+
+                    <!---->
                 </h:form>
 
-
-                    <h:commandButton class="btn btn-primary" value="Bilder durchsuchen"/>
-
-                <h:form>
-                    <h:commandButton action="#{update.insertData(bauherr, architekt, ort, zeitraum, bauvolumen, leistung, massnahmen)}"
-                                     class="btn btn-primary" value="Texte speichern"/>
-
-                    <h:commandButton action="#{update.insertImage()}"
-                                     class="btn btn-primary" value="Bilder speichern"/>
-                    </h:form>
-                </div>
+                <!--<div class="input-group">-->
+                <!--<label for="pic">Bilder:</label>-->
+                <!--<h:inputText binding="#{picPath}" type="text" class="form-control" id="pic"/>-->
+                <!--</div>-->
             </div>
+
+        </div>
     </section>
 </ui:composition>
