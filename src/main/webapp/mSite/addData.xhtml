@@ -1,10 +1,9 @@
 <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:p="http://primefaces.org/ui"
-        lang="en"
 >
     <div id="header">
         <div id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
@@ -132,12 +131,12 @@
 
                         <p:messages showDetail="true"/>
 
-                        <p:fileUpload binding="#{image}" mode="simple"/>
-
+                        <!--<p:fileUpload binding="#{image}" mode="simple"/>-->
+                        <h:inputFile binding="#{image}" value="#{update.image}"/>
                         <!--<p:commandButton value="Submit" ajax="false" actionListener="#{imageStoreBean.storeImage}" />-->
 
                         <!--<h:graphicImage id="image" alt="uploaded image" url="/image"/>-->
-                        <h:commandButton action="#{update.insertImage(image.value)}" class="btn btn-primary"
+                        <h:commandButton action="#{update.insertImage(image)}" class="btn btn-primary"
                                          value="Bilder speichern"/>
                     </h:form>
 
