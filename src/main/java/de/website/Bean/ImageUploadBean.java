@@ -6,6 +6,7 @@ package de.website.Bean;
 import java.io.File;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -16,6 +17,7 @@ import org.primefaces.model.UploadedFile;
 @ManagedBean(name = "uploadImage")
 @SessionScoped
 public class ImageUploadBean {
+    final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(DbQuery.class);
     private UploadedFile file;
     private FileUpload image;
 
@@ -39,17 +41,17 @@ public class ImageUploadBean {
                 pre.setInt(1, ex.getPid());
                 pre.setBinaryStream(2, fin, file.getSize());
                 pre.executeUpdate();
-                System.out.println("Inserting Successfully!");
                 pre.close();
-//                FacesMessage msg = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
-//                FacesContext.getCurrentInstance().addMessage(null, msg);
+                FacesMessage msg = new FacesMessage("Das Bild ", file.getFileName() + " wurde erfolgreich gespeichert.");
+                FacesContext.getCurrentInstance().addMessage(null, msg);
 
             } catch (Exception e) {
                 System.out.println("Exception-File Upload." + e.getMessage());
+                logger.error("Fehler Datenbank-Update: " + e);
             }
         }
         else{
-            FacesMessage msg = new FacesMessage("Please select image!!");
+            FacesMessage msg = new FacesMessage("Bitte wählen Sie ein Bild aus!");
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
