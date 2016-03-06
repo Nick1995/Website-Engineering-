@@ -11,6 +11,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.xml.transform.Result;
+
 import de.website.database.Nutzer;
 import org.primefaces.component.fileupload.FileUpload;
 import org.primefaces.model.UploadedFile;
@@ -41,13 +43,14 @@ public class ImageUploadBean {
                     Nutzer nutzer = Nutzer.getInstance();
                     DbQuery dbCon = nutzer.getDbCon();
                     Connection con = ex.getConnection();
-                    PreparedStatement pre = con.prepareStatement("insert into Bilder (iid, Bilder) values(?,?)");
-                    pre.setInt(1, ex.getPid());
-                    pre.setBinaryStream(2, fin, file.getSize());
-                    pre.executeUpdate();
-                    pre.close();
-                    FacesMessage msg = new FacesMessage("Das Bild ", file.getFileName() + " wurde erfolgreich gespeichert.");
-                    FacesContext.getCurrentInstance().addMessage(null, msg);
+                    //TODO: check If Image already exists
+                        PreparedStatement pre = con.prepareStatement("insert into Bilder (iid, Bilder) values(?,?)");
+                        pre.setInt(1, ex.getPid());
+                        pre.setBinaryStream(2, fin, file.getSize());
+                        pre.executeUpdate();
+                        pre.close();
+                        FacesMessage msg = new FacesMessage("Das Bild ", file.getFileName() + " wurde erfolgreich gespeichert.");
+                        FacesContext.getCurrentInstance().addMessage(null, msg);
                 }
             } catch (Exception e) {
                 logger.error("Fehler Datenbank-Bilder-Upload: " + e);
