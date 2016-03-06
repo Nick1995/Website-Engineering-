@@ -127,17 +127,23 @@
                             action="#{update.insertData(bauherr.value, architekt.value, location.value, timeStart.value, timeEnd.value ,bauvol.value, leistung.value, massnahmen.value)}"
                             class="btn btn-primary" value=" Texte speichern"/>
 
-                    <h:form enctype="multipart/form-data">
-
+                    <h:form enctype="multipart/form-data" >
                         <p:messages showDetail="true"/>
+                        <p:panelGrid columns="2">
+                            <h:outputLabel value="Bild auswählen: "/>
+                            <p:fileUpload binding="#{uploadImage.image}" value="#{uploadImage.file}" mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                            <!--<p:fileUpload binding="#{image}" mode="simple"/>-->
+                            <!--<h:inputFile binding="#{image}" value="#{update.image}"/>-->
+                            <!--<p:commandButton value="Submit" ajax="false" actionListener="#{imageStoreBean.storeImage}" />-->
 
-                        <!--<p:fileUpload binding="#{image}" mode="simple"/>-->
-                        <h:inputFile binding="#{image}" value="#{update.image}"/>
-                        <!--<p:commandButton value="Submit" ajax="false" actionListener="#{imageStoreBean.storeImage}" />-->
-
-                        <!--<h:graphicImage id="image" alt="uploaded image" url="/image"/>-->
-                        <h:commandButton action="#{update.insertImage(image)}" class="btn btn-primary"
-                                         value="Bilder speichern"/>
+                            <!--<h:graphicImage id="image" alt="uploaded image" url="/image"/>-->
+                            <f:facet name="footer">
+                                <p:commandButton value="Bilder speichern" ajax="true" actionListener="#{uploadImage.upload}">
+                                </p:commandButton>
+                            </f:facet>
+                        <!--<h:commandButton action="#{update.insertImage(image)}" class="btn btn-primary"-->
+                                         <!--value="Bilder speichern"/>-->
+                        </p:panelGrid>
                     </h:form>
 
 

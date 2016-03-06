@@ -2,6 +2,8 @@ package de.website.database;
 
 import de.website.Bean.DbQuery;
 
+import java.sql.Connection;
+
 /**
  * Created by Nick on 29.02.2016.
  */
@@ -20,7 +22,6 @@ public class Nutzer {
     public String getUser() {
         return user;
     }
-
     public void setUser(String user) {
         this.user = user;
     }
@@ -28,10 +29,11 @@ public class Nutzer {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 
     //get Instance Methode
     private static Nutzer instance = null;
