@@ -86,7 +86,7 @@
                 </div>
 
 
-                <h:form id="input">
+                <h:form id="input" enctype="multipart/form-data">
                     <div class="input-group">
                         <label for="location">Ort:</label>
                         <h:inputText binding="#{location}" type="text" class="form-control" id="location"/>
@@ -120,15 +120,21 @@
 
                     <div class="input-group">
                         <label for="massnahmen">Maßnahmen:</label>
-                        <h:inputText binding="#{massnahmen}" value="blah" type="text" class="form-control"
+                        <h:inputText binding="#{massnahmen}" type="text" class="form-control"
                                      id="massnahmen"/>
                     </div>
-                    <h:commandButton
+                    <p:messages showDetail="true"/>
+                    <h:outputLabel value="Bild auswählen: "/>
+                    <p:fileUpload binding="#{uploadImage.image}" value="#{uploadImage.file}" mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                    <p:commandButton
                             action="#{update.insertData(bauherr.value, architekt.value, location.value, timeStart.value, timeEnd.value ,bauvol.value, leistung.value, massnahmen.value)}"
-                            class="btn btn-primary" value=" Texte speichern"/>
+                            class="btn btn-primary" value=" Daten speichern" ajax="false" actionListener="#{uploadImage.upload}"/>
 
+                    <!--<h:form enctype="multipart/form-data" >-->
 
-                    <!---->
+                        <!--<p:commandButton value="Bilder speichern" />-->
+                    <!--</h:form>-->
+
                 </h:form>
 
                 <!--<div class="input-group">-->

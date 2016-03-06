@@ -31,23 +31,26 @@ public class ImageUploadBean {
 
         if (this.file != null) {
             try {
-
-                System.out.println(file.getFileName());
-                InputStream fin = file.getInputstream();
-                Nutzer nutzer = Nutzer.getInstance();
-                DbQuery dbCon = nutzer.getDbCon();
-                Connection con = ex.getConnection();
-                PreparedStatement pre = con.prepareStatement("insert into Bilder (iid, Bilder) values(?,?)");
-                pre.setInt(1, ex.getPid());
-                pre.setBinaryStream(2, fin, file.getSize());
-                pre.executeUpdate();
-                pre.close();
-                FacesMessage msg = new FacesMessage("Das Bild ", file.getFileName() + " wurde erfolgreich gespeichert.");
-                FacesContext.getCurrentInstance().addMessage(null, msg);
-
+                int iid = ex.getPid();
+                if(iid == 0){
+                    FacesMessage msg = new FacesMessage("Bitte wählen Sie ein Projekt aus!");
+                    FacesContext.getCurrentInstance().addMessage(null, msg);
+                }else {
+                    System.out.println(file.getFileName());
+                    InputStream fin = file.getInputstream();
+                    Nutzer nutzer = Nutzer.getInstance();
+                    DbQuery dbCon = nutzer.getDbCon();
+                    Connection con = ex.getConnection();
+                    PreparedStatement pre = con.prepareStatement("insert into Bilder (iid, Bilder) values(?,?)");
+                    pre.setInt(1, ex.getPid());
+                    pre.setBinaryStream(2, fin, file.getSize());
+                    pre.executeUpdate();
+                    pre.close();
+                    FacesMessage msg = new FacesMessage("Das Bild ", file.getFileName() + " wurde erfolgreich gespeichert.");
+                    FacesContext.getCurrentInstance().addMessage(null, msg);
+                }
             } catch (Exception e) {
-                System.out.println("Exception-File Upload." + e.getMessage());
-                logger.error("Fehler Datenbank-Update: " + e);
+                logger.error("Fehler Datenbank-Bilder-Upload: " + e);
             }
         }
         else{
