@@ -243,6 +243,16 @@ public class DbQuery {
             }
         }
 }
+//Delete
+    public void deleteNullImages(){
+        try{
+            PreparedStatement preState = connection.prepareStatement("delete from bilder where bilder = ''");
+            preState.execute();
+
+        }catch (Exception e){
+            logger.error("Fehler beim Löschen: ", e);
+        }
+    }
     //Getter and Setter
 
     public int getImageID() {

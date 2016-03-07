@@ -26,6 +26,7 @@ public class TextUploadBean {
     public void insertData(){
         int pid =ex.getPid();
         dbCon.insertTextData(bauherr, architekt, ort, startzeit, endzeit, bauvolumen, leistung, massnahmen,pid);
+        dbCon.deleteNullImages();
     }
 
     public String getOrt() {

@@ -34,7 +34,6 @@ public class DisplayImage extends HttpServlet {
                 while ((size = sImage.read(bytearray)) != -1) {
                     response.getOutputStream().write(bytearray, 0, size);
                 }
-//                rs.next();
             }
 
         } catch (Exception e) {

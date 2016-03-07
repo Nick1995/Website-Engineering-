@@ -128,40 +128,20 @@
                         <h:inputTextarea binding="#{leistung}" type="text" class="form-control"
                                      id="leistung" value="#{update.leistung}"/>
                     </div>
-                    <!--<p:dataTable value="#{imageBean.allImage}" var="item" paginator="true" rows="5"-->
-                                 <!--paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"-->
-                                 <!--rowsPerPageTemplate="3,5,10" widgetVar="50" style="width: 60px;" >-->
-                        <!--<p:column>-->
-                            <!--<f:facet name="header">-->
-                                <!--<h:outputText value="Images" />-->
-                            <!--</f:facet>-->
-                                <!--<h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>-->
-                        <!--</p:column>-->
-                    <!--</p:dataTable>-->
+                    <div id="bilderupload" class="input-group">
                     <p:messages showDetail="true"/>
-                    <ui:repeat value="#{imageBean.allImage}" var="item">
+                    <label for="images">Bilder: </label>
+                    <ui:repeat id="images" value="#{imageBean.allImage}" var="item">
                     <h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>
                     </ui:repeat>
-                    <h:outputLabel value="Bild hinzufügen: "/>
-                    <p:fileUpload binding="#{uploadImage.image}" value="#{uploadImage.file}" mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                    <label for="upload">weitere Bilder hinzufügen</label>
+                    <p:fileUpload id="upload" binding="#{uploadImage.image}" value="#{uploadImage.file}" mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                    </div>
                     <p:commandButton
                             action="#{update.insertData()}"
                             class="btn btn-primary" value=" Daten speichern" ajax="false" actionListener="#{uploadImage.upload}"/>
-
-                    <!--<h:form enctype="multipart/form-data" >-->
-
-                        <!--<p:commandButton value="Bilder speichern" />-->
                     </h:form>
 
-                <!--</h:form>-->
-                <!--<h:form value="#{imageBean.allImage}" var="item">-->
-                    <!--<h:graphicImage value="DisplayImage?id=#{imageBean.imageID}" width="100" height="100"/>-->
-                <!--</h:form>-->
-
-                <!--<div class="input-group">-->
-                <!--<label for="pic">Bilder:</label>-->
-                <!--<h:inputText binding="#{picPath}" type="text" class="form-control" id="pic"/>-->
-                <!--</div>-->
             </div>
 
         </div>
