@@ -13,23 +13,25 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 @ManagedBean(name = "imageBean")
 public class DisplayImageBean {
-    private String projectID;
-    private String imageID;
+//    private int projectID;
+    private int imageID;
     Statement stmt = null;
     PreparedStatement ps;
     ResultSet rs;
     Exchange ex = Exchange.getInstance();
+
     public List<DisplayImageBean> getAllImage() {
         List<DisplayImageBean> imageInfo = new ArrayList<DisplayImageBean>();
         Connection con = ex.getConnection();
+        int pid = ex.getPid();
         try {
             stmt = con.createStatement();
-            String strSql = "select iid from bilder order by id ";
+            String strSql = "select id from bilder where iid =" + pid + " order by id";
             //System.err.println("*select all***" + strSql);
             rs = stmt.executeQuery(strSql);
             while (rs.next()) {
                 DisplayImageBean idb = new DisplayImageBean();
-                idb.setProjectID(rs.getString("iid"));
+                idb.setImageID(rs.getInt("id"));
                 imageInfo.add(idb);
             }
         } catch (SQLException e) {
@@ -38,19 +40,11 @@ public class DisplayImageBean {
         return imageInfo;
     }
 
-    public String getProjectID() {
-        return projectID;
-    }
-
-    public void setProjectID(String projectID) {
-        this.projectID = projectID;
-    }
-
-    public String getImageID() {
+    public int getImageID() {
         return imageID;
     }
 
-    public void setImageID(String imageID) {
+    public void setImageID(int imageID) {
         this.imageID = imageID;
     }
 }

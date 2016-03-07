@@ -20,21 +20,21 @@ public class DisplayImage extends HttpServlet {
         InputStream sImage;
         try {
             String id = request.getParameter("id");
-            System.out.println("inside servlet–>" + id);
-            int pid = ex.getPid();
+//            int pid = ex.getPid();
             Connection con = ex.getConnection();
             stmt = con.createStatement();
-            String strSql = "select Bilder from Bilder where iid='" + pid + "' ";
+            String strSql = "select bilder  from Bilder where id='" + id + "' ";
             rs = stmt.executeQuery(strSql);
-            while (rs.next()) {
+            if (rs.next()){
                 byte[] bytearray = new byte[1048576];
                 int size = 0;
-                sImage = rs.getBinaryStream(1);
+                sImage = rs.getBinaryStream("bilder");
                 response.reset();
                 response.setContentType("image/jpeg");
                 while ((size = sImage.read(bytearray)) != -1) {
                     response.getOutputStream().write(bytearray, 0, size);
                 }
+//                rs.next();
             }
 
         } catch (Exception e) {
