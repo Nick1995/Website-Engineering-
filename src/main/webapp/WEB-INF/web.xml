@@ -37,15 +37,18 @@
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
 
-  <!-- Servlet that displays latest uploaded file -->
-  <!--<servlet>-->
-    <!--<servlet-name>ImageServlet</servlet-name>-->
-    <!--<servlet-class>de.website.servlet.ImageServlet</servlet-class>-->
-  <!--</servlet>-->
-  <!--<servlet-mapping>-->
-    <!--<servlet-name>ImageServlet</servlet-name>-->
-    <!--<url-pattern>/image</url-pattern>-->
-  <!--</servlet-mapping>-->
+  <!-- Servlet  that displays uploaded file -->
+
+  <servlet>
+    <description></description>
+    <display-name>DisplayImage</display-name>
+    <servlet-name>DisplayImage</servlet-name>
+    <servlet-class>de.website.Bean.DisplayImage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayImage</servlet-name>
+    <url-pattern>/DisplayImage</url-pattern>
+  </servlet-mapping>
 
   <!--&lt;!&ndash; Upload filter configuration &ndash;&gt;-->
   <filter>
@@ -57,10 +60,4 @@
     <servlet-name>Faces Servlet</servlet-name>
   </filter-mapping>
 
-  <resource-ref>
-    <description>MySQL Datasource example</description>
-    <res-ref-name>jdbc/mkyongdb</res-ref-name>
-    <res-type>javax.sql.DataSource</res-type>
-    <res-auth>Container</res-auth>
-  </resource-ref>
 </web-app>

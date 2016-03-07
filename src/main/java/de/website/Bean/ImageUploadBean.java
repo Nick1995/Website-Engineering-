@@ -50,8 +50,13 @@ public class ImageUploadBean {
 
                         pre.executeUpdate();
                         pre.close();
+                    if (file.getFileName() != null ) {
                         FacesMessage msg = new FacesMessage("Das Bild ", file.getFileName() + " wurde erfolgreich gespeichert.");
                         FacesContext.getCurrentInstance().addMessage(null, msg);
+                    }else{
+                        FacesMessage msg = new FacesMessage("Die Daten wurden erfolgreich gespeichert. Es wurde kein Bild hinzugefügt!");
+                        FacesContext.getCurrentInstance().addMessage(null, msg);
+                    }
                 }
             } catch (Exception e) {
                 //TODO: Bild zu groß Exception abfangen

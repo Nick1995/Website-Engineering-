@@ -1,11 +1,7 @@
 package de.website.Bean;
 
-import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import de.website.database.Data;
 import org.apache.log4j.Logger;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -109,6 +105,23 @@ public class DbQuery {
         }
         return sectors;
     }
+    public ArrayList<byte[]> displayImages(int pid){
+        Exchange ex = Exchange.getInstance();
+        Connection con = ex.getConnection();
+        ArrayList<byte[]> images = new ArrayList<byte[]>();
+        try {
+            Statement state = con.createStatement();
+            ResultSet res = state.executeQuery("SELECT * FROM bilder Where iid = " + pid);
+            while (res.next()){
+                images.add(res.getBytes("bilder"));
+                return images;
+            }
+        }catch (Exception e){
+            logger.error("Fehler DB-Abfrage Bilder: ", e);
+            return null;
+        }
+        return null;
+    }
     //sucht nach Projekt anhand von Sektor oder Kategorie ID
     public ArrayList<String> getProjectsBySid(int  SID){
         ArrayList<String> projects = new ArrayList<String>();
@@ -178,7 +191,21 @@ public class DbQuery {
             System.out.println(exc.toString());
         }
     }
-    //prüfen ob Projekt gleichen Namens bereits existiert
+    public String getStoredValue(String type){
+        int pid = ex.getPid();
+        String value = "";
+        try {
+            Statement myState = connection.createStatement();
+            ResultSet result = myState.executeQuery("SELECT " + type +" FROM daten WHERE ID =" + pid + ";");
+            while (result.next()) {
+                 value = result.getString(type);
+            }
+            }catch (Exception e){
+            logger.error("Fehler Datenbank-Abfrage: ", e);
+        }
+            return value;
+    }
+    //TODO: prüfen ob Projekt gleichen Namens bereits existiert --funktioniert noch nicht
     public boolean checkIfProjetExists(String name){
         try{
             Statement myState = connection.createStatement();

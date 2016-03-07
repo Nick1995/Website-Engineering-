@@ -80,7 +80,7 @@
                         <h:selectOneMenu id="pro" value="#{project.selectedItem}">
                             <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
                             <f:selectItems value="#{project.pro}"/>
-                            <f:ajax listener="#{project.ajaxListener}" render="input"/>
+                            <f:ajax listener="#{project.ajaxListener}" render="input images"/>
                         </h:selectOneMenu>
                     </h:form>
                 </div>
@@ -89,58 +89,74 @@
                 <h:form id="input" enctype="multipart/form-data">
                     <div class="input-group">
                         <label for="location">Ort:</label>
-                        <h:inputText binding="#{location}" type="text" class="form-control" id="location"/>
+                        <h:inputText binding="#{location}" type="text" class="form-control" id="location" value="#{update.ort}"/>
                     </div>
 
                     <div class="input-group">
                         <label for="bauherr">Bauherr:</label>
                         <h:inputText binding="#{bauherr}" type="text" class="form-control"
-                                     id="bauherr"/>
+                                     id="bauherr" value="#{update.bauherr}"/>
                     </div>
 
                     <div class="input-group">
                         <label for="architekt">Architekt/Planer:</label>
-                        <h:inputText binding="#{architekt}" type="text" class="form-control" id="architekt"/>
+                        <h:inputText binding="#{architekt}" type="text" class="form-control" id="architekt" value="#{update.architekt}"/>
                     </div>
 
                     <div class="input-group">
                         <label for="time_start">Beginn Bau: </label>
-                        <h:inputText binding="#{timeStart}" type="text" class="form-control" id="time_start"/>
+                        <h:inputText binding="#{timeStart}" type="text" class="form-control" id="time_start" value="#{update.startzeit}"/>
                     </div>
 
                     <div class="input-group">
                         <label for="time_end">Ende Bau:</label>
-                        <h:inputText binding="#{timeEnd}" type="text" class="form-control" id="time_end"/>
+                        <h:inputText binding="#{timeEnd}" type="text" class="form-control" id="time_end" value="#{update.endzeit}"/>
                     </div>
 
                     <div class="input-group">
                         <label for="bauvol">Bauvolumen:</label>
-                        <h:inputText binding="#{bauvol}" type="text" class="form-control" id="bauvol"/>
+                        <h:inputText binding="#{bauvol}" type="text" class="form-control" id="bauvol" value="#{update.bauvolumen}"/>
                     </div>
 
                     <div class="input-group">
                         <label for="massnahmen">Maßnahmen:</label>
-                        <h:inputText binding="#{massnahmen}" type="text" class="form-control"
-                                     id="massnahmen"/>
+                        <h:inputTextarea binding="#{massnahmen}" type="text" class="form-control"
+                                     id="massnahmen" value="#{update.massnahmen}"/>
 
                     </div><div class="input-group">
                         <label for="leistung">Leistung IB Rübe:</label>
-                        <h:inputText binding="#{leistung}" type="text" class="form-control"
-                                     id="leistung"/>
+                        <h:inputTextarea binding="#{leistung}" type="text" class="form-control"
+                                     id="leistung" value="#{update.leistung}"/>
                     </div>
+                    <!--<p:dataTable value="#{imageBean.allImage}" var="item" paginator="true" rows="5"-->
+                                 <!--paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"-->
+                                 <!--rowsPerPageTemplate="3,5,10" widgetVar="50" style="width: 60px;" >-->
+                        <!--<p:column>-->
+                            <!--<f:facet name="header">-->
+                                <!--<h:outputText value="Images" />-->
+                            <!--</f:facet>-->
+                                <!--<h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>-->
+                        <!--</p:column>-->
+                    <!--</p:dataTable>-->
                     <p:messages showDetail="true"/>
-                    <h:outputLabel value="Bild auswählen: "/>
+                    <ui:repeat value="#{imageBean.allImage}" var="item">
+                    <h:graphicImage value="DisplayImage?iid=#{item.projectID}" width="100" height="100"/>
+                    </ui:repeat>
+                    <h:outputLabel value="Bild hinzufügen: "/>
                     <p:fileUpload binding="#{uploadImage.image}" value="#{uploadImage.file}" mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
                     <p:commandButton
-                            action="#{update.insertData(bauherr.value, architekt.value, location.value, timeStart.value, timeEnd.value ,bauvol.value, leistung.value, massnahmen.value)}"
+                            action="#{update.insertData()}"
                             class="btn btn-primary" value=" Daten speichern" ajax="false" actionListener="#{uploadImage.upload}"/>
 
                     <!--<h:form enctype="multipart/form-data" >-->
 
                         <!--<p:commandButton value="Bilder speichern" />-->
-                    <!--</h:form>-->
+                    </h:form>
 
-                </h:form>
+                <!--</h:form>-->
+                <!--<h:form value="#{imageBean.allImage}" var="item">-->
+                    <!--<h:graphicImage value="DisplayImage?id=#{imageBean.imageID}" width="100" height="100"/>-->
+                <!--</h:form>-->
 
                 <!--<div class="input-group">-->
                 <!--<label for="pic">Bilder:</label>-->
