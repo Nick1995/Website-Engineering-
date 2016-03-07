@@ -216,17 +216,6 @@ public class DbQuery {
             }
         }
 }
-    public void insertImages(File image, int pid ) {
-        try {
-            FileInputStream is = new FileInputStream(image);
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO bilder (Bilder, IID) VALUES" + image + "," + pid + ");");
-            statement.setBinaryStream(1, is, image.length());
-            statement.execute();
-        } catch (Exception exc) {
-            logger.error("Fehler Datenbank Insert: ", exc);
-        }
-    }
-
     //Getter and Setter
 
     public int getImageID() {

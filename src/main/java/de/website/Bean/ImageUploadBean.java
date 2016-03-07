@@ -47,12 +47,16 @@ public class ImageUploadBean {
                         PreparedStatement pre = con.prepareStatement("insert into Bilder (iid, Bilder) values(?,?)");
                         pre.setInt(1, ex.getPid());
                         pre.setBinaryStream(2, fin, file.getSize());
+
                         pre.executeUpdate();
                         pre.close();
                         FacesMessage msg = new FacesMessage("Das Bild ", file.getFileName() + " wurde erfolgreich gespeichert.");
                         FacesContext.getCurrentInstance().addMessage(null, msg);
                 }
             } catch (Exception e) {
+                //TODO: Bild zu groß Exception abfangen
+                FacesMessage msg = new FacesMessage("Die Daten konnten nicht gespeichert werden");
+                FacesContext.getCurrentInstance().addMessage(null, msg);
                 logger.error("Fehler Datenbank-Bilder-Upload: " + e);
             }
         }
