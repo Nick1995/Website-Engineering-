@@ -11,8 +11,8 @@ import javax.faces.bean.RequestScoped;
  * Created by Nick on 07.03.2016.
  */
 @RequestScoped
-@ManagedBean(name = "imageBean")
-public class DisplayImageBean {
+@ManagedBean(name = "projectImageBean")
+public class ProjectImageBean {
 //    private int projectID;
     private int imageID;
     Statement stmt = null;
@@ -20,8 +20,8 @@ public class DisplayImageBean {
     ResultSet rs;
     Exchange ex = Exchange.getInstance();
 
-    public List<DisplayImageBean> getAllImage() {
-        List<DisplayImageBean> imageInfo = new ArrayList<DisplayImageBean>();
+    public List<ProjectImageBean> getAllImage() {
+        List<ProjectImageBean> imageInfo = new ArrayList<ProjectImageBean>();
         Connection con = ex.getConnection();
         int pid = ex.getPid();
         try {
@@ -30,7 +30,7 @@ public class DisplayImageBean {
             //System.err.println("*select all***" + strSql);
             rs = stmt.executeQuery(strSql);
             while (rs.next()) {
-                DisplayImageBean idb = new DisplayImageBean();
+                ProjectImageBean idb = new ProjectImageBean();
                 idb.setImageID(rs.getInt("id"));
                 imageInfo.add(idb);
             }

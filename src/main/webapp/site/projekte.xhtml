@@ -24,7 +24,9 @@
             <div class="portfolio-items">
                 <div class="portfolio-item creative">
                     <div class="portfolio-item-inner">
-                        <h:graphicImage library="images" name="portfolio/01.jpg" class="img-responsive"/>
+                        <ui:repeat id="images" value="#{categoryImageBean.allImage}" var="item">
+                            <h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>
+                        </ui:repeat>
                         <div class="portfolio-info">
                             <h3>Portfolio Item 1</h3>
                             Lorem Ipsum Dolor Sit

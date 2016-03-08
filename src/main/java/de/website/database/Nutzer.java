@@ -8,8 +8,8 @@ import java.sql.Connection;
  * Created by Nick on 29.02.2016.
  */
 public class Nutzer {
-    public String user = "open";
-    public String password = "";
+    public String user;
+    public String password;
     private DbQuery dbCon;
 
     public DbQuery getDbCon() {

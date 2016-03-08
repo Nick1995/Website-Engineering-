@@ -13,7 +13,14 @@ public class Exchange {
     private int pid;
     private Connection connection;
     private ArrayList<String> imageIDs;
+    private String sqlStr;
 
+    public String getSqlStr() {
+        return sqlStr;
+    }
+    public void setSqlStr(String sqlQuery, int id, String sqlOrder) {
+        this.sqlStr = sqlQuery + id + sqlOrder;
+    }
 
     public void addImageID(String id){
         imageIDs.add(id);
