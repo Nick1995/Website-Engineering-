@@ -56,10 +56,10 @@
 
                 <h:form>
                     <div class="input-group">
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <label for="cat">Kategorie: </label>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
                                 <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
                                 <f:selectItems value="#{categories.categories}"/>
@@ -74,10 +74,10 @@
             <div class="row">
 
                 <h:form class="input-group" id="sektor">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="sek">Sektor: </label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
                             <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
                             <f:selectItems value="#{sectors.sec}"/>
@@ -90,10 +90,10 @@
 
             <div class="row">
                 <h:form class="input-group" id="project">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="pro"> Projekt: </label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <h:selectOneMenu id="pro" value="#{project.selectedItem}">
                             <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
                             <f:selectItems value="#{project.pro}"/>
@@ -108,7 +108,7 @@
 
                     <label for="location">Ort:</label>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <h:inputText binding="#{location}" type="text" class="form-control" id="location"
                                  value="#{update.ort}"/>
                 </div>
@@ -116,10 +116,10 @@
 
             <div class="row">
                 <div class="input-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="bauherr">Bauherr:</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <h:inputText binding="#{bauherr}" type="text" class="form-control"
                                      id="bauherr" value="#{update.bauherr}"/>
                     </div>
@@ -128,10 +128,10 @@
 
             <div class="row">
                 <div class="input-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="architekt">Architekt/Planer:</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <h:inputText binding="#{architekt}" type="text" class="form-control" id="architekt"
                                      value="#{update.architekt}"/>
                     </div>
@@ -140,10 +140,10 @@
 
             <div class="row">
                 <div class="input-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="time_start">Beginn Bau: </label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <h:inputText binding="#{timeStart}" type="text" class="form-control" id="time_start"
                                      value="#{update.startzeit}"/>
                     </div>
@@ -152,10 +152,10 @@
 
             <div class="row">
                 <div class="input-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="time_end">Ende Bau:</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <h:inputText binding="#{timeEnd}" type="text" class="form-control" id="time_end"
                                      value="#{update.endzeit}"/>
                     </div>
@@ -164,10 +164,10 @@
 
             <div class="row">
                 <div class="input-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="bauvol">Bauvolumen:</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <h:inputText binding="#{bauvol}" type="text" class="form-control" id="bauvol"
                                      value="#{update.bauvolumen}"/>
                     </div>
@@ -176,10 +176,10 @@
 
             <div class="row">
                 <div class="input-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="massnahmen">Maßnahmen:</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <h:inputTextarea binding="#{massnahmen}" type="text" class="form-control"
                                          id="massnahmen" value="#{update.massnahmen}"/>
                     </div>
@@ -188,10 +188,10 @@
 
             <div class="row">
                 <div class="input-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="leistung">Leistung IB Rübe:</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <h:inputTextarea binding="#{leistung}" type="text" class="form-control"
                                          id="leistung" value="#{update.leistung}"/>
                     </div>
@@ -202,7 +202,7 @@
             <div id="bilderupload" class="input-group">
                 <p:messages showDetail="true"/>
                 <div class="row">
-                    <div class="col-sm-8">
+                    <div class="col-sm-12">
                         <label for="images">Bilder: </label>
                     </div>
                 </div>
@@ -227,7 +227,7 @@
 
             <div class="row">
 
-                <div class="col-sm-4">
+                <div class="col-sm-6">
 
                     <p:commandButton
                             action="#{update.insertData()}"
