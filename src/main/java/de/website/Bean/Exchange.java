@@ -1,6 +1,7 @@
 package de.website.Bean;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 /**
  * Created by Nick on 03.03.2016.
@@ -11,6 +12,15 @@ public class Exchange {
     private int sid;
     private int pid;
     private Connection connection;
+    private ArrayList<String> imageIDs;
+
+
+    public void addImageID(String id){
+        imageIDs.add(id);
+    }
+    public ArrayList<String> getImageIDs() {
+        return imageIDs;
+    }
 
     public Connection getConnection() {
         return connection;

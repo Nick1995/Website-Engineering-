@@ -25,6 +25,7 @@ public class DisplayImage extends HttpServlet {
             stmt = con.createStatement();
             String strSql = "select bilder  from Bilder where id='" + id + "' ";
             rs = stmt.executeQuery(strSql);
+            ex.addImageID(id);
             if (rs.next()){
                 byte[] bytearray = new byte[1048576];
                 int size = 0;
