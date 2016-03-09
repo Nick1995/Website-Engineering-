@@ -280,6 +280,67 @@ ul.nostyle i {
   right: -35px;
   text-indent: -14px;
 }
+/*slider projekte*/
+#slider {
+  overflow: hidden;
+}
+#slider .item {
+  height: 558px;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+#slider .slider-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+#slider .slider-inner h2 {
+  margin-top: 180px;
+  font-size: 36px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #fff;
+}
+#slider .slider-inner h2 > span {
+  color: #45aed6;
+}
+#slider .slider-inner .btn {
+  margin-top: 10px;
+}
+#slider .owl-prev,
+#slider .owl-next {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 30px;
+  display: inline-block;
+  margin-top: -35px;
+  height: 70px;
+  width: 70px;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 100px;
+  z-index: 5;
+  -webkit-transition: background-color 400ms;
+  transition: background-color 400ms;
+}
+#slider .owl-prev:hover,
+#slider .owl-next:hover {
+  background-color: #45aed6;
+}
+#slider .owl-prev {
+  left: -35px;
+  text-indent: 14px;
+}
+#slider .owl-next {
+  right: -35px;
+  text-indent: -14px;
+}
 #bar {
   width: 0%;
   max-width: 100%;
