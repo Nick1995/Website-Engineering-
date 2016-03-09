@@ -44,7 +44,7 @@
     </div><!--/header-->
 
     <section id="addData">
-        <div class="container">
+        <div class="container-fluid">
 
 
             <div class="section-header">
@@ -56,10 +56,10 @@
 
                 <h:form>
                     <div class="input-group">
-                        <div class="col-sm-6">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                             <label for="cat">Kategorie: </label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                             <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
                                 <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
                                 <f:selectItems value="#{categories.categories}"/>
@@ -74,10 +74,10 @@
             <div class="row">
 
                 <h:form class="input-group" id="sektor">
-                    <div class="col-sm-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <label for="sek">Sektor: </label>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
                             <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
                             <f:selectItems value="#{sectors.sec}"/>
@@ -90,10 +90,10 @@
 
             <div class="row">
                 <h:form class="input-group" id="project">
-                    <div class="col-sm-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <label for="pro"> Projekt: </label>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <h:selectOneMenu id="pro" value="#{project.selectedItem}">
                             <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
                             <f:selectItems value="#{project.pro}"/>
@@ -108,7 +108,7 @@
 
                     <label for="location">Ort:</label>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <h:inputText binding="#{location}" type="text" class="form-control" id="location"
                                  value="#{update.ort}"/>
                 </div>
@@ -116,10 +116,10 @@
 
             <div class="row">
                 <div class="input-group">
-                    <div class="col-sm-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <label for="bauherr">Bauherr:</label>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <h:inputText binding="#{bauherr}" type="text" class="form-control"
                                      id="bauherr" value="#{update.bauherr}"/>
                     </div>
@@ -128,10 +128,10 @@
 
             <div class="row">
                 <div class="input-group">
-                    <div class="col-sm-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <label for="architekt">Architekt/Planer:</label>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <h:inputText binding="#{architekt}" type="text" class="form-control" id="architekt"
                                      value="#{update.architekt}"/>
                     </div>
