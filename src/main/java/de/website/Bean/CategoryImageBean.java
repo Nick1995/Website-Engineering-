@@ -20,25 +20,23 @@ public class CategoryImageBean {
     Exchange ex = Exchange.getInstance();
     Nutzer nutzer = Nutzer.getInstance();
     final static Logger logger = Logger.getLogger(DbQuery.class);
-    private int imageID;
+    private String imageID;
     Statement stmt = null;
     PreparedStatement ps;
     ResultSet rs;
-
-
-
 
     public List<CategoryImageBean> getAllImage() {
         List<CategoryImageBean> imageInfo = new ArrayList<CategoryImageBean>();
         connect2db();
         Connection con = ex.getConnection();
         try {
+            stmt = con.createStatement();
            String strSql = "select id from bilder where " + Kid() + " order by id";
             //System.err.println("*select all***" + strSql);
             rs = stmt.executeQuery(strSql);
             while (rs.next()) {
                 CategoryImageBean cib = new CategoryImageBean();
-                cib.setImageID(rs.getInt("id"));
+                cib.setImageID(rs.getString("id"));
                 imageInfo.add(cib);
             }
         } catch (SQLException e) {
@@ -82,12 +80,11 @@ public class CategoryImageBean {
         return sqlId;
     }
     //getter + setter
-    public int getImageID() {
+
+    public String getImageID() {
         return imageID;
     }
-    public void setImageID(int imageID) {
+    public void setImageID(String imageID) {
         this.imageID = imageID;
     }
-
-
 }

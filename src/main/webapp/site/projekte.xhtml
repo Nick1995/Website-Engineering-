@@ -27,11 +27,21 @@
                         <!--<ui:repeat id="images" value="#{categoryImageBean.allImage}" var="item">-->
                         <!--<h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>-->
                         <!--</ui:repeat>-->
-                        <h:graphicImage library="images" name="portfolio/02.jpg" class="img-responsive" alt=""/>
+                        <div id="slider">
+                            <div class="owl-carousel">
+                                <ui:repeat id="catImages" value="#{categoryImageBean.allImage}" var="item">
+                                    <div class="item">
+                                        <h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100%"/>
+                                    </div><!--/.item-->
+                                </ui:repeat>
+                            </div><!--/.owl-carousel-->
+                        </div>
                         <div class="portfolio-info">
-                            <h3>Portfolio Item 1</h3>
-                            Lorem Ipsum Dolor Sit
-                            <h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i
+                            <h3>Wohnbauten</h3>
+                            <!--<h:link class="preview" >-->
+                                <!--<h:commandButton class="btn btn-primary" action="displayProjekte"/>-->
+                            <!--</h:link>-->
+                            <h:link class="preview" href="displayProjekte" rel="prettyPhoto"><i
                                     class="fa fa-eye"></i></h:link>
                         </div>
                     </div>
@@ -122,9 +132,6 @@
                 </div><!--/.portfolio-item-->
 
             </div>
-
-
-
 
 
         </div><!--/.container-->

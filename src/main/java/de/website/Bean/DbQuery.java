@@ -2,6 +2,9 @@ package de.website.Bean;
 
 import de.website.database.Data;
 import org.apache.log4j.Logger;
+
+import javax.imageio.ImageIO;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -31,6 +34,23 @@ public class DbQuery {
         }
     }
 //Abfragen
+    public InputStream imageIs() {
+        try {
+            String strSql = "select bilder from bilder where id = 1 order by id";
+            //System.err.println("*select all***" + strSql);
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(strSql);
+            if (rs.next()) {
+                InputStream is = rs.getBinaryStream("bilder");
+                return is;
+            }else return null;
+
+        } catch (Exception e) {
+            logger.error("Fehler bei der Datenbankabfrage: ", e);
+            return null;
+        }
+
+    }
     public ArrayList<String> getCategories(){
         ArrayList <String> categories = new ArrayList<String>();
         try {
