@@ -31,18 +31,16 @@
                             <div class="owl-carousel">
                                 <ui:repeat id="catImages" value="#{categoryImageBean.allImage}" var="item">
                                     <div class="item">
-                                        <h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100%"/>
+                                        <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
                                     </div><!--/.item-->
                                 </ui:repeat>
                             </div><!--/.owl-carousel-->
                         </div>
                         <div class="portfolio-info">
                             <h3>Wohnbauten</h3>
-                            <!--<h:link class="preview" >-->
-                                <!--<h:commandButton class="btn btn-primary" action="displayProjekte"/>-->
-                            <!--</h:link>-->
-                            <h:link class="preview" href="displayProjekte" rel="prettyPhoto"><i
-                                    class="fa fa-eye"></i></h:link>
+                            <h:link class="preview" href="#{navigate2Projekte.navigate}">
+                                <i class="fa fa-eye"/>
+                            </h:link>
                         </div>
                     </div>
                 </div><!--/.portfolio-item-->
