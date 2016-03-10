@@ -43,7 +43,7 @@ public class ImageUploadBean {
                     Nutzer nutzer = Nutzer.getInstance();
                     DbQuery dbCon = nutzer.getDbCon();
                     Connection con = ex.getConnection();
-                    //TODO: check If Image already exists
+
                         PreparedStatement pre = con.prepareStatement("insert into Bilder (iid, Bilder) values(?,?)");
                         pre.setInt(1, ex.getPid());
                         pre.setBinaryStream(2, fin, file.getSize());

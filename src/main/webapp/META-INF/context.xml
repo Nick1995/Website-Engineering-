@@ -6,4 +6,7 @@
               driverClassName="com.mysql.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/mkyongdb"/>
 
+    <Resource auth="Container" mail.smtp.host="localhost"
+              name="mail/NomDeLaRessource" type="javax.mail.Session"/>
+
 </Context>

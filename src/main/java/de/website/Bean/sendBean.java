@@ -5,6 +5,14 @@ import org.apache.log4j.Logger;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 /**
  * Created by Nick on 01.03.2016.
@@ -20,22 +28,41 @@ public class sendBean {
     String subject;
     String text;
 
+
     public void mailSend(){
 
-        try {
+     try {
 
             // Create the email message
             HtmlEmail email = new HtmlEmail();
-            email.setSmtpPort(465);
+
+            String authuser = "testbeule2@gmail.com";
+            String authpwd = "DfsdPl1234";
+
+            email.setAuthenticator(new DefaultAuthenticator(authuser, authpwd));
+
+            //email.setSmtpPort(465);
             //email.setSslSmtpPort("465");
-            email.setSSLOnConnect(true);
+           // email.setSSLOnConnect(true);
             email.setHostName("smtp.gmail.com");
-            email.addTo("testbeule2@gmail.com", "testBeule");
-            email.setFrom(getEmail(), getName());
-            email.setSubject(getSubject());
+
+
+
+            // properties to configure encryption
+            email.getMailSession().getProperties().put("mail.smtps.auth", "true");
+            email.getMailSession().getProperties().put("mail.debug", "true");
+            email.getMailSession().getProperties().put("mail.smtps.port", "465");
+            email.getMailSession().getProperties().put("mail.smtps.socketFactory.port", "465");
+            email.getMailSession().getProperties().put("mail.smtps.socketFactory.class",   "javax.net.ssl.SSLSocketFactory");
+            email.getMailSession().getProperties().put("mail.smtps.socketFactory.fallback", "false");
+            email.getMailSession().getProperties().put("mail.smtp.starttls.enable", "true");
+
+         email.setFrom(getEmail(), getName());
+         email.addTo("testbeule2@gmail.com", "testBeule");
+         email.setSubject(getSubject());
 
             // set the html message
-            email.setHtmlMsg("<html>Test</html>");
+            //email.setHtmlMsg("<html>Test</html>");
 
             // set the alternative message
             email.setTextMsg(getText());
@@ -53,6 +80,7 @@ public class sendBean {
 
         }
     }
+
     public String getText() {
         return text;
     }
