@@ -18,7 +18,6 @@ import java.util.Properties;
 @ManagedBean(name="sendMail")
 @RequestScoped
 public class sendBean {
-    //neu
     final static Logger logger = Logger.getLogger(sendBean.class);
 
     String name;
