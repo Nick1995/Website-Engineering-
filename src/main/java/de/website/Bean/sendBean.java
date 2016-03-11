@@ -14,7 +14,6 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean(name="sendMail")
 @RequestScoped
 public class sendBean {
-    //neu
     final static Logger logger = Logger.getLogger(sendBean.class);
 
     String name;
