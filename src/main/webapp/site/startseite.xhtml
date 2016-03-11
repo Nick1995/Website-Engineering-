@@ -27,11 +27,7 @@
 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <!--<li class="scroll active"><h:link href="#home">#{msg['navListe_Startseite']}</h:link></li>
-                        <li class="scroll"><a href="#info">#{msg['navListe_allgInfo']}</h:link></li>
-                        <li class="scroll"><a href="#projekte">#{msg['navListe_Projekte']}</h:link></li>
-                        <li class="scroll"><a href="#karriere">#{msg['navListe_Karriere']}</h:link></li>
-                        <li class="scroll"><a href="#start">#{msg['navListe_Login']}</h:link></li>-->
+
                         <li class="scroll"><h:link value="#{msg['navListe_Startseite']}" fragment="home"/></li>
                         <li class="scroll"><h:link value="#{msg['navListe_allgInfo']}" fragment="info"/></li>
                         <li class="scroll"><h:link value="#{msg['navListe_Projekte']}" fragment="projekte"/></li>
@@ -86,13 +82,10 @@
     <div id="cta" class="wow fadeIn">
     <div class="container">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-12">
                 <h2>#{msg['startseite_caption']}</h2>
                 <p>#{msg['startseite_text']}
                 </p>
-            </div>
-            <div class="col-sm-3 text-right">
-                <h:link class="btn btn-primary btn-lg" href="#">Wird der Button gebraucht?</h:link>
             </div>
         </div>
     </div>

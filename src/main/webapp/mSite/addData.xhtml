@@ -16,93 +16,75 @@
                         <span class="icon-bar"></span>
                     </h:button>
 
-                    <div class="navbar-brand">
+                    <div class="navbar-brand pull-left">
                         <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
                             <h:graphicImage library="images" name="logo.png"/>
                         </h:link>
                     </div>
 
                 </div>
-
-                <div class="collapse navbar-collapse navbar-right">
-                    <ul class="nav navbar-nav">
-                        <!--<li class="scroll active"><h:link href="#home">#{msg['navListe_Startseite']}</h:link></li>
-                        <li class="scroll"><a href="#info">#{msg['navListe_allgInfo']}</h:link></li>
-                        <li class="scroll"><a href="#projekte">#{msg['navListe_Projekte']}</h:link></li>
-                        <li class="scroll"><a href="#karriere">#{msg['navListe_Karriere']}</h:link></li>
-                        <li class="scroll"><a href="#start">#{msg['navListe_Login']}</h:link></li>-->
-                        <li class="scroll"><h:link value="#{msg['navListe_Startseite']}" fragment="home"/></li>
-                        <li class="scroll"><h:link value="#{msg['navListe_allgInfo']}" fragment="info"/></li>
-                        <li class="scroll"><h:link value="#{msg['navListe_Projekte']}" fragment="projekte"/></li>
-                        <li class="scroll"><h:link value="#{msg['navListe_Karriere']}" fragment="karriere"/></li>
-                        <li class="scroll"><h:link value="#{msg['navListe_Login']}" fragment="login"/></li>
-                        <li class="scroll"><h:link value="#{msg['navListe_Kontakt']}" fragment="impressum"/></li>
-                    </ul>
-                </div>
             </div><!--/.container-->
         </div><!--/nav-->
     </div><!--/header-->
 
-    <section id="addData">
-        <div class="container-fluid">
+
+    <div>
 
 
-            <div class="section-header">
-                <h2 class="section-title text-center wow fadeInDown">#{msg['addData_caption']}</h2>
-                <p class="text-center wow fadeInDown">#{msg['addData_text']}</p>
-            </div>
+        <div class="section-header">
+            <h2 class="section-title text-center wow fadeInDown">#{msg['addData_caption']}</h2>
+            <p class="text-center wow fadeInDown">#{msg['addData_text']}</p>
+        </div>
 
-            <div class="row">
+        <div class="row">
 
-                <h:form>
-                    <div class="input-group">
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <label for="cat">Kategorie: </label>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
-                                <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
-                                <f:selectItems value="#{categories.categories}"/>
-                                <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
-                            </h:selectOneMenu>
-                        </div>
-                    </div>
-                </h:form>
-
-            </div>
-
-            <div class="row">
-
-                <h:form class="input-group" id="sektor">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label for="sek">Sektor: </label>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
-                            <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
-                            <f:selectItems value="#{sectors.sec}"/>
-                            <f:ajax listener="#{sectors.ajaxListener}" render="project  input"/>
+            <h:form>
+                <div class="input-group">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label for="cat">Kategorie: </label>
+                        <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
+                            <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
+                            <f:selectItems value="#{categories.categories}"/>
+                            <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
                         </h:selectOneMenu>
                     </div>
-                </h:form>
+                </div>
+            </h:form>
 
-            </div>
+        </div>
 
-            <div class="row">
-                <h:form class="input-group" id="project">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label for="pro"> Projekt: </label>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <h:selectOneMenu id="pro" value="#{project.selectedItem}">
-                            <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
-                            <f:selectItems value="#{project.pro}"/>
-                            <f:ajax listener="#{project.ajaxListener}" render="input images"/>
-                        </h:selectOneMenu>
-                    </div>
-                </h:form>
-            </div>
-            <h:form id="input" enctype="multipart/form-data">
+        <div class="row">
+
+            <h:form class="input-group" id="sektor">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="sek">Sektor: </label>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
+                        <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
+                        <f:selectItems value="#{sectors.sec}"/>
+                        <f:ajax listener="#{sectors.ajaxListener}" render="project  input"/>
+                    </h:selectOneMenu>
+                </div>
+            </h:form>
+
+        </div>
+
+        <div class="row">
+            <h:form class="input-group" id="project">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="pro"> Projekt: </label>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <h:selectOneMenu id="pro" value="#{project.selectedItem}">
+                        <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
+                        <f:selectItems value="#{project.pro}"/>
+                        <f:ajax listener="#{project.ajaxListener}" render="input images"/>
+                    </h:selectOneMenu>
+                </div>
+            </h:form>
+        </div>
+        <h:form id="input" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-group">
 
@@ -237,5 +219,4 @@
         </h:form>
 
     </div>
-</section>
-        </ui:composition>
+</ui:composition>

@@ -12,35 +12,27 @@
                 <p class="text-center wow fadeInDown">#{msg['projekte_caption_text']}</p>
             </div>
 
-            <div class="text-center">
-                <ul class="portfolio-filter">
-                    <li><h:link class="active" href="#" data-filter="*">#{msg['projekte_auswahl_alle']}</h:link></li>
-                    <li><h:link href="#" data-filter=".creative">#{msg['projekte_auswahl_eins']}</h:link></li>
-                    <li><h:link href="#" data-filter=".corporate">#{msg['projekte_auswahl_zwei']}</h:link></li>
-                    <li><h:link href="#" data-filter=".portfolio">#{msg['projekte_auswahl_drei']}</h:link></li>
-                </ul><!--/#portfolio-filter-->
-            </div>
-
             <div class="portfolio-items">
+
                 <div class="portfolio-item creative">
-                    <div class="portfolio-item-inner">
-                        <!--<ui:repeat id="images" value="#{categoryImageBean.allImage}" var="item">-->
-                        <!--<h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>-->
-                        <!--</ui:repeat>-->
-                        <div id="slider">
+                    <div class="slider">
+                        <div class="portfolio-item-inner">
+                            <!--<ui:repeat id="images" value="#{categoryImageBean.allImage}" var="item">-->
+                            <!--<h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>-->
+                            <!--</ui:repeat>-->
                             <div class="owl-carousel">
-                                <ui:repeat id="catImages" value="#{categoryImageBean.allImage}" var="item">
-                                    <div class="item">
-                                        <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
-                                    </div><!--/.item-->
-                                </ui:repeat>
-                            </div><!--/.owl-carousel-->
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Wohnbauten</h3>
-                            <h:link class="preview" href="#{navigate2Projekte.navigate}">
-                                <i class="fa fa-eye"/>
-                            </h:link>
+                                    <ui:repeat id="catImages" value="#{categoryImageBean.allImage}" var="item">
+                                        <div class="item">
+                                            <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
+                                        </div><!--/.item-->
+                                    </ui:repeat>
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>Wohnbauten</h3>
+                               <!-- <h:link class="preview" href="#{navigate2Projekte.navigate}">
+                                    <i class="fa fa-eye"/>
+                               </h:link> -->
+                            </div>
                         </div>
                     </div>
                 </div><!--/.portfolio-item-->
