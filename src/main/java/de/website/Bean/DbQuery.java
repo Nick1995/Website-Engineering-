@@ -211,19 +211,18 @@ public class DbQuery {
             System.out.println(exc.toString());
         }
     }
-    public String getStoredValue(String type){
-        int pid = ex.getPid();
+    public String getStoredValue(String type, String table , String pid){
         String value = "";
         try {
             Statement myState = connection.createStatement();
-            ResultSet result = myState.executeQuery("SELECT " + type +" FROM daten WHERE ID =" + pid + ";");
+            ResultSet result = myState.executeQuery("SELECT " + type +" FROM " + table +" WHERE ID =" + pid + ";");
             while (result.next()) {
-                 value = result.getString(type);
+                value = result.getString(type);
             }
-            }catch (Exception e){
+        }catch (Exception e){
             logger.error("Fehler Datenbank-Abfrage: ", e);
         }
-            return value;
+        return value;
     }
     //TODO: prüfen ob Projekt gleichen Namens bereits existiert --funktioniert noch nicht
     public boolean checkIfProjetExists(String name){

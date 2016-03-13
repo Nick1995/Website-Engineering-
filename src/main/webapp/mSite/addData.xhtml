@@ -110,7 +110,7 @@
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <h:inputText binding="#{location}" type="text" class="form-control" id="location"
-                                 value="#{update.ort}"/>
+                                 value="#{textUpdate.ort}"/>
                 </div>
             </div>
 
@@ -121,7 +121,7 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <h:inputText binding="#{bauherr}" type="text" class="form-control"
-                                     id="bauherr" value="#{update.bauherr}"/>
+                                     id="bauherr" value="#{textUpdate.bauherr}"/>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <h:inputText binding="#{architekt}" type="text" class="form-control" id="architekt"
-                                     value="#{update.architekt}"/>
+                                     value="#{textUpdate.architekt}"/>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@
                     </div>
                     <div class="col-sm-6">
                         <h:inputText binding="#{timeStart}" type="text" class="form-control" id="time_start"
-                                     value="#{update.startzeit}"/>
+                                     value="#{textUpdate.startzeit}"/>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
                     </div>
                     <div class="col-sm-6">
                         <h:inputText binding="#{timeEnd}" type="text" class="form-control" id="time_end"
-                                     value="#{update.endzeit}"/>
+                                     value="#{textUpdate.endzeit}"/>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                     </div>
                     <div class="col-sm-6">
                         <h:inputText binding="#{bauvol}" type="text" class="form-control" id="bauvol"
-                                     value="#{update.bauvolumen}"/>
+                                     value="#{textUpdate.bauvolumen}"/>
                     </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@
                     </div>
                     <div class="col-sm-6">
                         <h:inputTextarea binding="#{massnahmen}" type="text" class="form-control"
-                                         id="massnahmen" value="#{update.massnahmen}"/>
+                                         id="massnahmen" value="#{textUpdate.massnahmen}"/>
                     </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@
                     </div>
                     <div class="col-sm-6">
                         <h:inputTextarea binding="#{leistung}" type="text" class="form-control"
-                                         id="leistung" value="#{update.leistung}"/>
+                                         id="leistung" value="#{textUpdate.leistung}"/>
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                 <div class="col-sm-6">
 
                     <p:commandButton
-                            action="#{update.insertData()}"
+                            action="#{textUpdate.insertData()}"
                             class="btn btn-primary" value=" Daten speichern" ajax="false"
                             actionListener="#{uploadImage.upload}"/>
 
