@@ -10,7 +10,7 @@
             <supported-locale>en</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>de.messages </base-name>
+            <base-name>de.messages</base-name>
             <var>msg</var>
         </resource-bundle>
     </application>
