@@ -1,9 +1,9 @@
 <ui:composition
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        lang="en"
 >
 
     <div id="header">
@@ -39,14 +39,10 @@
                         <li class="scroll"><h:link value="#{msg['navListe_Login']}" fragment="login"/></li>
                         <li class="scroll"><h:link value="#{msg['navListe_Kontakt']}" fragment="impressum"/></li>
                         <li class="scroll">
-                            <h:commandButton styleClass="btn btn-link" value="Deutsch" onchange="submit()"
-                                             actionListener="#{language.countryLocaleCodeChanged}">
-                            </h:commandButton>
+                            <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('de')}" immediate="true" value="Deutsch" />
                         </li>
                         <li class="scroll">
-                            <h:commandButton styleClass="btn btn-link" value="English" onchange="submit()"
-                                             actionListener="#{language.countryLocaleCodeChanged}">
-                            </h:commandButton>
+                            <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('en')}" immediate="true" value="English" />
                         </li>
                     </ul>
 
