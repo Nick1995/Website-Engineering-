@@ -240,6 +240,7 @@ ul.nostyle i {
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
+  vertical-align: middle;
 }
 #main-slider .slider-inner {
   position: absolute;
