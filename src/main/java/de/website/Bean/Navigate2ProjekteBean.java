@@ -1,24 +1,37 @@
 package de.website.Bean;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import java.io.Serializable;
 
 /**
  * Created by Nick on 09.03.2016.
  */
+
+@ManagedBean(name = "navigate2Projekte", eager = true)
 @RequestScoped
-@ManagedBean(name = "navigate2Projekte")
-public class Navigate2ProjekteBean {
-    String navigate;
+public class Navigate2ProjekteBean implements Serializable {
 
-    public String start(){
-        return "displayProjekte";
-    }
-    public void setNavigate(String navigate) {
-        this.navigate = navigate;
+    public String getPageId() {
+        return pageId;
     }
 
-    public String getNavigate(){
-        return "displayProjekte";
+    public void setPageId(String pageId) {
+        this.pageId = pageId;
+    }
+
+    @ManagedProperty(value = "#{param.pageId}")
+
+    private String pageId;
+
+    public String moveToProjekte() {
+
+        if (pageId.equals("1")) {
+            return "displayProjekte";
+        } else {
+            return "home";
+        }
     }
 }
+

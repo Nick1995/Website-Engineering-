@@ -37,9 +37,12 @@
                         </div>
                         <div class="portfolio-info">
                             <h3>Wohnbauten</h3>
-                            <h:link class="preview" href="#{navigate2Projekte.navigate}">
-                                <i class="fa fa-eye"/>
-                            </h:link>
+                            <h:form>
+                                <h:commandLink class="preview" action="#{navigate2Projekte.moveToProjekte}">
+                                    <f:param name="pageId" value="1"/>
+                                    <i class="fa fa-eye"/>
+                                </h:commandLink>
+                            </h:form>
                         </div>
                     </div>
                 </div><!--/.portfolio-item-->
