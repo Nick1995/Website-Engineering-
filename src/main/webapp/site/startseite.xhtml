@@ -40,12 +40,12 @@
                         <li class="scroll"><h:link value="#{msg['navListe_Kontakt']}" fragment="impressum"/></li>
                         <li class="scroll">
                             <h:commandButton styleClass="btn btn-link" value="Deutsch" onchange="submit()"
-                                             valueChangeListener="#{language.countryLocaleCodeChanged}">
+                                             actionListener="#{language.countryLocaleCodeChanged}">
                             </h:commandButton>
                         </li>
                         <li class="scroll">
                             <h:commandButton styleClass="btn btn-link" value="English" onchange="submit()"
-                                             valueChangeListener="#{language.countryLocaleCodeChanged}">
+                                             actionListener="#{language.countryLocaleCodeChanged}">
                             </h:commandButton>
                         </li>
                     </ul>
