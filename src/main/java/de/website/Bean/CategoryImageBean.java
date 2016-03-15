@@ -25,13 +25,13 @@ public class CategoryImageBean {
     PreparedStatement ps;
     ResultSet rs;
 
-    public List<CategoryImageBean> getAllImage() {
+    public List<CategoryImageBean> getAllImage(String kid) {
         List<CategoryImageBean> imageInfo = new ArrayList<CategoryImageBean>();
         connect2db();
         Connection con = ex.getConnection();
         try {
             stmt = con.createStatement();
-           String strSql = "select id from bilder where " + Kid() + " order by id";
+            String strSql = "select id from bilder where " + Kid(kid) + " order by id";
             //System.err.println("*select all***" + strSql);
             rs = stmt.executeQuery(strSql);
             while (rs.next()) {
@@ -56,13 +56,14 @@ public class CategoryImageBean {
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
-    private String Kid(){
+    private String Kid(String kidNum){
+        connect2db();
         ArrayList<String> kid = new ArrayList<String>();
         String sqlId = "";
         Connection con = ex.getConnection();
         try {
             stmt = con.createStatement();
-            String strSql = "select id from projekte where kid = 1";
+            String strSql = "select id from projekte where kid = " + kidNum;
             //System.err.println("*select all***" + strSql);
             rs = stmt.executeQuery(strSql);
             while (rs.next()) {

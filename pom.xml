@@ -57,6 +57,12 @@
       <version>1.4</version>
     </dependency>
 
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>7.0</version>
+    </dependency>
+
 
     <!-- Log4j -->
     <dependency>

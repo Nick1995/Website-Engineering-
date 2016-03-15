@@ -19,7 +19,7 @@ public class CategorieBean {
 
     private String selectedItem; // +getter +setter
     private List<String> categories; // +getter (no setter necessary)
-    private String cat;
+//    private String cat;
 
     Nutzer nutzer = Nutzer.getInstance();
     Exchange ex = Exchange.getInstance();
@@ -54,7 +54,7 @@ public class CategorieBean {
         this.categories = categories;
     }
 
-    public void setCat(String cat) {
-        this.cat = cat;
-    }
+//    public void setCat(String cat) {
+//        this.cat = cat;
+//    }
 }

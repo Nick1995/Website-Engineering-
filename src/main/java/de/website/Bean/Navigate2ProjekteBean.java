@@ -11,6 +11,9 @@ import javax.faces.bean.RequestScoped;
 public class Navigate2ProjekteBean {
     String navigate;
 
+    public String start(){
+        return "displayProjekte";
+    }
     public void setNavigate(String navigate) {
         this.navigate = navigate;
     }
