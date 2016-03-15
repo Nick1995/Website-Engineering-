@@ -341,6 +341,49 @@ ul.nostyle i {
   right: -35px;
   text-indent: -14px;
 }
+
+/*allgemeiner slider start*/
+.slider {
+  overflow: hidden;
+
+}
+.slider-items {
+  height: 180px;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+.slider .owl-prev,
+.slider .owl-next {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 30px;
+  display: inline-block;
+  margin-top: -35px;
+  height: 70px;
+  width: 70px;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 100px;
+  z-index: 5;
+  -webkit-transition: background-color 400ms;
+  transition: background-color 400ms;
+}
+.slider .owl-prev:hover,
+.slider .owl-next:hover {
+  background-color: #45aed6;
+}
+.slider .owl-prev {
+  left: -35px;
+  text-indent: 14px;
+}
+.slider .owl-next {
+  right: -35px;
+  text-indent: -14px;
+}
+/*allgemeiner slider ende*/
 #bar {
   width: 0%;
   max-width: 100%;

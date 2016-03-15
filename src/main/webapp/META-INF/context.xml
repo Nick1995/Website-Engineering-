@@ -1,12 +1,12 @@
 <Context>
  <!-- Datenbankanbindung -->
-    <Resource name="jdbc/mkyongdb" auth="Container" type="javax.sql.DataSource"
-              maxActive="50" maxIdle="30" maxWait="10000"
-              username="mysqluser" password="mysqlpassword"
-              driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/mkyongdb"/>
+    <!--<Resource name="jdbc/mkyongdb" auth="Container" type="javax.sql.DataSource"-->
+              <!--maxActive="50" maxIdle="30" maxWait="10000"-->
+              <!--username="mysqluser" password="mysqlpassword"-->
+              <!--driverClassName="com.mysql.jdbc.Driver"-->
+              <!--url="jdbc:mysql://localhost:3306/mkyongdb"/>-->
 
-    <Resource auth="Container" mail.smtp.host="localhost"
-              name="mail/NomDeLaRessource" type="javax.mail.Session"/>
+    <!--<Resource auth="Container" mail.smtp.host="localhost"-->
+              <!--name="mail/NomDeLaRessource" type="javax.mail.Session"/>-->
 
 </Context>

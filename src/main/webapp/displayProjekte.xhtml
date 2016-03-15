@@ -10,10 +10,10 @@
         <div class="row">
             <h2> #{textDownload.getProjektName(pid)} </h2>
         </div>
-        <div id="slider">
+        <div class="slider">
             <div class="owl-carousel">
                 <ui:repeat value="#{projectImageBean.getSpecialImage(pid)}" var="item">
-                    <div class="item">
+                    <div class="slider-items">
                         <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
                     </div><!--/.item-->
                 </ui:repeat>
