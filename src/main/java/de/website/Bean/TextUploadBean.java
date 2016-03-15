@@ -8,7 +8,7 @@ import javax.faces.bean.RequestScoped;
 /**
  * Created by Nick on 04.03.2016.
  */
-@ManagedBean(name = "update")
+@ManagedBean(name = "textUpdate")
 @RequestScoped
 public class TextUploadBean {
     private String ort;
@@ -22,43 +22,42 @@ public class TextUploadBean {
     Nutzer nutzer = Nutzer.getInstance();
     DbQuery dbCon = nutzer.getDbCon();
     Exchange ex = Exchange.getInstance();
-    //(bauherr, architekt, ort, startzeit, endzeit, bauvolumen, leistung, massnahmen, ID
+    int pid =ex.getPid();
     public void insertData(){
-        int pid =ex.getPid();
         dbCon.insertTextData(bauherr, architekt, ort, startzeit, endzeit, bauvolumen, leistung, massnahmen,pid);
         dbCon.deleteNullImages();
     }
 
     public String getOrt() {
-        return (dbCon.getStoredValue("ort"));
+        return (dbCon.getStoredValue("ort", "daten", Integer.toString(pid)));
     }
 
     public String getBauherr() {
-        return dbCon.getStoredValue("bauherr");
+        return dbCon.getStoredValue("bauherr", "daten", Integer.toString(pid));
     }
 
     public String getStartzeit() {
-        return dbCon.getStoredValue("startzeit");
+        return dbCon.getStoredValue("startzeit", "daten", Integer.toString(pid));
     }
 
     public String getEndzeit() {
-        return dbCon.getStoredValue("endzeit");
+        return dbCon.getStoredValue("endzeit", "daten", Integer.toString(pid));
     }
 
     public String getMassnahmen() {
-        return dbCon.getStoredValue("massnahmen");
+        return dbCon.getStoredValue("massnahmen", "daten", Integer.toString(pid));
     }
 
     public String getBauvolumen() {
-        return dbCon.getStoredValue("bauvolumen");
+        return dbCon.getStoredValue("bauvolumen", "daten", Integer.toString(pid));
     }
 
     public String getLeistung() {
-        return dbCon.getStoredValue("leistung");
+        return dbCon.getStoredValue("leistung", "daten", Integer.toString(pid));
     }
 
     public String getArchitekt() {
-        return dbCon.getStoredValue("architekt");
+        return dbCon.getStoredValue("architekt", "daten", Integer.toString(pid));
     }
 
     public void setOrt(String ort) {
