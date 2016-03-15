@@ -29,7 +29,7 @@
                         <div class="slider" id="slider">
                             <div class="owl-carousel">
                                 <ui:repeat id="catImages" var="item" value="#{categoryImageBean.getAllImage(1)}">
-                                    <div class="item">
+                                    <div class="item" align="center">
                                         <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
                                     </div><!--/.item-->
                                 </ui:repeat>
