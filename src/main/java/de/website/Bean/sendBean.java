@@ -1,10 +1,15 @@
 package de.website.Bean;
 
-import org.apache.commons.mail.*;
+
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
 import org.apache.log4j.Logger;
+
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.mail.Transport;
 
 
 /**
@@ -25,30 +30,35 @@ public class sendBean {
     public void mailSend(){
 
         String authuser = "testbeule2@gmail.com";
-        String authpwd = "DfsdPl1234";
+         String authpwd = "DfsdPl1234";
 
      try {
+
+
 
 
            // Create the email message
             HtmlEmail email = new HtmlEmail();
 
 
-
          email.setAuthenticator(new DefaultAuthenticator(authuser, authpwd));
 
-         email.setHostName("smtp.gmail.com");
+         email.setHostName("smtp-relay.gmail.com");
 
             // properties to configure encryption
 
          email.setSSLCheckServerIdentity(true);
-            email.getMailSession().getProperties().put("mail.smtps.auth", "true");
+         email.setDebug(true);
+
+         email.getMailSession().getTransport("smtp");
+            email.getMailSession().getProperties().put("mail.smtp.auth", "true");
             email.getMailSession().getProperties().put("mail.debug", "true");
-            email.getMailSession().getProperties().put("mail.smtps.port", "587");
-            email.getMailSession().getProperties().put("mail.smtps.socketFactory.port", "587");
-            email.getMailSession().getProperties().put("mail.smtps.socketFactory.class",   "javax.net.ssl.SSLSocketFactory");
-            email.getMailSession().getProperties().put("mail.smtps.socketFactory.fallback", "false");
+            email.getMailSession().getProperties().put("mail.smtp.port", "465");
+            email.getMailSession().getProperties().put("mail.smtp.socketFactory.port", "465");
+            email.getMailSession().getProperties().put("mail.smtp.socketFactory.fallback", "false");
             email.getMailSession().getProperties().put("mail.smtp.starttls.enable", "true");
+
+       //  email.setStartTLSEnabled(true);
 
             email.setFrom(getEmail(), getName());
             email.addTo("testbeule2@gmail.com", "testBeule");
@@ -62,15 +72,14 @@ public class sendBean {
             // send the email
             email.send();
 
-        } catch (EmailException e){
 
-            logger.error("Fehler beim senden der E-Mail: ", e);
 
-       }catch (Exception ex){
 
-           logger.error("Fehler beim senden der E-Mail: ", ex);
+       }catch (Exception ex) {
 
-        }
+         logger.error("Fehler beim senden der E-Mail: ", ex);
+
+     }
     }
 
     public String getText() {

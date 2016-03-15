@@ -99,6 +99,14 @@
       <version>5.1.22</version>
     </dependency>
 
+    <!-- Google Maps -->
+    <dependency>
+      <groupId>com.google.maps</groupId>
+      <artifactId>google-maps-services</artifactId>
+      <version>0.1.11</version>
+    </dependency>
+
+
   </dependencies>
 
   <repositories>

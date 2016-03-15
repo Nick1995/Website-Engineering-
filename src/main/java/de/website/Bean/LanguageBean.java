@@ -4,6 +4,7 @@ package de.website.Bean;
  * Created by Tobi on 16.02.2016.
  */
 
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
@@ -12,7 +13,8 @@ import java.util.Map;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
-@javax.faces.bean.ManagedBean
+
+@ManagedBean(name="language")
 @SessionScoped
 public class LanguageBean implements Serializable {
 

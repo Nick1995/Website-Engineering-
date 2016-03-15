@@ -38,7 +38,18 @@
                         <li class="scroll"><h:link value="#{msg['navListe_Karriere']}" fragment="karriere"/></li>
                         <li class="scroll"><h:link value="#{msg['navListe_Login']}" fragment="login"/></li>
                         <li class="scroll"><h:link value="#{msg['navListe_Kontakt']}" fragment="impressum"/></li>
+                        <li class="scroll">
+                            <h:commandButton styleClass="btn btn-link" value="Deutsch" onchange="submit()"
+                                             valueChangeListener="#{language.countryLocaleCodeChanged}">
+                            </h:commandButton>
+                        </li>
+                        <li class="scroll">
+                            <h:commandButton styleClass="btn btn-link" value="English" onchange="submit()"
+                                             valueChangeListener="#{language.countryLocaleCodeChanged}">
+                            </h:commandButton>
+                        </li>
                     </ul>
+
                 </div>
             </div><!--/.container-->
         </div><!--/nav-->
