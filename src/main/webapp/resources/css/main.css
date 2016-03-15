@@ -281,16 +281,16 @@ ul.nostyle i {
   text-indent: -14px;
 }
 /*slider projekte*/
-#slider {
+.slider {
   overflow: hidden;
 }
-#slider .item {
+.slider .item {
   height: 180px;
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
 }
-#slider .slider-inner {
+.slider .slider-inner {
   position: absolute;
   top: 0;
   left: 0;
@@ -298,21 +298,21 @@ ul.nostyle i {
   height: 100%;
   color: #fff;
 }
-#slider .slider-inner h2 {
+.slider .slider-inner h2 {
   margin-top: 180px;
   font-size: 36px;
   line-height: 1;
   text-transform: uppercase;
   color: #fff;
 }
-#slider .slider-inner h2 > span {
+.slider .slider-inner h2 > span {
   color: #45aed6;
 }
-#slider .slider-inner .btn {
+.slider .slider-inner .btn {
   margin-top: 10px;
 }
-#slider .owl-prev,
-#slider .owl-next {
+.slider .owl-prev,
+.slider .owl-next {
   position: absolute;
   top: 50%;
   background-color: rgba(0, 0, 0, 0.2);
@@ -329,15 +329,15 @@ ul.nostyle i {
   -webkit-transition: background-color 400ms;
   transition: background-color 400ms;
 }
-#slider .owl-prev:hover,
-#slider .owl-next:hover {
+.slider .owl-prev:hover,
+.slider .owl-next:hover {
   background-color: #45aed6;
 }
-#slider .owl-prev {
+.slider .owl-prev {
   left: -35px;
   text-indent: 14px;
 }
-#slider .owl-next {
+.slider .owl-next {
   right: -35px;
   text-indent: -14px;
 }

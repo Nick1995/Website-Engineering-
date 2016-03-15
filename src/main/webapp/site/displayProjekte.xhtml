@@ -1,0 +1,16 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        lang="en"
+>
+    <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
+        <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
+        <f:selectItems value="#{categories.categories}"/>
+        <f:ajax listener="#{categories.ajaxListener}"/>
+    </h:selectOneMenu>
+    <ui:repeat value="#{categoryImageBean.getAllImage(1)}" var="item">
+            <h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100%"/>
+    </ui:repeat>
+</ui:composition>

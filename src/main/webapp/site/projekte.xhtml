@@ -4,6 +4,7 @@
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:ui="http://java.sun.com/jsf/facelets"
         lang="en"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
     <section id="projekte">
         <div class="container">
@@ -22,11 +23,12 @@
             </div>
 
             <div class="portfolio-items">
+                <!--items="${authors}" var="current"-->
                 <div class="portfolio-item creative">
                     <div class="portfolio-item-inner">
-                        <div id="slider">
+                        <div class="slider" id="slider">
                             <div class="owl-carousel">
-                                <ui:repeat id="catImages" value="#{categoryImageBean.allImage}" var="item">
+                                <ui:repeat id="catImages" var="item" value="#{categoryImageBean.getAllImage(1)}">
                                     <div class="item">
                                         <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
                                     </div><!--/.item-->
@@ -36,12 +38,13 @@
                         <div class="portfolio-info">
                             <h3>Wohnbauten</h3>
                             <h:link class="preview" href="#{navigate2Projekte.navigate}">
-                                <i class="fa fa-eye" />
+                                <i class="fa fa-eye"/>
                             </h:link>
                         </div>
                     </div>
                 </div><!--/.portfolio-item-->
 
+                <!--statische Bilder-->
                 <div class="portfolio-item corporate portfolio">
                     <div class="portfolio-item-inner">
                         <h:graphicImage library="images" name="portfolio/02.jpg" class="img-responsive" alt=""/>
