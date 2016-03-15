@@ -30,193 +30,205 @@
 
     <div>
 
-
         <div class="section-header">
             <h2 class="section-title text-center wow fadeInDown">#{msg['addData_caption']}</h2>
             <p class="text-center wow fadeInDown">#{msg['addData_text']}</p>
         </div>
 
-        <div class="row">
-
-            <h:form>
-                <div class="input-group">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <label for="cat">Kategorie: </label>
-                        <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
-                            <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
-                            <f:selectItems value="#{categories.categories}"/>
-                            <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
-                        </h:selectOneMenu>
-                    </div>
-                </div>
-            </h:form>
-
-        </div>
-
-        <div class="row">
-
-            <h:form class="input-group" id="sektor">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <label for="sek">Sektor: </label>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
-                        <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
-                        <f:selectItems value="#{sectors.sec}"/>
-                        <f:ajax listener="#{sectors.ajaxListener}" render="project  input"/>
-                    </h:selectOneMenu>
-                </div>
-            </h:form>
-
-        </div>
-
-        <div class="row">
-            <h:form class="input-group" id="project">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <label for="pro"> Projekt: </label>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <h:selectOneMenu id="pro" value="#{project.selectedItem}">
-                        <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
-                        <f:selectItems value="#{project.pro}"/>
-                        <f:ajax listener="#{project.ajaxListener}" render="input images"/>
-                    </h:selectOneMenu>
-                </div>
-            </h:form>
-        </div>
-        <h:form id="input" enctype="multipart/form-data">
-            <div class="row">
-                <div class="input-group">
-
-                    <label for="location">Ort:</label>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <h:inputText binding="#{location}" type="text" class="form-control" id="location"
-                                 value="#{textUpdate.ort}"/>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-group">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label for="bauherr">Bauherr:</label>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <h:inputText binding="#{bauherr}" type="text" class="form-control"
-                                     id="bauherr" value="#{textUpdate.bauherr}"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-group">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label for="architekt">Architekt/Planer:</label>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <h:inputText binding="#{architekt}" type="text" class="form-control" id="architekt"
-                                     value="#{textUpdate.architekt}"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-group">
-                    <div class="col-sm-6">
-                        <label for="time_start">Beginn Bau: </label>
-                    </div>
-                    <div class="col-sm-6">
-                        <h:inputText binding="#{timeStart}" type="text" class="form-control" id="time_start"
-                                     value="#{textUpdate.startzeit}"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-group">
-                    <div class="col-sm-6">
-                        <label for="time_end">Ende Bau:</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <h:inputText binding="#{timeEnd}" type="text" class="form-control" id="time_end"
-                                     value="#{textUpdate.endzeit}"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-group">
-                    <div class="col-sm-6">
-                        <label for="bauvol">Bauvolumen:</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <h:inputText binding="#{bauvol}" type="text" class="form-control" id="bauvol"
-                                     value="#{textUpdate.bauvolumen}"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-group">
-                    <div class="col-sm-6">
-                        <label for="massnahmen">Maßnahmen:</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <h:inputTextarea binding="#{massnahmen}" type="text" class="form-control"
-                                         id="massnahmen" value="#{textUpdate.massnahmen}"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-group">
-                    <div class="col-sm-6">
-                        <label for="leistung">Leistung IB Rübe:</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <h:inputTextarea binding="#{leistung}" type="text" class="form-control"
-                                         id="leistung" value="#{textUpdate.leistung}"/>
-                    </div>
-                </div>
-            </div>
-
-
-            <div id="bilderupload" class="input-group">
-                <p:messages showDetail="true"/>
+        <div class="container-wrapper">
+            <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <label for="images">Bilder: </label>
-                    </div>
-                </div>
 
-                <ui:repeat id="images" value="#{projectImageBean.allImage}" var="item">
-                    <h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>
-                </ui:repeat>
+                    <h:form>
+                        <div class="input-group">
+                            <div class="col-md-2">
+                                <label for="cat">Kategorie: </label>
+                            </div>
+                            <div class="col-md-4 col-md-offset-4">
+                                <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
+                                    <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
+                                    <f:selectItems value="#{categories.categories}"/>
+                                    <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                    </h:form>
+
+                </div>
 
                 <div class="row">
-                    <div class="col-sm-2">
-                        <label for="upload">weitere Bilder hinzufügen</label>
+
+                    <h:form class="input-group" id="sektor">
+                        <div class="col-md-2">
+                            <label for="sek">Sektor: </label>
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
+                                <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
+                                <f:selectItems value="#{sectors.sec}"/>
+                                <f:ajax listener="#{sectors.ajaxListener}" render="project  input"/>
+                            </h:selectOneMenu>
+                        </div>
+                    </h:form>
+
+                </div>
+
+                <div class="row">
+                    <h:form class="input-group" id="project">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label for="pro"> Projekt: </label>
+                        </div>
+                        <div class="col-md-4 col-md-offset-2">
+                            <h:selectOneMenu id="pro" value="#{project.selectedItem}">
+                                <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
+                                <f:selectItems value="#{project.pro}"/>
+                                <f:ajax listener="#{project.ajaxListener}" render="input images"/>
+                            </h:selectOneMenu>
+                        </div>
+                    </h:form>
+                </div>
+                <h:form id="input" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="input-group">
+
+                            <label for="location">Ort:</label>
+                        </div>
+                        <div class="col-md-4 col-md-offset-2">
+                            <h:inputText binding="#{location}" type="text" class="form-control" id="location"
+                                         value="#{textUpdate.ort}"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label for="bauherr">Bauherr:</label>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <h:inputText binding="#{bauherr}" type="text" class="form-control"
+                                             id="bauherr" value="#{textUpdate.bauherr}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div>
+                                <label for="architekt">Architekt/Planer:</label>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <h:inputText binding="#{architekt}" type="text" class="form-control" id="architekt"
+                                             value="#{textUpdate.architekt}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="col-sm-6">
+                                <label for="time_start">Beginn Bau: </label>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <h:inputText binding="#{timeStart}" type="text" class="form-control" id="time_start"
+                                             value="#{textUpdate.startzeit}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label for="time_end">Ende Bau:</label>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <h:inputText binding="#{timeEnd}" type="text" class="form-control" id="time_end"
+                                             value="#{textUpdate.endzeit}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label for="bauvol">Bauvolumen:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <h:inputText binding="#{bauvol}" type="text" class="form-control" id="bauvol"
+                                             value="#{textUpdate.bauvolumen}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label for="massnahmen">Maßnahmen:</label>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <h:inputTextarea binding="#{massnahmen}" type="text" class="form-control"
+                                                 id="massnahmen" value="#{textUpdate.massnahmen}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="col-md-4 col-md-offset-2">
+                                <label for="leistung">Leistung IB Rübe:</label>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <h:inputTextarea binding="#{leistung}" type="text" class="form-control"
+                                                 id="leistung" value="#{textUpdate.leistung}"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="bilderupload" class="input-group">
+                        <p:messages showDetail="true"/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="images">Bilder: </label>
+                            </div>
+                        </div>
+
+                        <ui:repeat id="images" value="#{projectImageBean.allImage}" var="item">
+                            <h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>
+                        </ui:repeat>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="upload">weitere Bilder hinzufügen</label>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p:fileUpload id="upload" binding="#{uploadImage.image}" value="#{uploadImage.file}"
+                                              mode="simple"
+                                              allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+                            </div>
+                        </div>
 
                     </div>
-                </div>
 
-                <p:fileUpload id="upload" binding="#{uploadImage.image}" value="#{uploadImage.file}" mode="simple"
-                              allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                    <div class="row">
+
+                        <div class="col-sm-6">
+
+                            <p:commandButton
+                                    action="#{textUpdate.insertData()}"
+                                    class="btn btn-primary" value=" Daten speichern" ajax="false"
+                                    actionListener="#{uploadImage.upload}"/>
+
+                        </div>
+
+
+                    </div>
+                </h:form>
             </div>
-
-            <div class="row">
-
-                <div class="col-sm-6">
-
-                    <p:commandButton
-                            action="#{textUpdate.insertData()}"
-                            class="btn btn-primary" value=" Daten speichern" ajax="false"
-                            actionListener="#{uploadImage.upload}"/>
-
-                </div>
-
-            </div>
-        </h:form>
+        </div>
 
     </div>
 </ui:composition>
