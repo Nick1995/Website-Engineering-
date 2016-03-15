@@ -15,13 +15,18 @@
             </div>
         </div>
     </section>
-
     <section id="contact">
-        <div id="google-map" style="height:650px" data-latitude="52.365629" data-longitude="4.871331"></div>
+        <div id="google-map" style="height:650px" data-latitude="52.365629" data-longitude="4.871331">
+        </div>
         <div class="container-wrapper">
+
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 col-sm-offset-8">
+                    <div class="col-md-8">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88556.93531488189!2d12.275452762949035!3d52.687778637807725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8d4fd39bd06a7%3A0x26f23b493aebcc56!2sElmar+R%C3%BCbe!5e0!3m2!1sde!2sde!4v1458066414502"
+                        height="450" width="100%"/>
+                    </div>
+                    <div class="col-md-4">
                         <div class="contact-form">
                             <h3>#{msg['impressum_caption']}</h3>
 
@@ -49,12 +54,17 @@
                                 <div class="form-group">
                                     <h:inputTextarea class="form-control" value="#{sendMail.text}" p:maxrows="7" p:placeholder="Message" rows="5" />
                                 </div>
-                               <h:commandButton action="#{sendMail.mailSend()}" class="btn btn-primary" value="Send Message"/>
+                                <h:commandButton action="#{sendMail.mailSend()}" class="btn btn-primary" value="Send Message"/>
                             </h:form>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
+
+
     </section><!--/#bottom-->
+
+
 </ui:composition>
