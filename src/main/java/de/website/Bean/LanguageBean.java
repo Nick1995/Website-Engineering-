@@ -42,7 +42,8 @@ public class LanguageBean implements Serializable {
 
         Locale test = FacesContext.getCurrentInstance().getViewRoot().getLocale();
 
-        FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale (langCode));
+        locale = new Locale(langCode);
+        FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
 
         test = FacesContext.getCurrentInstance().getViewRoot().getLocale();
         return null;
