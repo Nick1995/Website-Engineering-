@@ -39,11 +39,18 @@
                         <li class="scroll"><h:link value="#{msg['navListe_Login']}" fragment="login"/></li>
                         <li class="scroll"><h:link value="#{msg['navListe_Kontakt']}" fragment="impressum"/></li>
                         <li class="scroll">
-                            <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('de')}" immediate="true" value="Deutsch" />
+                            <h:form>
+                                <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('de')}" immediate="true" value="Deutsch" />
+                            </h:form>
                         </li>
+
+
                         <li class="scroll">
-                            <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('en')}" immediate="true" value="English" />
+                            <h:form>
+                                <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('en')}" immediate="true" value="English" />
+                            </h:form>
                         </li>
+
                     </ul>
 
                 </div>
