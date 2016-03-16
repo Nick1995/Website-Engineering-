@@ -243,6 +243,35 @@ public class DbQuery {
 //Abfragen Ende
 
 //Inserts
+    //neuen Sektor anlegen
+    public void newSector(String sector, int kid){
+        String strSql = "INSERT INTO sektor (Name, KID) VALUES ('" + sector + "', '" +  kid + "')";
+        try {
+            PreparedStatement prepState = connection.prepareStatement(strSql);
+            prepState.execute();
+        }catch (SQLException e){
+            logger.error("Fehler Sektor anlegen", e);
+        }
+    }
+    //neues Projekt anlegen
+    public void newProjectKid(String project, int kid){
+        String strSql = "INSERT INTO projekte (Name, KID) VALUES ('" + project + "', '" +  kid + "')";
+        try {
+            PreparedStatement prepState = connection.prepareStatement(strSql);
+            prepState.execute();
+        }catch (SQLException e){
+            logger.error("Fehler Sektor anlegen", e);
+        }
+    }
+    public void newProjectSid(String project, int sid){
+        String strSql = "INSERT INTO projekte (Name, SID) VALUES ('" + project + "', '" +  sid + "')";
+        try {
+            PreparedStatement prepState = connection.prepareStatement(strSql);
+            prepState.execute();
+        }catch (SQLException e){
+            logger.error("Fehler Sektor anlegen", e);
+        }
+    }
     //neuen Datensatz anlegen
     public void insertTextData(String bauherr, String architekt, String ort, String startzeit, String endzeit,String bauvolumen,
                                String leistung, String massnahmen, int pid){

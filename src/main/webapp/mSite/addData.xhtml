@@ -87,6 +87,18 @@
                         </div>
                     </h:form>
                 </div>
+<h:form>
+                <div class="row">
+                    <h:inputText type="text" id="newSec" value="#{addSelectorBean.selector}" />
+                    <p:commandButton value="neuen Sektor anlegen" action="#{addSelectorBean.addSector()}"/>
+                </div>
+</h:form>
+                <h:form>
+                <div class="row">
+                    <h:inputText value="#{addSelectorBean.selector}"/>
+                    <p:commandButton value="neues Projekt anlegen" action="#{addSelectorBean.addProject()}"/>
+                </div>
+                </h:form>
                 <h:form id="input" enctype="multipart/form-data">
                     <div class="row">
                         <div class="input-group">
