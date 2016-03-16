@@ -40,17 +40,24 @@
                 <div class="row">
 
                     <h:form>
-                        <div class="input-group">
-                            <div class="col-md-2">
-                                <label for="cat">Kategorie: </label>
-                            </div>
-                            <div class="col-md-4 col-md-offset-4">
-                                <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
-                                    <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kategorie<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                            <ui:repeat value="#{categories.categories}" var="categorie">
+                                <li>
+                                    <a href="#">#{categorie}</a>
+                                </li>
+
+                            </ui:repeat>
+                                <li><a href="#">Action</a></li>
+                            </ul>
+                                <h:selectOneMenu styleClass="dropdown-menu" id="cat" value="#{categories.selectedItem}">
                                     <f:selectItems value="#{categories.categories}"/>
                                     <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
                                 </h:selectOneMenu>
-                            </div>
+
                         </div>
                     </h:form>
 

@@ -22,8 +22,8 @@ function Scroll() {
 	$.each( contentTop, function(i){
 		if ( winTop > contentTop[i] - rangeTop ){
 			$('.navbar-collapse li.scroll')
-				.removeClass('active')
-				.eq(i).addClass('active');
+			.removeClass('active')
+			.eq(i).addClass('active');
 		}
 	})
 };
@@ -36,8 +36,8 @@ $('#tohash').on('click', function(){
 // accordian
 $('.accordion-toggle').on('click', function(){
 	$(this).closest('.panel-group').children().each(function(){
-		$(this).find('>.panel-heading').removeClass('active');
-	});
+	$(this).find('>.panel-heading').removeClass('active');
+	 });
 
 	$(this).closest('.panel-heading').toggleClass('active');
 });
@@ -47,11 +47,11 @@ $(document).ready(function() {
 	var time = 7; // time in seconds
 
 	var $progressBar,
-		$bar,
-		$elem,
-		isPause,
-		tick,
-		percentTime;
+	  $bar,
+	  $elem,
+	  isPause,
+	  tick,
+	  percentTime;
 
 	//Init the carousel
 	$("#main-slider").find('.owl-carousel').owlCarousel({
@@ -73,57 +73,57 @@ $(document).ready(function() {
 
 	//Init progressBar where elem is $("#owl-demo")
 	function progressBar(elem){
-		$elem = elem;
-		//build progress bar elements
-		buildProgressBar();
-		//start counting
-		start();
+	  $elem = elem;
+	  //build progress bar elements
+	  buildProgressBar();
+	  //start counting
+	  start();
 	}
 
 	//create div#progressBar and div#bar then append to $(".owl-carousel")
 	function buildProgressBar(){
-		$progressBar = $("<div>",{
-			id:"progressBar"
-		});
-		$bar = $("<div>",{
-			id:"bar"
-		});
-		$progressBar.append($bar).appendTo($elem);
+	  $progressBar = $("<div>",{
+		id:"progressBar"
+	  });
+	  $bar = $("<div>",{
+		id:"bar"
+	  });
+	  $progressBar.append($bar).appendTo($elem);
 	}
 
 	function start() {
-		//reset timer
-		percentTime = 0;
-		isPause = false;
-		//run interval every 0.01 second
-		tick = setInterval(interval, 10);
+	  //reset timer
+	  percentTime = 0;
+	  isPause = false;
+	  //run interval every 0.01 second
+	  tick = setInterval(interval, 10);
 	};
 
 	function interval() {
-		if(isPause === false){
-			percentTime += 1 / time;
-			$bar.css({
-				width: percentTime+"%"
-			});
-			//if percentTime is equal or greater than 100
-			if(percentTime >= 100){
-				//slide to next item
-				$elem.trigger('owl.next')
-			}
+	  if(isPause === false){
+		percentTime += 1 / time;
+		$bar.css({
+		   width: percentTime+"%"
+		 });
+		//if percentTime is equal or greater than 100
+		if(percentTime >= 100){
+		  //slide to next item
+		  $elem.trigger('owl.next')
 		}
+	  }
 	}
 
 	//pause while dragging
 	function pauseOnDragging(){
-		isPause = true;
+	  isPause = true;
 	}
 
 	//moved callback
 	function moved(){
-		//clear interval
-		clearTimeout(tick);
-		//start again
-		start();
+	  //clear interval
+	  clearTimeout(tick);
+	  //start again
+	  start();
 	}
 });
 //Slider
@@ -149,10 +149,10 @@ $(document).ready(function() {
 			"<i class='fa fa-angle-left'></i>",
 			"<i class='fa fa-angle-right'></i>"
 		],
-		//afterInit : progressBar,
+		afterInit : progressBar,
 		afterMove : moved,
 		startDragging : pauseOnDragging,
-		autoHeight : true,
+		//autoHeight : true,
 		transitionStyle : "fadeUp"
 	});
 
@@ -296,21 +296,4 @@ $("a[rel^='prettyPhoto']").prettyPhoto({
 	social_tools: false
 });
 
-//Google Map
-var latitude = $('#google-map').data('latitude');
-var longitude = $('#google-map').data('longitude');
-function initialize_map() {
-	var myLatlng = new google.maps.LatLng(latitude,longitude);
-	var mapOptions = {
-		zoom: 14,
-		scrollwheel: false,
-		center: myLatlng
-	};
-	var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-	var marker = new google.maps.Marker({
-		position: myLatlng,
-		map: map
-	});
-}
-google.maps.event.addDomListener(window, 'load', initialize_map);
 
