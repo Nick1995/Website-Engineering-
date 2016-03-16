@@ -139,7 +139,7 @@ $(document).ready(function() {
 		percentTime;
 
 	//Init the carousel
-	$("#slider").find('.owl-carousel').owlCarousel({
+	$(".slider").find('.owl-carousel').owlCarousel({
 
 		slideSpeed : 500,
 		paginationSpeed : 500,

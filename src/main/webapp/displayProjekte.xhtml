@@ -1,55 +1,120 @@
-<ui:composition
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:c="http://java.sun.com/jsp/jstl/core"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        lang="en"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      lang="en"
 >
 
-    <ui:repeat value="#{projectImageBean.wobauPid}" var="pid">
-        <div class="row">
-            <h2> #{textDownload.getProjektName(pid)} </h2>
+<!--<ui:composition-->
+<!--xmlns="http://www.w3.org/1999/xhtml"-->
+<!--xmlns:h="http://java.sun.com/jsf/html"-->
+<!--xmlns:c="http://java.sun.com/jsp/jstl/core"-->
+<!--xmlns:ui="http://java.sun.com/jsf/facelets"-->
+<!--lang="en"-->
+<!--&gt;-->
+
+<f:view locale="#{language.locale}">
+
+    <h:head>
+        <f:facet name="first">
+            <!--<meta charset="utf-8" />-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta name="description" content=""/>
+            <meta name="author" content=""/>
+        </f:facet>
+        <title>Ingenierbüro Rübe </title>
+
+        <h:outputStylesheet name="bootstrap.min.css" library="css"/>
+        <h:outputStylesheet name="font-awesome.min.css" library="css"/>
+        <h:outputStylesheet name="animate.min.css" library="css"/>
+        <h:outputStylesheet name="owl.carousel.css" library="css"/>
+        <h:outputStylesheet name="owl.transitions.css" library="css"/>
+        <h:outputStylesheet name="prettyPhoto.css" library="css"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+        <h:outputStylesheet name="responsive.css" library="css"/>
+
+        <!-- core JS -->
+        <h:outputScript library="js" name="jquery.js" target="head"/>
+        <h:outputScript library="js" name="bootstrap.min.js" target="head"/>
+        <h:outputScript library="js" name="jquery.inview.min.js" target="head"/>
+        <h:outputScript library="js" name="jquery.prettyPhoto.js" target="head"/>
+        <h:outputScript library="js" name="jquery.isotope.min.js" target="head"/>
+        <h:outputScript library="js" name="smoothscroll.js" target="head"/>
+        <h:outputScript library="js" name="mousescroll.js" target="head"/>
+        <h:outputScript library="js" name="wow.min.js" target="head"/>
+        <h:outputScript library="js" name="owl.carousel.min.js" target="head"/>
+        <h:outputScript library="js" name="main.js" target="head"/>
+    </h:head>
+
+    <h:body>
+        <label for="cat">Kategorie: </label>
+        <h:selectOneMenu id="cat" value="#{categories.selectedItem}">
+            <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
+            <f:selectItems value="#{categories.categories}"/>
+            <f:ajax listener="#{categories.ajaxListener}" render="sektor projects"/>
+        </h:selectOneMenu>
+
+        <div id="sektor">
+        <label for="sek">Sektor: </label>
+        <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
+            <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
+            <f:selectItems value="#{sectors.sec}"/>
+            <f:ajax listener="#{sectors.ajaxListener}" render="projects"/>
+        </h:selectOneMenu>
         </div>
-        <div class="slider">
-            <div class="owl-carousel">
-                <ui:repeat value="#{projectImageBean.getSpecialImage(pid)}" var="item">
-                    <div class="slider-items">
-                        <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
-                    </div><!--/.item-->
-                </ui:repeat>
-            </div><!--/.owl-carousel-->
+        <div id="projects">
+        <ui:repeat value="#{projectImageBean.wobauPid}" var="pid">
+            <div class="row">
+                <h2> #{textDownload.getProjektName(pid)} </h2>
+            </div>
+            <div class="slider">
+                <div class="owl-carousel">
+                    <ui:repeat value="#{projectImageBean.getSpecialImage(pid)}" var="item">
+                        <div class="item" style="height: 558px" align="center">
+                            <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%" align="center"/>
+                        </div><!--/.item-->
+                    </ui:repeat>
+                </div><!--/.owl-carousel-->
+            </div>
+
+
+            <div class="row col-sm-12">
+                <h:outputText value="Ort: "/>
+                <h:outputText value="#{textDownload.getOrt(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Bauherr: "/>
+                <h:outputText value="#{textDownload.getBauherr(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Architekt: "/>
+                <h:outputText value="#{textDownload.getArchitekt(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Beginn des Baus: "/>
+                <h:outputText value="#{textDownload.getStartzeit(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Ende des Baus "/>
+                <h:outputText value="#{textDownload.getEndzeit(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Bauvolumen: "/>
+                <h:outputText value="#{textDownload.getBauvolumen(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Maßnahmen: "/>
+                <h:outputText value="#{textDownload.getMassnahmen(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Leistung IB Rübe "/>
+                <h:outputText value="#{textDownload.getLeistung(pid)}"/>
+            </div>
+        </ui:repeat>
         </div>
-        <div class="row">
-            <h:outputText value="Ort: "/>
-            <h:outputText value="#{textDownload.getOrt(pid)}"/>
-        </div>
-        <div class="row">
-            <h:outputText value="Bauherr: "/>
-            <h:outputText value="#{textDownload.getBauherr(pid)}"/>
-        </div>
-        <div class="row">
-            <h:outputText value="Architekt: "/>
-            <h:outputText value="#{textDownload.getArchitekt(pid)}"/>
-        </div>
-        <div class="row">
-            <h:outputText value="Beginn des Baus: "/>
-            <h:outputText value="#{textDownload.getStartzeit(pid)}"/>
-        </div>
-        <div class="row">
-            <h:outputText value="Ende des Baus "/>
-            <h:outputText value="#{textDownload.getEndzeit(pid)}"/>
-        </div>
-        <div class="row">
-            <h:outputText value="Bauvolumen: "/>
-            <h:outputText value="#{textDownload.getBauvolumen(pid)}"/>
-        </div>
-        <div class="row">
-            <h:outputText value="Maßnahmen: "/>
-            <h:outputText value="#{textDownload.getMassnahmen(pid)}"/>
-        </div>
-        <div class="row">
-            <h:outputText value="Leistung IB Rübe "/>
-            <h:outputText value="#{textDownload.getLeistung(pid)}"/>
-        </div>
-    </ui:repeat>
-</ui:composition>
+    </h:body>
+</f:view>
+</html>
