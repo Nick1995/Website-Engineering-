@@ -22,119 +22,119 @@
                 </ul><!--/#portfolio-filter-->
             </div>
 
-            <!--<div class="portfolio-items">-->
-                <!--<ui:repeat value="#{allCat.cids}" var="cid">-->
-                <!--<div class="portfolio-item creative">-->
+            <div class="portfolio-items">
+                <ui:repeat value="#{allCat.cids}" var="cid">
+                <div class="portfolio-item creative">
+                    <div class="portfolio-item-inner">
+                        <div class="slider">
+                            <div class="owl-carousel">
+                                <ui:repeat id="catImages" var="item" value="#{categoryImageBean.getAllImage(cid)}">
+                                    <div class="item" align="center" style="height: 185px">
+                                        <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
+                                    </div><!--/.item-->
+                                </ui:repeat>
+                            </div><!--/.owl-carousel-->
+                        </div>
+                        <div class="portfolio-info">
+                            <!--TODO Kategorie Name-->
+                            <h3>Wohnbauten</h3>
+                            <h:form>
+                                <h:commandLink class="preview" action="#{navigate2Projekte.moveToProjekte(1)}">
+                                    <!--<f:param name="pageId" value="1"/>-->
+                                    <i class="fa fa-eye"/>
+                                </h:commandLink>
+                            </h:form>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                </ui:repeat>
+
+                <!--statische Bilder-->
+                <!--<div class="portfolio-item corporate portfolio">-->
                     <!--<div class="portfolio-item-inner">-->
-                        <!--<div class="slider">-->
-                            <!--<div class="owl-carousel">-->
-                                <!--<ui:repeat id="catImages" var="item" value="#{categoryImageBean.getAllImage(cid)}">-->
-                                    <!--<div class="item" align="center" style="height: 185px">-->
-                                        <!--<h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>-->
-                                    <!--</div>&lt;!&ndash;/.item&ndash;&gt;-->
-                                <!--</ui:repeat>-->
-                            <!--</div>&lt;!&ndash;/.owl-carousel&ndash;&gt;-->
-                        <!--</div>-->
+                        <!--<h:graphicImage library="images" name="portfolio/02.jpg" class="img-responsive" alt=""/>-->
                         <!--<div class="portfolio-info">-->
-                            <!--&lt;!&ndash;TODO Kategorie Name&ndash;&gt;-->
-                            <!--<h3>Wohnbauten</h3>-->
-                            <!--<h:form>-->
-                                <!--<h:commandLink class="preview" action="#{navigate2Projekte.moveToProjekte(1)}">-->
-                                    <!--&lt;!&ndash;<f:param name="pageId" value="1"/>&ndash;&gt;-->
-                                    <!--<i class="fa fa-eye"/>-->
-                                <!--</h:commandLink>-->
-                            <!--</h:form>-->
+                            <!--<h3>Portfolio Item 2</h3>-->
+                            <!--Lorem Ipsum Dolor Sit-->
+                            <!--<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i-->
+                                    <!--class="fa fa-eye"></i></h:link>-->
                         <!--</div>-->
                     <!--</div>-->
                 <!--</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;-->
-                <!--</ui:repeat>-->
 
-                <!--&lt;!&ndash;statische Bilder&ndash;&gt;-->
-                <!--&lt;!&ndash;<div class="portfolio-item corporate portfolio">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="portfolio-item-inner">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<h:graphicImage library="images" name="portfolio/02.jpg" class="img-responsive" alt=""/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="portfolio-info">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h3>Portfolio Item 2</h3>&ndash;&gt;-->
-                            <!--&lt;!&ndash;Lorem Ipsum Dolor Sit&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i&ndash;&gt;-->
-                                    <!--&lt;!&ndash;class="fa fa-eye"></i></h:link>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;&ndash;&gt;-->
+                <!--<div class="portfolio-item creative">-->
+                    <!--<div class="portfolio-item-inner">-->
+                        <!--<h:graphicImage library="images" name="portfolio/03.jpg" class="img-responsive" alt=""/>-->
+                        <!--<div class="portfolio-info">-->
+                            <!--<h3>Portfolio Item 3</h3>-->
+                            <!--Lorem Ipsum Dolor Sit-->
+                            <!--<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i-->
+                                    <!--class="fa fa-eye"></i></h:link>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;-->
 
-                <!--&lt;!&ndash;<div class="portfolio-item creative">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="portfolio-item-inner">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<h:graphicImage library="images" name="portfolio/03.jpg" class="img-responsive" alt=""/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="portfolio-info">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h3>Portfolio Item 3</h3>&ndash;&gt;-->
-                            <!--&lt;!&ndash;Lorem Ipsum Dolor Sit&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i&ndash;&gt;-->
-                                    <!--&lt;!&ndash;class="fa fa-eye"></i></h:link>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;&ndash;&gt;-->
+                <!--<div class="portfolio-item corporate">-->
+                    <!--<div class="portfolio-item-inner">-->
+                        <!--<h:graphicImage library="images" name="portfolio/04.jpg" class="img-responsive" alt=""/>-->
+                        <!--<div class="portfolio-info">-->
+                            <!--<h3>Portfolio Item 4</h3>-->
+                            <!--Lorem Ipsum Dolor Sit-->
+                            <!--<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i-->
+                                    <!--class="fa fa-eye"></i></h:link>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;-->
 
-                <!--&lt;!&ndash;<div class="portfolio-item corporate">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="portfolio-item-inner">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<h:graphicImage library="images" name="portfolio/04.jpg" class="img-responsive" alt=""/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="portfolio-info">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h3>Portfolio Item 4</h3>&ndash;&gt;-->
-                            <!--&lt;!&ndash;Lorem Ipsum Dolor Sit&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i&ndash;&gt;-->
-                                    <!--&lt;!&ndash;class="fa fa-eye"></i></h:link>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;&ndash;&gt;-->
+                <!--<div class="portfolio-item creative portfolio">-->
+                    <!--<div class="portfolio-item-inner">-->
+                        <!--<h:graphicImage library="images" name="portfolio/05.jpg" class="img-responsive" alt=""/>-->
+                        <!--<div class="portfolio-info">-->
+                            <!--<h3>Portfolio Item 5</h3>-->
+                            <!--Lorem Ipsum Dolor Sit-->
+                            <!--<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i-->
+                                    <!--class="fa fa-eye"></i></h:link>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;-->
 
-                <!--&lt;!&ndash;<div class="portfolio-item creative portfolio">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="portfolio-item-inner">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<h:graphicImage library="images" name="portfolio/05.jpg" class="img-responsive" alt=""/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="portfolio-info">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h3>Portfolio Item 5</h3>&ndash;&gt;-->
-                            <!--&lt;!&ndash;Lorem Ipsum Dolor Sit&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i&ndash;&gt;-->
-                                    <!--&lt;!&ndash;class="fa fa-eye"></i></h:link>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;&ndash;&gt;-->
+                <!--<div class="portfolio-item corporate">-->
+                    <!--<div class="portfolio-item-inner">-->
+                        <!--<h:graphicImage library="images" name="portfolio/06.jpg" class="img-responsive" alt=""/>-->
+                        <!--<div class="portfolio-info">-->
+                            <!--<h3>Portfolio Item 5</h3>-->
+                            <!--Lorem Ipsum Dolor Sit-->
+                            <!--<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i-->
+                                    <!--class="fa fa-eye"></i></h:link>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;-->
 
-                <!--&lt;!&ndash;<div class="portfolio-item corporate">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="portfolio-item-inner">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<h:graphicImage library="images" name="portfolio/06.jpg" class="img-responsive" alt=""/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="portfolio-info">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h3>Portfolio Item 5</h3>&ndash;&gt;-->
-                            <!--&lt;!&ndash;Lorem Ipsum Dolor Sit&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i&ndash;&gt;-->
-                                    <!--&lt;!&ndash;class="fa fa-eye"></i></h:link>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;&ndash;&gt;-->
+                <!--<div class="portfolio-item creative portfolio">-->
+                    <!--<div class="portfolio-item-inner">-->
+                        <!--<h:graphicImage library="images" name="portfolio/07.jpg" class="img-responsive" alt=""/>-->
+                        <!--<div class="portfolio-info">-->
+                            <!--<h3>Portfolio Item 7</h3>-->
+                            <!--Lorem Ipsum Dolor Sit-->
+                            <!--<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i-->
+                                    <!--class="fa fa-eye"></i></h:link>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;-->
 
-                <!--&lt;!&ndash;<div class="portfolio-item creative portfolio">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="portfolio-item-inner">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<h:graphicImage library="images" name="portfolio/07.jpg" class="img-responsive" alt=""/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="portfolio-info">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h3>Portfolio Item 7</h3>&ndash;&gt;-->
-                            <!--&lt;!&ndash;Lorem Ipsum Dolor Sit&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i&ndash;&gt;-->
-                                    <!--&lt;!&ndash;class="fa fa-eye"></i></h:link>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;&ndash;&gt;-->
+                <!--<div class="portfolio-item corporate">-->
+                    <!--<div class="portfolio-item-inner">-->
+                        <!--<h:graphicImage library="images" name="portfolio/08.jpg" class="img-responsive" alt=""/>-->
+                        <!--<div class="portfolio-info">-->
+                            <!--<h3>Portfolio Item 8</h3>-->
+                            <!--Lorem Ipsum Dolor Sit-->
+                            <!--<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i-->
+                                    <!--class="fa fa-eye"></i></h:link>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;-->
 
-                <!--&lt;!&ndash;<div class="portfolio-item corporate">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="portfolio-item-inner">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<h:graphicImage library="images" name="portfolio/08.jpg" class="img-responsive" alt=""/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div class="portfolio-info">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h3>Portfolio Item 8</h3>&ndash;&gt;-->
-                            <!--&lt;!&ndash;Lorem Ipsum Dolor Sit&ndash;&gt;-->
-                            <!--&lt;!&ndash;<h:link class="preview" href="images/portfolio/full.jpg" rel="prettyPhoto"><i&ndash;&gt;-->
-                                    <!--&lt;!&ndash;class="fa fa-eye"></i></h:link>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&lt;!&ndash;/.portfolio-item&ndash;&gt;&ndash;&gt;-->
-
-            <!--</div>-->
+            </div>
 
 
         </div><!--/.container-->
