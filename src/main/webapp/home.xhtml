@@ -9,73 +9,73 @@
 >
 <f:view locale="#{language.locale}">
 
-<h:head>
-    <f:facet name="first">
-        <!--<meta charset="utf-8" />-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-    </f:facet>
-    <title>Ingenierbüro Rübe </title>
+    <h:head>
+        <f:facet name="first">
+            <!--<meta charset="utf-8" />-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta name="description" content="" />
+            <meta name="author" content="" />
+        </f:facet>
+        <title>Ingenierbüro Rübe </title>
 
-    <h:outputScript url="http://maps.google.com/maps/api/js?sensor=true" />
+        <h:outputScript url="http://maps.google.com/maps/api/js?sensor=true" />
 
-    <h:outputStylesheet name="bootstrap.min.css" library="css" />
-    <h:outputStylesheet name="font-awesome.min.css" library="css" />
-    <h:outputStylesheet name="animate.min.css" library="css" />
-    <h:outputStylesheet name="owl.carousel.css" library="css" />
-    <h:outputStylesheet name="owl.transitions.css" library="css" />
-    <h:outputStylesheet name="prettyPhoto.css" library="css" />
-    <h:outputStylesheet name="main.css" library="css" />
-    <h:outputStylesheet name="responsive.css" library="css" />
+        <h:outputStylesheet name="bootstrap.min.css" library="css" />
+        <h:outputStylesheet name="font-awesome.min.css" library="css" />
+        <h:outputStylesheet name="animate.min.css" library="css" />
+        <h:outputStylesheet name="owl.carousel.css" library="css" />
+        <h:outputStylesheet name="owl.transitions.css" library="css" />
+        <h:outputStylesheet name="prettyPhoto.css" library="css" />
+        <h:outputStylesheet name="main.css" library="css" />
+        <h:outputStylesheet name="responsive.css" library="css" />
 
-    <!-- core JS -->
-    <h:outputScript library="js" name="jquery.js" target="head"/>
-    <h:outputScript library="js" name="bootstrap.min.js" target="head" />
-    <h:outputScript library="js" name="jquery.inview.min.js" target="head"/>
-    <h:outputScript library="js" name="jquery.prettyPhoto.js" target="head"/>
-    <h:outputScript library="js" name="jquery.isotope.min.js" target="head"/>
-    <h:outputScript library="js" name="smoothscroll.js" target="head"/>
-    <h:outputScript library="js" name="mousescroll.js" target="head"/>
-    <h:outputScript library="js" name="wow.min.js" target="head"/>
-    <h:outputScript library="js" name="owl.carousel.min.js" target="head"/>
-    <h:outputScript library="js" name="main.js" target="head"/>
+        <!-- core JS -->
+        <h:outputScript library="js" name="jquery.js" target="head"/>
+        <h:outputScript library="js" name="bootstrap.min.js" target="head" />
+        <h:outputScript library="js" name="jquery.inview.min.js" target="head"/>
+        <h:outputScript library="js" name="jquery.prettyPhoto.js" target="head"/>
+        <h:outputScript library="js" name="jquery.isotope.min.js" target="head"/>
+        <h:outputScript library="js" name="smoothscroll.js" target="head"/>
+        <h:outputScript library="js" name="mousescroll.js" target="head"/>
+        <h:outputScript library="js" name="wow.min.js" target="head"/>
+        <h:outputScript library="js" name="owl.carousel.min.js" target="head"/>
+        <h:outputScript library="js" name="main.js" target="head"/>
 
-    <!--[if lt IE 9]>
-    <h:outputScript library="js" name="html5shiv.js" />
-    <h:outputScript library="js" name="respond.min.js" />
+        <!--[if lt IE 9]>
+        <h:outputScript library="js" name="html5shiv.js" />
+        <h:outputScript library="js" name="respond.min.js" />
 
-    <![endif]-->
-    <link rel="shortcut icon" href="resources/images/ico/favicon.ico"> </link>
-    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png" /> -->
-    <link rel="apple-touch-icon-precomposed" href="resources/images/ico/apple-touch-icon-57-precomposed.png" />
-</h:head><!--/head-->
+        <![endif]-->
+        <link rel="shortcut icon" href="resources/images/ico/favicon.ico"> </link>
+        <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png" /> -->
+        <link rel="apple-touch-icon-precomposed" href="resources/images/ico/apple-touch-icon-57-precomposed.png" />
+    </h:head><!--/head-->
 
-<h:body id="home" class="homepage">
+    <h:body id="home" class="homepage">
 
-    <ui:include src="site/startseite.xhtml"/>
+        <ui:include src="site/startseite.xhtml"/>
 
-    <ui:include src="site/allgInfo.xhtml"/>
+        <ui:include src="site/allgInfo.xhtml"/>
 
-    <ui:include src="site/projekte.xhtml"/>
+        <ui:include src="site/projekte.xhtml"/>
 
-    <ui:include src="site/karriere.xhtml"/>
+        <ui:include src="site/karriere.xhtml"/>
 
-    <ui:include src="site/login.xhtml"/>
+        <ui:include src="site/login.xhtml"/>
 
-    <ui:include src="site/impressum.xhtml"/>
+        <ui:include src="site/impressum.xhtml"/>
 
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2016 Ingenieur Büro Rübe
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        &copy; 2016 Ingenieur Büro Rübe
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</h:body>
+    </h:body>
 </f:view>
 </html>

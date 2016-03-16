@@ -19,7 +19,6 @@ public class CategorieBean {
 
     private String selectedItem; // +getter +setter
     private List<String> categories; // +getter (no setter necessary)
-//    private String cat;
 
     Nutzer nutzer = Nutzer.getInstance();
     Exchange ex = Exchange.getInstance();

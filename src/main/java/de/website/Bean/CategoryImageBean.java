@@ -31,8 +31,14 @@ public class CategoryImageBean {
         Connection con = ex.getConnection();
         try {
             stmt = con.createStatement();
-            String strSql = "select id from bilder where " + Kid(kid) + " order by id";
-            //System.err.println("*select all***" + strSql);
+            String id = "";
+            if(lookUpProjectsByKid(kid).equals("")){
+                id = lookUpProjectsBySid(kid);
+            }else if(lookUpSectorsByKid(kid).equals("")){
+                id = lookUpProjectsByKid(kid);
+            }
+
+            String strSql = "select id from bilder where " + id + " order by id";
             rs = stmt.executeQuery(strSql);
             while (rs.next()) {
                 CategoryImageBean cib = new CategoryImageBean();
@@ -56,7 +62,7 @@ public class CategoryImageBean {
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
-    private String Kid(String kidNum){
+    private String lookUpProjectsByKid(String kidNum){
         connect2db();
         ArrayList<String> kid = new ArrayList<String>();
         String sqlId = "";
@@ -64,7 +70,6 @@ public class CategoryImageBean {
         try {
             stmt = con.createStatement();
             String strSql = "select id from projekte where kid = " + kidNum;
-            //System.err.println("*select all***" + strSql);
             rs = stmt.executeQuery(strSql);
             while (rs.next()) {
                 kid.add(rs.getString("id"));
@@ -73,6 +78,52 @@ public class CategoryImageBean {
             sqlId = " iid = " + kid.get(0);
             for (int i = 1; i < kid.size() - 1; i++) {
                 sqlId += " or iid = " + kid.get(i);
+            }
+            return sqlId;
+        }catch (Exception e){
+            logger.error("Fehler Datenbankabfrage: " ,e);
+        }
+        return sqlId;
+    } 
+    private String lookUpSectorsByKid(String kidNum){
+        connect2db();
+        ArrayList<String> sectors = new ArrayList<String>();
+        String sqlId = "";
+        Connection con = ex.getConnection();
+        try {
+            stmt = con.createStatement();
+            String strSql = "select id from sektor where kid = " + kidNum;
+            rs = stmt.executeQuery(strSql);
+            while (rs.next()) {
+                sectors.add(rs.getString("id"));
+            }
+
+            sqlId = " sid = " + sectors.get(0);
+            for (int i = 1; i < sectors.size() - 1; i++) {
+                sqlId += " or sid = " + sectors.get(i);
+            }
+            return sqlId;
+        }catch (Exception e){
+            logger.error("Fehler Datenbankabfrage: " ,e);
+        }
+        return sqlId;
+    }
+    private String lookUpProjectsBySid(String kidNum){
+        connect2db();
+        ArrayList<String> sectors = new ArrayList<String>();
+        String sqlId = "";
+        Connection con = ex.getConnection();
+        try {
+            stmt = con.createStatement();
+            String strSql = "select id from projekte where " + lookUpSectorsByKid(kidNum);
+            rs = stmt.executeQuery(strSql);
+            while (rs.next()) {
+                sectors.add(rs.getString("id"));
+            }
+
+            sqlId = " iid = " + sectors.get(0);
+            for (int i = 1; i < sectors.size() - 1; i++) {
+                sqlId += " or iid = " + sectors.get(i);
             }
             return sqlId;
         }catch (Exception e){

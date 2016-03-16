@@ -58,62 +58,65 @@
         </h:selectOneMenu>
 
         <div id="sektor">
-        <label for="sek">Sektor: </label>
-        <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
-            <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
-            <f:selectItems value="#{sectors.sec}"/>
-            <f:ajax listener="#{sectors.ajaxListener}" render="projects"/>
-        </h:selectOneMenu>
+            <label for="sek">Sektor: </label>
+            <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
+                <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
+                <f:selectItems value="#{sectors.sec}"/>
+                <f:ajax listener="#{sectors.ajaxListener}" render="projects"/>
+            </h:selectOneMenu>
         </div>
         <div id="projects">
-        <ui:repeat value="#{projectImageBean.wobauPid}" var="pid">
-            <div class="row">
-                <h2> #{textDownload.getProjektName(pid)} </h2>
-            </div>
-            <div class="slider">
-                <div class="owl-carousel">
-                    <ui:repeat value="#{projectImageBean.getSpecialImage(pid)}" var="item">
-                        <div class="item" style="height: 558px" align="center">
-                            <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%" align="center"/>
-                        </div><!--/.item-->
-                    </ui:repeat>
-                </div><!--/.owl-carousel-->
-            </div>
+
+            <ui:repeat value="#{projectImageBean.wobauPid}" var="pid">
+
+                <div class="row">
+                    <h2> #{textDownload.getProjektName(pid)} </h2>
+                </div>
+
+                <div class="slider">
+                    <div class="owl-carousel">
+                        <ui:repeat value="#{projectImageBean.getSpecialImage(pid)}" var="item">
+                            <div class="item" align="center">
+                                <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%" align="center"/>
+                            </div><!--/.item-->
+                        </ui:repeat>
+                    </div><!--/.owl-carousel-->
+                </div>
 
 
-            <div class="row col-sm-12">
-                <h:outputText value="Ort: "/>
-                <h:outputText value="#{textDownload.getOrt(pid)}"/>
-            </div>
-            <div class="row col-sm-12">
-                <h:outputText value="Bauherr: "/>
-                <h:outputText value="#{textDownload.getBauherr(pid)}"/>
-            </div>
-            <div class="row col-sm-12">
-                <h:outputText value="Architekt: "/>
-                <h:outputText value="#{textDownload.getArchitekt(pid)}"/>
-            </div>
-            <div class="row col-sm-12">
-                <h:outputText value="Beginn des Baus: "/>
-                <h:outputText value="#{textDownload.getStartzeit(pid)}"/>
-            </div>
-            <div class="row col-sm-12">
-                <h:outputText value="Ende des Baus "/>
-                <h:outputText value="#{textDownload.getEndzeit(pid)}"/>
-            </div>
-            <div class="row col-sm-12">
-                <h:outputText value="Bauvolumen: "/>
-                <h:outputText value="#{textDownload.getBauvolumen(pid)}"/>
-            </div>
-            <div class="row col-sm-12">
-                <h:outputText value="Maßnahmen: "/>
-                <h:outputText value="#{textDownload.getMassnahmen(pid)}"/>
-            </div>
-            <div class="row col-sm-12">
-                <h:outputText value="Leistung IB Rübe "/>
-                <h:outputText value="#{textDownload.getLeistung(pid)}"/>
-            </div>
-        </ui:repeat>
+                <div class="row col-sm-12">
+                    <h:outputText value="Ort: "/>
+                    <h:outputText value="#{textDownload.getOrt(pid)}"/>
+                </div>
+                <div class="row col-sm-12">
+                    <h:outputText value="Bauherr: "/>
+                    <h:outputText value="#{textDownload.getBauherr(pid)}"/>
+                </div>
+                <div class="row col-sm-12">
+                    <h:outputText value="Architekt: "/>
+                    <h:outputText value="#{textDownload.getArchitekt(pid)}"/>
+                </div>
+                <div class="row col-sm-12">
+                    <h:outputText value="Beginn des Baus: "/>
+                    <h:outputText value="#{textDownload.getStartzeit(pid)}"/>
+                </div>
+                <div class="row col-sm-12">
+                    <h:outputText value="Ende des Baus "/>
+                    <h:outputText value="#{textDownload.getEndzeit(pid)}"/>
+                </div>
+                <div class="row col-sm-12">
+                    <h:outputText value="Bauvolumen: "/>
+                    <h:outputText value="#{textDownload.getBauvolumen(pid)}"/>
+                </div>
+                <div class="row col-sm-12">
+                    <h:outputText value="Maßnahmen: "/>
+                    <h:outputText value="#{textDownload.getMassnahmen(pid)}"/>
+                </div>
+                <div class="row col-sm-12">
+                    <h:outputText value="Leistung IB Rübe "/>
+                    <h:outputText value="#{textDownload.getLeistung(pid)}"/>
+                </div>
+            </ui:repeat>
         </div>
     </h:body>
 </f:view>

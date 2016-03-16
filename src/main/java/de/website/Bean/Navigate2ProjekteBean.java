@@ -12,26 +12,13 @@ import java.io.Serializable;
 @ManagedBean(name = "navigate2Projekte", eager = true)
 @RequestScoped
 public class Navigate2ProjekteBean implements Serializable {
+  private String pageId;
 
-    public String getPageId() {
-        return pageId;
-    }
+    public String moveToProjekte(String pid) {
 
-    public void setPageId(String pageId) {
-        this.pageId = pageId;
-    }
-
-    @ManagedProperty(value = "#{param.pageId}")
-
-    private String pageId;
-
-    public String moveToProjekte() {
-
-        if (pageId.equals("1")) {
+        Exchange ex = Exchange.getInstance();
+        ex.setPid(Integer.parseInt(pid));
             return "displayProjekte";
-        } else {
-            return "home";
-        }
     }
 }
 

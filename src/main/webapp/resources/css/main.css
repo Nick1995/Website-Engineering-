@@ -305,8 +305,8 @@ ul.nostyle i {
   overflow: hidden;
 }
 .slider .item {
-  height: 185px;
-  background-repeat: no-repeat;
+  /*height: 185px;*/
+  background-repseat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
 }
