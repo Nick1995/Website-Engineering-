@@ -40,6 +40,7 @@ public class ProjectImageBean {
         }
         return imageInfo;
     }
+
     public List<ProjectImageBean> getSpecialImage(String pid) {
         List<ProjectImageBean> imageInfo = new ArrayList<ProjectImageBean>();
         Connection con = ex.getConnection();
@@ -67,14 +68,33 @@ public class ProjectImageBean {
     }
 
     public List<String> getWobauPid() {
+        String sectorSql;
+        List<String> sectors = new ArrayList<String>();
         Connection con = ex.getConnection();
+        int kid = ex.getCid();
         try {
             stmt = con.createStatement();
-            String strSql = "select id from projekte where kid = 1 order by id";
+            String strSql = "select id from projekte where kid = " + kid + " order by id";
             rs = stmt.executeQuery(strSql);
             while (rs.next()){
                 wobauPid.add(rs.getString("id"));
-                ex.setPid(Integer.parseInt(rs.getString("id")));
+//                ex.setPid(Integer.parseInt(rs.getString("id")));
+            }
+            if(! rs.next()){
+                strSql = "select id from sektor where kid = " + kid + " order by id";
+                rs = stmt.executeQuery(strSql);
+                while (rs.next()){
+                    sectors.add(rs.getString("id"));
+                }
+                sectorSql = sectors.get(0);
+                for(int i = 1; i < sectors.size(); i++){
+                    sectorSql += " or sid = " + sectors.get(i);
+                }
+                strSql = "select id from projekte where sid = " + sectorSql + " order by id";
+                rs = stmt.executeQuery(strSql);
+                while (rs.next()){
+                    wobauPid.add(rs.getString("id"));
+                }
             }
         } catch (Exception e) {
         e.printStackTrace();

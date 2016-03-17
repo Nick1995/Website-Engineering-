@@ -4,7 +4,9 @@ import de.website.database.Nutzer;
 import org.apache.log4j.Logger;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import java.sql.*;
@@ -15,7 +17,7 @@ import java.util.List;
  * Created by Nick on 16.03.2016.
  */
 @ManagedBean(name = "allCat")
-@SessionScoped
+@RequestScoped
 public class AllCategoriesBean {
 
     private int categoryID;
