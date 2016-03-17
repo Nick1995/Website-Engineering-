@@ -39,8 +39,6 @@
                                 <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('de')}" immediate="true" value="Deutsch" />
                             </h:form>
                         </li>
-
-
                         <li class="scroll">
                             <h:form>
                                 <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('en')}" immediate="true" value="English" />
@@ -92,6 +90,8 @@
             <div class="row">
                 <div class="col-sm-9">
                     <h2>#{msg['startseite_caption']}</h2>
+                    <p><h:outputText value="#{msg['startseite_text']}" escape="false"/>
+                    </p>
                     <h:outputText value="#{msg['startseite_text']}" escape="false"/>
                 </div>
             </div>

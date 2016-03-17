@@ -1,5 +1,7 @@
 package de.website.Bean;
 
+import org.primefaces.context.RequestContext;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,6 +111,7 @@ public class ProjectImageBean {
         e.printStackTrace();
             return null;
     }
+
         return wobauPid;
     }
 }

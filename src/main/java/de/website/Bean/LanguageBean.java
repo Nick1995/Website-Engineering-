@@ -40,12 +40,9 @@ public class LanguageBean implements Serializable {
 
     public String changeLang(String langCode) {
 
-        Locale test = FacesContext.getCurrentInstance().getViewRoot().getLocale();
-
         locale = new Locale(langCode);
         FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
 
-        test = FacesContext.getCurrentInstance().getViewRoot().getLocale();
         return null;
     }
 }
