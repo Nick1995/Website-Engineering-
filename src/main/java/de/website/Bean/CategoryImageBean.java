@@ -65,8 +65,6 @@ public class CategoryImageBean {
 
         } catch (Exception exc) {
             logger.error("Die Datenbank konnte vom User open nicht erreicht werden.");
-            FacesMessage msg = new FacesMessage("Die Datenbank konnte nicht erreicht werden");
-            FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
     private String lookUpProjectsByKid(String kidNum){
