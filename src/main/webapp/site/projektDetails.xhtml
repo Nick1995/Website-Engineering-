@@ -39,7 +39,7 @@
         <h:outputScript rendered="#{not empty dropdownProjekteBean.refreshJs}">#{dropdownProjekteBean.refreshJs}</h:outputScript>
 
         <ui:repeat value="#{projectImageBean.wobauPid}" var="pid">
-
+            <div class="container">
             <div class="row">
                 <h2> #{textDownload.getProjektName(pid)} </h2>
             </div>
@@ -55,37 +55,38 @@
             </div>
 
 
-            <div class="row col-sm-12">
+            <div class="row">
                 <h:outputText value="Ort: "/>
                 <h:outputText value="#{textDownload.getOrt(pid)}"/>
             </div>
-            <div class="row col-sm-12">
+            <div class="row">
                 <h:outputText value="Bauherr: "/>
                 <h:outputText value="#{textDownload.getBauherr(pid)}"/>
             </div>
-            <div class="row col-sm-12">
+            <div class="row">
                 <h:outputText value="Architekt: "/>
                 <h:outputText value="#{textDownload.getArchitekt(pid)}"/>
             </div>
-            <div class="row col-sm-12">
+            <div class="row">
                 <h:outputText value="Beginn des Baus: "/>
                 <h:outputText value="#{textDownload.getStartzeit(pid)}"/>
             </div>
-            <div class="row col-sm-12">
+            <div class="row">
                 <h:outputText value="Ende des Baus "/>
                 <h:outputText value="#{textDownload.getEndzeit(pid)}"/>
             </div>
-            <div class="row col-sm-12">
+            <div class="row">
                 <h:outputText value="Bauvolumen: "/>
                 <h:outputText value="#{textDownload.getBauvolumen(pid)}"/>
             </div>
-            <div class="row col-sm-12">
+            <div class="row">
                 <h:outputText value="Maßnahmen: "/>
                 <h:outputText value="#{textDownload.getMassnahmen(pid)}"/>
             </div>
-            <div class="row col-sm-12">
+            <div class="row">
                 <h:outputText value="Leistung IB Rübe "/>
                 <h:outputText value="#{textDownload.getLeistung(pid)}"/>
+            </div>
             </div>
         </ui:repeat>
     </h:form>
