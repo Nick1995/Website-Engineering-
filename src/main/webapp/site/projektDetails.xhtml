@@ -22,28 +22,30 @@
         </div><!--/nav-->
     </div><!--/header-->
     <h:form id="sectors">
-    <label for="sektorchoice">Sektor: </label>
-    <div id="sektorchoice" >
-        <h:selectOneMenu value="#{dropdownProjekteBean.selectedItem}">
-            <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
-            <f:selectItems value="#{dropdownProjekteBean.sektoren}"/>
-            <f:ajax listener="#{dropdownProjekteBean.ajaxListener}" render="projects" />
-        </h:selectOneMenu>
-    </div>
+        <div class="container">
+            <label for="sektorchoice">Sektor: </label>
+            <div id="sektorchoice">
+                <h:selectOneMenu value="#{dropdownProjekteBean.selectedItem}">
+                    <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
+                    <f:selectItems value="#{dropdownProjekteBean.sektoren}"/>
+                    <f:ajax listener="#{dropdownProjekteBean.ajaxListener}" render="projects"/>
+                </h:selectOneMenu>
+            </div>
+        </div>
     </h:form>
-
 
 
     <h:form id="projects">
 
-        <h:outputScript rendered="#{not empty dropdownProjekteBean.refreshJs}">#{dropdownProjekteBean.refreshJs}</h:outputScript>
-
+        <h:outputScript
+                rendered="#{not empty dropdownProjekteBean.refreshJs}">#{dropdownProjekteBean.refreshJs}</h:outputScript>
         <ui:repeat value="#{projectImageBean.wobauPid}" var="pid">
             <div class="container">
-            <div class="row">
-                <h2> #{textDownload.getProjektName(pid)} </h2>
-            </div>
+                <div class="row">
+                    <h2> #{textDownload.getProjektName(pid)} </h2>
+                </div>
 
+            </div>
             <div class="slider">
                 <div class="owl-carousel">
                     <ui:repeat value="#{projectImageBean.getSpecialImage(pid)}" var="item">
@@ -53,40 +55,71 @@
                     </ui:repeat>
                 </div><!--/.owl-carousel-->
             </div>
-
-
-            <div class="row">
-                <h:outputText value="Ort: "/>
-                <h:outputText value="#{textDownload.getOrt(pid)}"/>
-            </div>
-            <div class="row">
-                <h:outputText value="Bauherr: "/>
-                <h:outputText value="#{textDownload.getBauherr(pid)}"/>
-            </div>
-            <div class="row">
-                <h:outputText value="Architekt: "/>
-                <h:outputText value="#{textDownload.getArchitekt(pid)}"/>
-            </div>
-            <div class="row">
-                <h:outputText value="Beginn des Baus: "/>
-                <h:outputText value="#{textDownload.getStartzeit(pid)}"/>
-            </div>
-            <div class="row">
-                <h:outputText value="Ende des Baus "/>
-                <h:outputText value="#{textDownload.getEndzeit(pid)}"/>
-            </div>
-            <div class="row">
-                <h:outputText value="Bauvolumen: "/>
-                <h:outputText value="#{textDownload.getBauvolumen(pid)}"/>
-            </div>
-            <div class="row">
-                <h:outputText value="Maßnahmen: "/>
-                <h:outputText value="#{textDownload.getMassnahmen(pid)}"/>
-            </div>
-            <div class="row">
-                <h:outputText value="Leistung IB Rübe "/>
-                <h:outputText value="#{textDownload.getLeistung(pid)}"/>
-            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="auswahlPanel">
+                        <div class="input-group">
+                            <span class="input-group-addon">Ort: </span>
+                            <h:outputText value="#{textDownload.getOrt(pid)}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="auswahlPanel">
+                        <div class="input-group">
+                            <span class="input-group-addon">Bauherr: </span>
+                            <h:outputText value="#{textDownload.getBauherr(pid)}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="auswahlPanel">
+                        <div class="input-group">
+                            <span class="input-group-addon">Architekt: </span>
+                            <h:outputText value="#{textDownload.getArchitekt(pid)}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="auswahlPanel">
+                        <div class="input-group">
+                            <span class="input-group-addon">Baubeginn: </span>
+                            <h:outputText value="#{textDownload.getStartzeit(pid)}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="auswahlPanel">
+                        <div class="input-group">
+                            <span class="input-group-addon">Ende des Baus: </span>
+                            <h:outputText value="#{textDownload.getEndzeit(pid)}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="auswahlPanel">
+                        <div class="input-group">
+                            <span class="input-group-addon">Bauvolumen: </span>
+                            <h:outputText value="#{textDownload.getBauvolumen(pid)}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="auswahlPanel">
+                        <div class="input-group">
+                            <span class="input-group-addon">Maßnahmen: </span>
+                            <h:outputText value="#{textDownload.getMassnahmen(pid)}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="auswahlPanel">
+                        <div class="input-group">
+                            <span class="input-group-addon">Leistung IB Rübe: </span>
+                            <h:outputText value="#{textDownload.getLeistung(pid)}"/>
+                        </div>
+                    </div>
+                </div>
             </div>
         </ui:repeat>
     </h:form>
