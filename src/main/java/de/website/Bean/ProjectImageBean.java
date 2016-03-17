@@ -78,7 +78,6 @@ public class ProjectImageBean {
             rs = stmt.executeQuery(strSql);
             while (rs.next()){
                 wobauPid.add(rs.getString("id"));
-//                ex.setPid(Integer.parseInt(rs.getString("id")));
             }
             if(! rs.next()){
                 strSql = "select id from sektor where kid = " + kid + " order by id";
