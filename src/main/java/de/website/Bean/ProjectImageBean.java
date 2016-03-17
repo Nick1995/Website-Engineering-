@@ -80,19 +80,32 @@ public class ProjectImageBean {
                 wobauPid.add(rs.getString("id"));
             }
             if(! rs.next()){
-                strSql = "select id from sektor where kid = " + kid + " order by id";
-                rs = stmt.executeQuery(strSql);
-                while (rs.next()){
-                    sectors.add(rs.getString("id"));
-                }
-                sectorSql = sectors.get(0);
-                for(int i = 1; i < sectors.size(); i++){
-                    sectorSql += " or sid = " + sectors.get(i);
-                }
-                strSql = "select id from projekte where sid = " + sectorSql + " order by id";
-                rs = stmt.executeQuery(strSql);
-                while (rs.next()){
-                    wobauPid.add(rs.getString("id"));
+                int sid = ex.getSid();
+                if(rs.first()){
+                }else if(sid == 0){
+                    strSql = "select id from sektor where kid = " + kid + " order by id";
+                    rs = stmt.executeQuery(strSql);
+                    while (rs.next()) {
+                        sectors.add(rs.getString("id"));
+                    }
+                    sectorSql = sectors.get(0);
+                    for (int i = 1; i < sectors.size(); i++) {
+                        sectorSql += " or sid = " + sectors.get(i);
+                    }
+                    strSql = "select id from projekte where sid = " + sectorSql + " order by id";
+                    rs = stmt.executeQuery(strSql);
+                    while (rs.next()) {
+                        wobauPid.add(rs.getString("id"));
+                    }
+                }else{
+                    strSql = "select id from projekte where sid = " + sid + " order by id";
+                    rs = stmt.executeQuery(strSql);
+                    while (rs.next()) {
+                        wobauPid.add(rs.getString("id"));
+                    }
+                    if(rs.first()){
+                        wobauPid.add(rs.getString("id"));
+                    }
                 }
             }
         } catch (Exception e) {

@@ -1,0 +1,123 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        lang="en"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
+    <div id="header">
+        <div id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="navbar-brand">
+                        <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
+                            <h:graphicImage library="images" name="logo.png"/>
+                        </h:link>
+                    </div>
+
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="scroll"><h:link value="#{msg['navListe_Startseite']}" fragment="home"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_allgInfo']}" fragment="info"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_Projekte']}" fragment="projekte"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_Karriere']}" fragment="karriere"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_Login']}" fragment="login"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_Kontakt']}" fragment="contact"/></li>
+                        <li class="scroll">
+                            <h:form>
+                                <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('de')}" immediate="true" value="Deutsch" />
+                            </h:form>
+                        </li>
+
+
+                        <li class="scroll">
+                            <h:form>
+                                <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('en')}" immediate="true" value="English" />
+                            </h:form>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div><!--/.container-->
+        </div><!--/nav-->
+    </div><!--/header-->
+    <h:form id="sectors">
+    <label for="sektorchoice">Sektor: </label>
+    <div id="sektorchoice" >
+        <h:selectOneMenu value="#{dropdownProjekteBean.selectedItem}">
+            <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
+            <f:selectItems value="#{dropdownProjekteBean.sektoren}"/>
+            <f:ajax listener="#{dropdownProjekteBean.ajaxListener}" render="projects"/>
+        </h:selectOneMenu>
+    </div>
+    </h:form>
+
+
+
+    <h:form id="projects">
+
+        <ui:repeat value="#{projectImageBean.wobauPid}" var="pid">
+
+            <div class="row">
+                <h2> #{textDownload.getProjektName(pid)} </h2>
+            </div>
+
+            <div class="slider">
+                <div class="owl-carousel">
+                    <ui:repeat value="#{projectImageBean.getSpecialImage(pid)}" var="item">
+                        <div class="item" align="center">
+                            <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%" align="center"/>
+                        </div><!--/.item-->
+                    </ui:repeat>
+                </div><!--/.owl-carousel-->
+            </div>
+
+
+            <div class="row col-sm-12">
+                <h:outputText value="Ort: "/>
+                <h:outputText value="#{textDownload.getOrt(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Bauherr: "/>
+                <h:outputText value="#{textDownload.getBauherr(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Architekt: "/>
+                <h:outputText value="#{textDownload.getArchitekt(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Beginn des Baus: "/>
+                <h:outputText value="#{textDownload.getStartzeit(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Ende des Baus "/>
+                <h:outputText value="#{textDownload.getEndzeit(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Bauvolumen: "/>
+                <h:outputText value="#{textDownload.getBauvolumen(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Maßnahmen: "/>
+                <h:outputText value="#{textDownload.getMassnahmen(pid)}"/>
+            </div>
+            <div class="row col-sm-12">
+                <h:outputText value="Leistung IB Rübe "/>
+                <h:outputText value="#{textDownload.getLeistung(pid)}"/>
+            </div>
+        </ui:repeat>
+    </h:form>
+
+</ui:composition>

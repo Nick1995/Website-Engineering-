@@ -13,15 +13,6 @@
                 <p class="text-center wow fadeInDown">#{msg['projekte_caption_text']}</p>
             </div>
 
-            <!--<div class="text-center">-->
-                <!--<ul class="portfolio-filter">-->
-                    <!--<li><h:link class="active" href="#" data-filter="*">#{msg['projekte_auswahl_alle']}</h:link></li>-->
-                    <!--<li><h:link href="#" data-filter=".creative">#{msg['projekte_auswahl_eins']}</h:link></li>-->
-                    <!--<li><h:link href="#" data-filter=".corporate">#{msg['projekte_auswahl_zwei']}</h:link></li>-->
-                    <!--<li><h:link href="#" data-filter=".portfolio">#{msg['projekte_auswahl_drei']}</h:link></li>-->
-                <!--</ul>&lt;!&ndash;/#portfolio-filter&ndash;&gt;-->
-            <!--</div>-->
-
             <div class="portfolio-items">
                 <ui:repeat value="#{allCat.cids}" var="cid">
                 <div class="portfolio-item creative">
@@ -39,7 +30,6 @@
                             <h3>#{categoryImageBean.getCatName(cid)}</h3>
                             <h:form>
                                 <h:commandLink class="preview" action="#{navigate2Projekte.moveToProjekte(cid)}">
-                                    <!--<f:param name="pageId" value="1"/>-->
                                     <i class="fa fa-eye"/>
                                 </h:commandLink>
                             </h:form>

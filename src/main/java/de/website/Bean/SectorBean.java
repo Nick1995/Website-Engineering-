@@ -1,13 +1,13 @@
 package de.website.Bean;
 
-import de.website.database.Nutzer;
+        import de.website.database.Nutzer;
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.event.AjaxBehaviorEvent;
-import java.util.ArrayList;
-import java.util.List;
+        import javax.annotation.PostConstruct;
+        import javax.faces.bean.ManagedBean;
+        import javax.faces.bean.RequestScoped;
+        import javax.faces.event.AjaxBehaviorEvent;
+        import java.util.ArrayList;
+        import java.util.List;
 
 /**
  * Created by Nick on 03.03.2016.

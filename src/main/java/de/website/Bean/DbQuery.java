@@ -129,9 +129,7 @@ public class DbQuery {
             Statement myState = connection.createStatement();
             ResultSet result = myState.executeQuery("SELECT * FROM sektor WHERE KID =" + categoryID);
             while (result.next()){
-                //TODO Name und ID verknüpfen??
                 sectors.add(result.getString("Name"));
-                sectorsID.add(result.getString("ID"));
             }
         }catch(Exception exc){
             exc.printStackTrace();
