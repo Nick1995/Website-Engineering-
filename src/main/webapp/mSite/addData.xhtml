@@ -47,6 +47,7 @@
                                     </div>
                                     <div class="btn-group">
                                             <h:selectOneMenu styleClass="btn btn-default dropdown-toggle" id="cat" value="#{categories.selectedItem}">
+                                                <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
                                                 <f:selectItems value="#{categories.categories}"/>
                                                 <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
                                             </h:selectOneMenu>
@@ -56,7 +57,7 @@
                             </div>
 
                             <div class="row">
-                                <h:form>
+                                <h:form  id="sektor">
                                     <div class="col-md-1">
                                         <label for="sek">Sektor: </label>
                                     </div>
@@ -72,7 +73,7 @@
                             </div>
 
                             <div class="row">
-                                <h:form>
+                                <h:form id="project">
                                     <div class="col-md-1">
                                         <label for="pro"> Projekt: </label>
                                     </div>

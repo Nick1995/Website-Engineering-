@@ -486,7 +486,7 @@ ul.nostyle i {
   position: relative;
 }
 #projekte .portfolio-item .portfolio-item-inner .portfolio-info {
-  opacity: 0;
+  opacity: 1;
   transition: opacity 400ms;
   -webkit-transition: opacity 400ms;
   position: absolute;
