@@ -37,18 +37,19 @@
 
         <div class="container-wrapper">
             <div class="container">
-                <!-- <div class="panel panel-default">
-                    <div class="panel-heading">Panel heading without title</div>
-                   <div class="panel-body"> -->
+                 <div class="panel panel-default">
+                    <div class="panel-heading">Auswahl treffen</div>
+                   <div class="panel-body">
                             <div class="row">
                                 <h:form>
                                     <div class="col-md-1">
-                                        <label for="sek">Kategorie: </label>
+                                        <label for="sek">Kategorie:</label>
                                     </div>
                                     <div class="btn-group">
                                             <h:selectOneMenu styleClass="btn btn-default dropdown-toggle" id="cat" value="#{categories.selectedItem}">
+                                                <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
                                                 <f:selectItems value="#{categories.categories}"/>
-                                                <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
+                                                <f:ajax listener="#{categories.ajaxListener}" render="sektorInput"/>
                                             </h:selectOneMenu>
 
                                     </div>
@@ -56,15 +57,15 @@
                             </div>
 
                             <div class="row">
-                                <h:form>
+                                <h:form id="sektorInput">
                                     <div class="col-md-1">
                                         <label for="sek">Sektor: </label>
                                     </div>
-                                    <div class="btn-group">
+                                    <div class="btn-group" >
                                         <h:selectOneMenu styleClass="btn btn-default dropdown-toggle" id="sek" value="#{sectors.selectedItem}">
                                             <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
                                             <f:selectItems value="#{sectors.sec}"/>
-                                            <f:ajax listener="#{sectors.ajaxListener}" render="project  input"/>
+                                            <f:ajax listener="#{sectors.ajaxListener}" render="projectInput"/>
                                         </h:selectOneMenu>
                                     </div>
                                 </h:form>
@@ -72,7 +73,7 @@
                             </div>
 
                             <div class="row">
-                                <h:form>
+                                <h:form  id="projectInput">
                                     <div class="col-md-1">
                                         <label for="pro"> Projekt: </label>
                                     </div>
@@ -87,19 +88,19 @@
                             </div>
                             <h:form>
                                 <div class="row">
-                                        <h:inputText type="text" id="newSec" value="#{addSelectorBean.selector}" />
-                                        <p:commandButton value="neuen Sektor anlegen" action="#{addSelectorBean.addSector()}"/>
+                                        <h:inputText styleClass="auswahlPanel" type="text" id="newSec" value="#{addSelectorBean.selector}" />
+                                        <p:commandButton styleClass="auswahlPanel" value="neuen Sektor anlegen" action="#{addSelectorBean.addSector()}"/>
                                 </div>
                             </h:form>
                             <h:form>
                                 <div class="row">
-                                    <h:inputText value="#{addSelectorBean.selector}"/>
-                                    <p:commandButton value="neues Projekt anlegen" action="#{addSelectorBean.addProject()}"/>
+                                    <h:inputText styleClass="auswahlPanel" value="#{addSelectorBean.selector}"/>
+                                    <p:commandButton styleClass="auswahlPanel" value="neues Projekt anlegen" action="#{addSelectorBean.addProject()}"/>
                                 </div>
                             </h:form>
 
-                <!--   </div>
-             </div> -->
+                  </div>
+             </div>
                 <h:form id="input" enctype="multipart/form-data">
                     <div class="row">
                         <div class="input-group">
