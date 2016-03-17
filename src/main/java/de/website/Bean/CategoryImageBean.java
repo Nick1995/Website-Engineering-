@@ -25,6 +25,7 @@ public class CategoryImageBean {
     PreparedStatement ps;
     ResultSet rs;
 
+
     public List<CategoryImageBean> getAllImage(String kid) {
         List<CategoryImageBean> imageInfo = new ArrayList<CategoryImageBean>();
         connect2db();

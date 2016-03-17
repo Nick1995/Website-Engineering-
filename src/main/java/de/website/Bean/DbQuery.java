@@ -34,23 +34,23 @@ public class DbQuery {
         }
     }
 //Abfragen
-    public InputStream imageIs() {
-        try {
-            String strSql = "select bilder from bilder where id = 1 order by id";
-            //System.err.println("*select all***" + strSql);
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(strSql);
-            if (rs.next()) {
-                InputStream is = rs.getBinaryStream("bilder");
-                return is;
-            }else return null;
-
-        } catch (Exception e) {
-            logger.error("Fehler bei der Datenbankabfrage: ", e);
-            return null;
-        }
-
-    }
+//    public InputStream imageIs() {
+//        try {
+//            String strSql = "select bilder from bilder where id = 1 order by id";
+//            //System.err.println("*select all***" + strSql);
+//            Statement stmt = connection.createStatement();
+//            ResultSet rs = stmt.executeQuery(strSql);
+//            if (rs.next()) {
+//                InputStream is = rs.getBinaryStream("bilder");
+//                return is;
+//            }else return null;
+//
+//        } catch (Exception e) {
+//            logger.error("Fehler bei der Datenbankabfrage: ", e);
+//            return null;
+//        }
+//
+//    }
     public ArrayList<String> getCategories(){
         ArrayList <String> categories = new ArrayList<String>();
         try {
@@ -60,9 +60,22 @@ public class DbQuery {
                 categories.add(myRs.getString("Name"));
             }
         }catch (Exception exception){
-            System.out.println(exception.toString());
+            logger.error("Fehler DB-Abfrage", exception);
         }
         return categories;
+    }
+    public String getCategoryName(String cid){
+        String catName = "";
+        try {
+            Statement myState = connection.createStatement();
+            ResultSet myRs = myState.executeQuery("SELECT * FROM kategorien where id = " + cid);
+            if (myRs.next()) {
+                catName = myRs.getString("Name");
+            }
+        }catch (Exception exception){
+            logger.error("Fehler DB-Abfrage", exception);
+        }
+        return catName;
     }
     public int getCID(String name){
         int cid = 0;
@@ -125,23 +138,23 @@ public class DbQuery {
         }
         return sectors;
     }
-    public ArrayList<byte[]> displayImages(int pid){
-        Exchange ex = Exchange.getInstance();
-        Connection con = ex.getConnection();
-        ArrayList<byte[]> images = new ArrayList<byte[]>();
-        try {
-            Statement state = con.createStatement();
-            ResultSet res = state.executeQuery("SELECT * FROM bilder Where iid = " + pid);
-            while (res.next()){
-                images.add(res.getBytes("bilder"));
-                return images;
-            }
-        }catch (Exception e){
-            logger.error("Fehler DB-Abfrage Bilder: ", e);
-            return null;
-        }
-        return null;
-    }
+//    public ArrayList<byte[]> displayImages(int pid){
+//        Exchange ex = Exchange.getInstance();
+//        Connection con = ex.getConnection();
+//        ArrayList<byte[]> images = new ArrayList<byte[]>();
+//        try {
+//            Statement state = con.createStatement();
+//            ResultSet res = state.executeQuery("SELECT * FROM bilder Where iid = " + pid);
+//            while (res.next()){
+//                images.add(res.getBytes("bilder"));
+//                return images;
+//            }
+//        }catch (Exception e){
+//            logger.error("Fehler DB-Abfrage Bilder: ", e);
+//            return null;
+//        }
+//        return null;
+//    }
     //sucht nach Projekt anhand von Sektor oder Kategorie ID
     public ArrayList<String> getProjectsBySid(int  SID){
         ArrayList<String> projects = new ArrayList<String>();

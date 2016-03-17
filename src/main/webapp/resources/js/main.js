@@ -129,10 +129,10 @@ $(document).ready(function() {
 //Slider
 
 $(document).ready(function() {
-	var time = 7; // time in seconds
+	//var time = 7; // time in seconds
 
-	var $progressBar,
-		$bar,
+	//var $progressBar,
+	var	$bar,
 		$elem,
 		isPause,
 		tick,
@@ -141,40 +141,40 @@ $(document).ready(function() {
 	//Init the carousel
 	$(".slider").find('.owl-carousel').owlCarousel({
 
-		slideSpeed : 500,
-		paginationSpeed : 500,
+		//slideSpeed : 500,
+		//paginationSpeed : 500,
 		singleItem : true,
 		navigation : true,
 		navigationText: [
 			"<i class='fa fa-angle-left'></i>",
 			"<i class='fa fa-angle-right'></i>"
 		],
-		afterInit : progressBar,
+		//afterInit : progressBar,
 		afterMove : moved,
 		startDragging : pauseOnDragging,
-		//autoHeight : true,
+		autoHeight : true,
 		transitionStyle : "fadeUp"
 	});
 
 	//Init progressBar where elem is $("#owl-demo")
-	function progressBar(elem){
-		$elem = elem;
-		//build progress bar elements
-		buildProgressBar();
-		//start counting
-		start();
-	}
+	//function progressBar(elem){
+	//	$elem = elem;
+	//	//build progress bar elements
+	//	buildProgressBar();
+	//	//start counting
+	//	start();
+	//}
 
 	//create div#progressBar and div#bar then append to $(".owl-carousel")
-	function buildProgressBar(){
-		$progressBar = $("<div>",{
-			id:"progressBar"
-		});
-		$bar = $("<div>",{
-			id:"bar"
-		});
-		$progressBar.append($bar).appendTo($elem);
-	}
+	//function buildProgressBar(){
+	//	$progressBar = $("<div>",{
+	//		id:"progressBar"
+	//	});
+	//	$bar = $("<div>",{
+	//		id:"bar"
+	//	});
+	//	$progressBar.append($bar).appendTo($elem);
+	//}
 
 	function start() {
 		//reset timer

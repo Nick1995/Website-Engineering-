@@ -37,75 +37,69 @@
 
         <div class="container-wrapper">
             <div class="container">
-                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel heading without title</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <h:form>
+                                    <div class="col-md-1">
+                                        <label for="sek">Kategorie: </label>
+                                    </div>
+                                    <div class="btn-group">
+                                            <h:selectOneMenu styleClass="btn btn-default dropdown-toggle" id="cat" value="#{categories.selectedItem}">
+                                                <f:selectItems value="#{categories.categories}"/>
+                                                <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
+                                            </h:selectOneMenu>
 
-                    <h:form>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Kategorie<span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                            <ui:repeat value="#{categories.categories}" var="categorie">
-                                <li>
-                                    <a href="#">#{categorie}</a>
-                                </li>
+                                    </div>
+                                </h:form>
+                            </div>
 
-                            </ui:repeat>
-                                <li><a href="#">Action</a></li>
-                            </ul>
-                                <h:selectOneMenu styleClass="dropdown-menu" id="cat" value="#{categories.selectedItem}">
-                                    <f:selectItems value="#{categories.categories}"/>
-                                    <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
-                                </h:selectOneMenu>
+                            <div class="row">
+                                <h:form>
+                                    <div class="col-md-1">
+                                        <label for="sek">Sektor: </label>
+                                    </div>
+                                    <div class="btn-group">
+                                        <h:selectOneMenu styleClass="btn btn-default dropdown-toggle" id="sek" value="#{sectors.selectedItem}">
+                                            <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
+                                            <f:selectItems value="#{sectors.sec}"/>
+                                            <f:ajax listener="#{sectors.ajaxListener}" render="project  input"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </h:form>
+
+                            </div>
+
+                            <div class="row">
+                                <h:form>
+                                    <div class="col-md-1">
+                                        <label for="pro"> Projekt: </label>
+                                    </div>
+                                    <div class="btn-group">
+                                        <h:selectOneMenu styleClass="btn btn-default dropdown-toggle" id="pro" value="#{project.selectedItem}">
+                                            <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
+                                            <f:selectItems value="#{project.pro}"/>
+                                            <f:ajax listener="#{project.ajaxListener}" render="input images"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </h:form>
+                            </div>
+                            <h:form>
+                                <div class="row">
+                                        <h:inputText type="text" id="newSec" value="#{addSelectorBean.selector}" />
+                                        <p:commandButton value="neuen Sektor anlegen" action="#{addSelectorBean.addSector()}"/>
+                                </div>
+                            </h:form>
+                            <h:form>
+                                <div class="row">
+                                    <h:inputText value="#{addSelectorBean.selector}"/>
+                                    <p:commandButton value="neues Projekt anlegen" action="#{addSelectorBean.addProject()}"/>
+                                </div>
+                            </h:form>
 
                         </div>
-                    </h:form>
-
-                </div>
-
-                <div class="row">
-
-                    <h:form class="input-group" id="sektor">
-                        <div class="col-md-2">
-                            <label for="sek">Sektor: </label>
-                        </div>
-                        <div class="col-md-4 col-md-offset-4">
-                            <h:selectOneMenu id="sek" value="#{sectors.selectedItem}">
-                                <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
-                                <f:selectItems value="#{sectors.sec}"/>
-                                <f:ajax listener="#{sectors.ajaxListener}" render="project  input"/>
-                            </h:selectOneMenu>
-                        </div>
-                    </h:form>
-
-                </div>
-
-                <div class="row">
-                    <h:form class="input-group" id="project">
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <label for="pro"> Projekt: </label>
-                        </div>
-                        <div class="col-md-4 col-md-offset-2">
-                            <h:selectOneMenu id="pro" value="#{project.selectedItem}">
-                                <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
-                                <f:selectItems value="#{project.pro}"/>
-                                <f:ajax listener="#{project.ajaxListener}" render="input images"/>
-                            </h:selectOneMenu>
-                        </div>
-                    </h:form>
-                </div>
-<h:form>
-                <div class="row">
-                    <h:inputText type="text" id="newSec" value="#{addSelectorBean.selector}" />
-                    <p:commandButton value="neuen Sektor anlegen" action="#{addSelectorBean.addSector()}"/>
-                </div>
-</h:form>
-                <h:form>
-                <div class="row">
-                    <h:inputText value="#{addSelectorBean.selector}"/>
-                    <p:commandButton value="neues Projekt anlegen" action="#{addSelectorBean.addProject()}"/>
-                </div>
-                </h:form>
+                    </div>
                 <h:form id="input" enctype="multipart/form-data">
                     <div class="row">
                         <div class="input-group">
