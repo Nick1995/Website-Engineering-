@@ -12,12 +12,11 @@ import java.io.Serializable;
 @ManagedBean(name = "navigate2Projekte", eager = true)
 @RequestScoped
 public class Navigate2ProjekteBean implements Serializable {
-  private String pageId;
 
-    public String moveToProjekte(String pid) {
+    public String moveToProjekte(String cid) {
 
         Exchange ex = Exchange.getInstance();
-        ex.setPid(Integer.parseInt(pid));
+        ex.setCid(Integer.parseInt(cid));
             return "displayProjekte";
     }
 }

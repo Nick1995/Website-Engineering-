@@ -4,8 +4,10 @@ import de.website.database.Nutzer;
 import org.apache.log4j.Logger;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,8 +16,9 @@ import java.util.List;
 /**
  * Created by Nick on 08.03.2016.
  */
-@RequestScoped
+
 @ManagedBean(name = "categoryImageBean")
+@RequestScoped
 public class CategoryImageBean {
     Exchange ex = Exchange.getInstance();
     Nutzer nutzer = Nutzer.getInstance();
@@ -51,7 +54,10 @@ public class CategoryImageBean {
         }
         return imageInfo;
     }
-
+    public String getCatName(String cid){
+        DbQuery dbCon = nutzer.getDbCon();
+        return dbCon.getCategoryName(cid);
+    }
     private void connect2db() {
         try {
             DbQuery dBcon = new DbQuery("open", "");
