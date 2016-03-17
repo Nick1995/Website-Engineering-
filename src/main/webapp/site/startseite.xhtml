@@ -38,9 +38,15 @@
                             <h:form>
                                 <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('de')}" immediate="true" value="Deutsch" />
                             </h:form>
+
+                       <!--     <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="..." alt="...">
+                                </a>
+                            </div> -->
+
                         </li>
-
-
                         <li class="scroll">
                             <h:form>
                                 <h:commandButton styleClass="btn btn-link" action="#{language.changeLang('en')}" immediate="true" value="English" />
@@ -48,7 +54,6 @@
                         </li>
 
                     </ul>
-
                 </div>
             </div><!--/.container-->
         </div><!--/nav-->
@@ -92,7 +97,7 @@
             <div class="row">
                 <div class="col-sm-9">
                     <h2>#{msg['startseite_caption']}</h2>
-                    <p>#{msg['startseite_text']}
+                    <p><h:outputText value="#{msg['startseite_text']}" escape="false"/>
                     </p>
                 </div>
                 <!--<div class="col-sm-3 text-right">-->
