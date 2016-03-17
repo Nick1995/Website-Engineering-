@@ -59,7 +59,7 @@
         <h:selectOneMenu value="#{dropdownProjekteBean.selectedItem}">
             <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
             <f:selectItems value="#{dropdownProjekteBean.sektoren}"/>
-            <f:ajax listener="#{dropdownProjekteBean.ajaxListener}" render="projects"/>
+            <f:ajax listener="#{dropdownProjekteBean.ajaxListener}" render="projects" />
         </h:selectOneMenu>
     </div>
     </h:form>

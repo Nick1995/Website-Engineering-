@@ -103,9 +103,9 @@ public class ProjectImageBean {
                     while (rs.next()) {
                         wobauPid.add(rs.getString("id"));
                     }
-                    if(rs.first()){
-                        wobauPid.add(rs.getString("id"));
-                    }
+//                    if(rs.first()){
+//                        wobauPid.add(rs.getString("id"));
+//                    }
                 }
             }
         } catch (Exception e) {
