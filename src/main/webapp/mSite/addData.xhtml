@@ -9,13 +9,6 @@
         <div id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
             <div class="container">
                 <div class="navbar-header">
-                    <h:button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </h:button>
-
                     <div class="navbar-brand pull-left">
                         <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
                             <h:graphicImage library="images" name="logo.png"/>
@@ -37,212 +30,229 @@
 
         <div class="container-wrapper">
             <div class="container">
-                <!-- <div class="panel panel-default">
-                    <div class="panel-heading">Panel heading without title</div>
-                   <div class="panel-body"> -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Auswahl treffen</div>
+                        <div class="panel-body">
                             <div class="row">
-                                <h:form>
+                                <h:form styleClass="auswahlPanel">
                                     <div class="col-md-1">
-                                        <label for="sek">Kategorie: </label>
+                                        <label>Kategorie: </label>
                                     </div>
-                                    <div class="btn-group">
-                                            <h:selectOneMenu styleClass="btn btn-default dropdown-toggle" id="cat" value="#{categories.selectedItem}">
-                                                <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
-                                                <f:selectItems value="#{categories.categories}"/>
-                                                <f:ajax listener="#{categories.ajaxListener}" render="sektor project input"/>
+                                    <div class="col-md-4">
+                                        <div class="btn-group">
+                                                <h:selectOneMenu styleClass="btn btn-primary dropdown-toggle" id="cat" value="#{categories.selectedItem}">
+                                                    <f:selectItem itemValue="#{null}" itemLabel="Kategorie auswählen"/>
+                                                    <f:selectItems value="#{categories.categories}"/>
+                                                    <f:ajax listener="#{categories.ajaxListener}" render="sektor ownProject input"/>
+                                                </h:selectOneMenu>
+
+                                        </div>
+                                    </div>
+                                </h:form>
+                            </div>
+
+                            <div class="row">
+                                <h:form styleClass="auswahlPanel" id="sektor">
+                                    <div class="col-md-1">
+                                        <label>Sektor: </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="btn-group">
+                                            <h:selectOneMenu styleClass="btn btn-primary dropdown-toggle" id="sek" value="#{sectors.selectedItem}">
+                                                <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
+                                                <f:selectItems value="#{sectors.sec}"/>
+                                                <f:ajax listener="#{sectors.ajaxListener}" render="ownProject input"/>
                                             </h:selectOneMenu>
-
+                                        </div>
                                     </div>
                                 </h:form>
-                            </div>
 
-                            <div class="row">
-                                <h:form  id="sektor">
-                                    <div class="col-md-1">
-                                        <label for="sek">Sektor: </label>
+                                <h:form styleClass="auswahlPanel">
+                                    <div class="col-md-2">
+                                        <h:inputText styleClass="form-control" type="text" id="newSec" value="#{addSelectorBean.selector}" />
                                     </div>
-                                    <div class="btn-group">
-                                        <h:selectOneMenu styleClass="btn btn-default dropdown-toggle" id="sek" value="#{sectors.selectedItem}">
-                                            <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
-                                            <f:selectItems value="#{sectors.sec}"/>
-                                            <f:ajax listener="#{sectors.ajaxListener}" render="project  input"/>
-                                        </h:selectOneMenu>
+                                    <div class="col-md-2">
+                                        <p:commandButton type="button" styleClass="btn btn-primary" value="neuen Sektor anlegen" action="#{addSelectorBean.addSector()}"/>
                                     </div>
                                 </h:form>
 
                             </div>
 
                             <div class="row">
-                                <h:form id="project">
+                                <h:form id="ownProject" styleClass="auswahlPanel">
                                     <div class="col-md-1">
-                                        <label for="pro"> Projekt: </label>
+                                        <label> Projekt: </label>
                                     </div>
-                                    <div class="btn-group">
-                                        <h:selectOneMenu styleClass="btn btn-default dropdown-toggle" id="pro" value="#{project.selectedItem}">
-                                            <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
-                                            <f:selectItems value="#{project.pro}"/>
-                                            <f:ajax listener="#{project.ajaxListener}" render="input images"/>
-                                        </h:selectOneMenu>
+                                    <div class="col-md-4">
+                                        <div class="btn-group">
+                                            <h:selectOneMenu type="button" styleClass="btn btn-primary dropdown-toggle" id="pro" value="#{project.selectedItem}" data-toggle="dropdown">
+                                                <f:selectItem itemValue="#{null}" itemLabel="Projekt auswählen"/>
+                                                <f:selectItems value="#{project.pro}"/>
+                                                <f:ajax listener="#{project.ajaxListener}" render="input images"/>
+                                            </h:selectOneMenu>
+                                        </div>
+                                    </div>
+                                </h:form>
+
+                                <h:form styleClass="auswahlPanel">
+                                    <div class="col-md-2">
+                                        <h:inputText styleClass="form-control" type="text" id="newPro" value="#{addSelectorBean.selector}" />
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p:commandButton type="button" styleClass="btn btn-primary" value="neues Projekt anlegen" action="#{addSelectorBean.addProject()}"/>
                                     </div>
                                 </h:form>
                             </div>
-                            <h:form>
-                                <div class="row">
-                                        <h:inputText type="text" id="newSec" value="#{addSelectorBean.selector}" />
-                                        <p:commandButton value="neuen Sektor anlegen" action="#{addSelectorBean.addSector()}"/>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Details</div>
+                        <h:form id="input" enctype="multipart/form-data" styleClass="auswahlPanel">
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="auswahlPanel">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="ort-addon">Ort</span>
+                                            <h:inputText type="text" class="form-control" aria-describedby="ort-addon"
+                                                     value="#{textUpdate.ort}"/>
+                                        </div>
+                                    </div>
                                 </div>
-                            </h:form>
-                            <h:form>
-                                <div class="row">
-                                    <h:inputText value="#{addSelectorBean.selector}"/>
-                                    <p:commandButton value="neues Projekt anlegen" action="#{addSelectorBean.addProject()}"/>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="auswahlPanel">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="bauherr-addon">Bauherr</span>
+                                            <h:inputText type="text" class="form-control" aria-describedby="bauherr-addon"
+                                                      value="#{textUpdate.bauherr}"/>
+                                        </div>
+                                    </div>
                                 </div>
-                            </h:form>
+                            </div>
 
-                <!--   </div>
-             </div> -->
-                <h:form id="input" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="input-group">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="auswahlPanel">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="architekt-addon">Architekt</span>
+                                        <h:inputText  type="text" class="form-control" aria-describedby="architekt-addon"
+                                                     value="#{textUpdate.architekt}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <label for="location">Ort:</label>
-                        </div>
-                        <div class="col-md-4 col-md-offset-2">
-                            <h:inputText binding="#{location}" type="text" class="form-control" id="location"
-                                         value="#{textUpdate.ort}"/>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="auswahlPanel">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="startzeit-addon">Startzeit</span>
+                                        <h:inputText  type="text" class="form-control" aria-describedby="startzeit-addon"
+                                                     value="#{textUpdate.startzeit}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="auswahlPanel">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="endzeit-addon">Endzeit</span>
+                                        <h:inputText type="text" class="form-control" aria-describedby="endzeit-addon"
+                                                     value="#{textUpdate.endzeit}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="auswahlPanel">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="bauvolumen-addon">Bauvolumen</span>
+                                        <h:inputText type="text" class="form-control" aria-describedby="bauvolumen-addon"
+                                                     value="#{textUpdate.bauvolumen}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="auswahlPanel">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="massnahmen-addon">Massnahmen</span>
+                                        <h:inputTextarea type="text" class="form-control" aria-describedby="massnahmen-addon"
+                                                         value="#{textUpdate.massnahmen}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="auswahlPanel">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="leistung-addon">Leistung</span>
+                                        <h:inputTextarea type="text" class="form-control" aria-describedby="leistung-addon"
+                                                         value="#{textUpdate.leistung}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div id="bilderupload" class="input-group">
+                                <p:messages showDetail="true"/>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="images">Bilder: </label>
+                                    </div>
+                                </div>
+
+                                <ui:repeat id="images" value="#{projectImageBean.allImage}" var="item">
+                                    <h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>
+                                </ui:repeat>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <span class="label label-default"> Weitere Bilder hinzufügen</span>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <p:fileUpload id="upload" binding="#{uploadImage.image}" value="#{uploadImage.file}"
+                                                      mode="simple"
+                                                      allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-6">
+
+                                    <p:commandButton
+                                            action="#{textUpdate.insertData()}"
+                                            class="btn btn-primary" value=" Daten speichern" ajax="false"
+                                            actionListener="#{uploadImage.upload}"/>
+
+                                </div>
+
+
+                            </div>
+                        </h:form>
                     </div>
-
-                    <div class="row">
-                        <div class="input-group">
-                            <div class="col-md-4 col-md-offset-2">
-                                <label for="bauherr">Bauherr:</label>
-                            </div>
-                            <div class="col-md-4 col-md-offset-2">
-                                <h:inputText binding="#{bauherr}" type="text" class="form-control"
-                                             id="bauherr" value="#{textUpdate.bauherr}"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-group">
-                            <div>
-                                <label for="architekt">Architekt/Planer:</label>
-                            </div>
-                            <div class="col-md-4 col-md-offset-2">
-                                <h:inputText binding="#{architekt}" type="text" class="form-control" id="architekt"
-                                             value="#{textUpdate.architekt}"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-group">
-                            <div class="col-sm-6">
-                                <label for="time_start">Beginn Bau: </label>
-                            </div>
-                            <div class="col-md-4 col-md-offset-2">
-                                <h:inputText binding="#{timeStart}" type="text" class="form-control" id="time_start"
-                                             value="#{textUpdate.startzeit}"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-group">
-                            <div class="col-md-4 col-md-offset-2">
-                                <label for="time_end">Ende Bau:</label>
-                            </div>
-                            <div class="col-md-4 col-md-offset-2">
-                                <h:inputText binding="#{timeEnd}" type="text" class="form-control" id="time_end"
-                                             value="#{textUpdate.endzeit}"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-group">
-                            <div class="col-md-4 col-md-offset-2">
-                                <label for="bauvol">Bauvolumen:</label>
-                            </div>
-                            <div class="col-sm-6">
-                                <h:inputText binding="#{bauvol}" type="text" class="form-control" id="bauvol"
-                                             value="#{textUpdate.bauvolumen}"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-group">
-                            <div class="col-md-4 col-md-offset-2">
-                                <label for="massnahmen">Maßnahmen:</label>
-                            </div>
-                            <div class="col-md-4 col-md-offset-2">
-                                <h:inputTextarea binding="#{massnahmen}" type="text" class="form-control"
-                                                 id="massnahmen" value="#{textUpdate.massnahmen}"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-group">
-                            <div class="col-md-4 col-md-offset-2">
-                                <label for="leistung">Leistung IB Rübe:</label>
-                            </div>
-                            <div class="col-md-4 col-md-offset-2">
-                                <h:inputTextarea binding="#{leistung}" type="text" class="form-control"
-                                                 id="leistung" value="#{textUpdate.leistung}"/>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div id="bilderupload" class="input-group">
-                        <p:messages showDetail="true"/>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="images">Bilder: </label>
-                            </div>
-                        </div>
-
-                        <ui:repeat id="images" value="#{projectImageBean.allImage}" var="item">
-                            <h:graphicImage value="DisplayImage?id=#{item.imageID}" width="100" height="100"/>
-                        </ui:repeat>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="upload">weitere Bilder hinzufügen</label>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <p:fileUpload id="upload" binding="#{uploadImage.image}" value="#{uploadImage.file}"
-                                              mode="simple"
-                                              allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-sm-6">
-
-                            <p:commandButton
-                                    action="#{textUpdate.insertData()}"
-                                    class="btn btn-primary" value=" Daten speichern" ajax="false"
-                                    actionListener="#{uploadImage.upload}"/>
-
-                        </div>
-
-
-                    </div>
-                </h:form>
+                </div>
             </div>
         </div>
-
-    </div>
 </ui:composition>
