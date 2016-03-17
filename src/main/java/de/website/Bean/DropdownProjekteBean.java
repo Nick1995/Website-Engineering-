@@ -34,7 +34,6 @@ public class DropdownProjekteBean {
     }
 
     public void ajaxListener(AjaxBehaviorEvent event) {
-//    public void ajaxListener(ValueChangeEvent event) {
         int sid = dbCon.getSID(selectedItem);
         ex.setSid(sid);
 
