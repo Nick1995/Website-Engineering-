@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.ValueChangeEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +21,11 @@ public class DropdownProjekteBean {
     Exchange ex = Exchange.getInstance();
     Nutzer nutzer = Nutzer.getInstance();
     DbQuery dbCon = nutzer.getDbCon();
+    String refreshJs="onDocumentReady()";
+
+    public String getRefreshJs() {
+        return refreshJs;
+    }
 
     @PostConstruct
     public void init() {
@@ -28,6 +34,7 @@ public class DropdownProjekteBean {
     }
 
     public void ajaxListener(AjaxBehaviorEvent event) {
+//    public void ajaxListener(ValueChangeEvent event) {
         int sid = dbCon.getSID(selectedItem);
         ex.setSid(sid);
 

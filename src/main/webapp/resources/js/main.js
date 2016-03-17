@@ -128,7 +128,7 @@ $(document).ready(function() {
 });
 //Slider
 
-$(document).ready(function() {
+function onDocumentReady() {
 	//var time = 7; // time in seconds
 
 	//var $progressBar,
@@ -210,6 +210,10 @@ $(document).ready(function() {
 		//start again
 		start();
 	}
+}
+
+$(document).ready(function() {
+	onDocumentReady();
 });
 
 //Initiat WOW JS

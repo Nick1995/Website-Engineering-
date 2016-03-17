@@ -36,6 +36,8 @@
 
     <h:form id="projects">
 
+        <h:outputScript rendered="#{not empty dropdownProjekteBean.refreshJs}">#{dropdownProjekteBean.refreshJs}</h:outputScript>
+
         <ui:repeat value="#{projectImageBean.wobauPid}" var="pid">
 
             <div class="row">
