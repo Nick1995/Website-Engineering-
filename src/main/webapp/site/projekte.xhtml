@@ -19,9 +19,13 @@
                         <div class="slider">
                             <div class="owl-carousel">
                                 <ui:repeat id="catImages" var="item" value="#{categoryImageBean.getAllImage(cid)}">
-                                    <div class="item" align="center" style="height: 185px">
-                                        <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
-                                    </div><!--/.item-->
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <div class="item" align="center" style="height: 185px" >
+                                                <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
+                                            </div><!--/.item-->
+                                        </div>
+                                    </div>
                                 </ui:repeat>
                             </div><!--/.owl-carousel-->
                         </div>

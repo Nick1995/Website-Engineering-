@@ -175,13 +175,17 @@ ul.nostyle i {
   margin-top: 32px;
 }
 .navbar.navbar-default .navbar-brand {
-  height: auto;
+  width: 240px;
+  height: 39px;
   padding: 22px 15px 21px;
 }
-
 .navbar-default .btn-link {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+#logo_klein {
+  /*height: 100%;*/
+  width: 25%;
 }
 
 @media only screen and (min-width: 768px) {
@@ -243,7 +247,7 @@ ul.nostyle i {
   overflow: hidden;
 }
 #main-slider .item {
-  height: 558px;
+  height: 100%;
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
