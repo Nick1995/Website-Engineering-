@@ -7,43 +7,55 @@
         xmlns:c="http://java.sun.com/jsp/jstl/core"
 >
     <section id="projekte">
+        <div class="container-wrapper">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">#{msg['projekte_caption']}</h2>
             </div>
-
+        </div>
+        <div class="container">
             <div class="portfolio-items">
-                <ui:repeat value="#{allCat.cids}" var="cid">
-                <div class="portfolio-item creative">
-                    <div class="portfolio-item-inner">
-                        <div class="slider">
-                            <div class="owl-carousel">
-                                <ui:repeat id="catImages" var="item" value="#{categoryImageBean.getAllImage(cid)}">
-                                    <div class="row">
-                                        <div class="col-xs-2">
-                                            <div class="item" align="center" style="height: 185px" >
-                                                <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%"/>
-                                            </div><!--/.item-->
-                                        </div>
+                <!--<div class="col-sm-6 col-lg-3">-->
+                <div class="row">
+                    <div class="col-lg-3 col-xs-12 col-md-5 col-sm-5 col-md-offset-1 col-sm-offset-1">
+                        <ui:repeat value="#{allCat.cids}" var="cid">
+
+
+                            <div class="portfolio-item">
+
+
+                                <div class="portfolio-item-inner">
+                                    <div class="slider">
+                                        <div class="owl-carousel">
+                                            <ui:repeat id="catImages" var="item"
+                                                       value="#{categoryImageBean.getAllImage(cid)}">
+                                                <div class="item" align="center" style="height: 185px">
+                                                    <h:graphicImage value="DisplayImage?id=#{item.imageID}"
+                                                                    height="100%"/>
+                                                </div><!--/.item-->
+                                            </ui:repeat>
+                                        </div><!--/.owl-carousel-->
                                     </div>
-                                </ui:repeat>
-                            </div><!--/.owl-carousel-->
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>#{categoryImageBean.getCatName(cid)}</h3>
-                            <h:form>
-                                <h:commandLink class="preview" action="#{navigate2Projekte.moveToProjekte(cid)}">
-                                    <i class="fa fa-eye"/>
-                                </h:commandLink>
-                            </h:form>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-                </ui:repeat>
+                                    <div class="portfolio-info">
+                                        <h3>#{categoryImageBean.getCatName(cid)}</h3>
+                                        <h:form>
+                                            <h:commandLink class="preview"
+                                                           action="#{navigate2Projekte.moveToProjekte(cid)}">
+                                                <i class="fa fa-eye"/>
+                                            </h:commandLink>
+                                        </h:form>
+                                    </div>
+                                </div>
 
+
+                            </div><!--/.portfolio-item-->
+
+
+                        </ui:repeat>
+                    </div> <!--col-lg-3-->
+                </div> <!--row -->
             </div>
-
-
-        </div><!--/.container-->
+        </div><!--container-->
+        </div><!--container-wrappers-->
     </section>
 </ui:composition>

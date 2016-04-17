@@ -23,17 +23,11 @@
                         </h:link>
                     </div>
                     <div class="navbar-brand hidden-md hidden-lg hidden-sm">
-
-                            <!--<div class="container">-->
-                                <!--<div class="row">-->
-                                    <!--<div class="col-xs-offset-7 col-sm-offset-7">-->
-                                        <h:link action="home.xhtml">
-                                            <h:graphicImage id="logo_klein" library="images" name="logo_klein.png" style="alignment: center"/>
-                                        </h:link>
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-
+                        <h:link action="home.xhtml">
+                            <div align="center">
+                                <h:graphicImage id="logo_klein" library="images" name="logo_klein.png"/>
+                            </div>
+                        </h:link>
                     </div>
                 </div>
 
@@ -48,7 +42,7 @@
                         <li class="scroll">
                             <h:form>
                                 <h:commandLink styleClass="btn btn-link" action="#{language.changeLang('de')}"
-                                                 immediate="true">
+                                               immediate="true">
                                     <h:graphicImage library="images" name="germanflag.png"/>
                                 </h:commandLink>
                             </h:form>
@@ -56,7 +50,7 @@
                         <li class="scroll">
                             <h:form>
                                 <h:commandLink styleClass="btn btn-link" action="#{language.changeLang('en')}"
-                                                 immediate="true">
+                                               immediate="true">
                                     <h:graphicImage library="images" name="English-Flag-Icon.png"/>
                                 </h:commandLink>
                             </h:form>

@@ -11,13 +11,36 @@
             <div class="container">
                 <div class="navbar-header">
                     <div class="navbar-brand">
-                        <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
+                        <a href="/home.xhtml"> <!--class="navbar-brand" href=""-->
                             <h:graphicImage style="width: 240px" library="images" name="logo.png"/>
-                        </h:link>
+                        </a>
                     </div>
 
                 </div>
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li> <a href="/home.xhtml"> #{msg['pNavListe_Startseite']} </a> </li>
 
+                        <li class="scroll">
+                            <h:form>
+                                <h:commandLink styleClass="btn btn-link" action="#{language.changeLang('de')}"
+                                               immediate="true">
+                                    <h:graphicImage library="images" name="germanflag.png"/>
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+                        <li class="scroll">
+                            <h:form>
+                                <h:commandLink styleClass="btn btn-link" action="#{language.changeLang('en')}"
+                                               immediate="true">
+                                    <h:graphicImage library="images" name="English-Flag-Icon.png"/>
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+
+                    </ul>
+
+                </div>
             </div><!--/.container-->
         </div><!--/nav-->
     </div><!--/header-->
@@ -49,7 +72,7 @@
             <div class="slider">
                 <div class="owl-carousel">
                     <ui:repeat value="#{projectImageBean.getSpecialImage(pid)}" var="item">
-                        <div class="item" align="center">
+                        <div class="item container-fluid" align="center">
                             <h:graphicImage value="DisplayImage?id=#{item.imageID}" height="100%" align="center"/>
                         </div><!--/.item-->
                     </ui:repeat>

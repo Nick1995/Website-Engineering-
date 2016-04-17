@@ -16,11 +16,18 @@
     </application>
 
     <navigation-rule>
-        <from-view-id>/displayProjekte.xhtml</from-view-id>
+        <from-view-id>/site/projektDetails.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>projektDetails</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
-            <redirect />
+            <from-action>#{navigationController.processStartseite}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/site/startseite.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <!--<navigation-rule>-->
+        <!--<from-view-id>/site/projektDetails.xhtml</from-view-id>-->
+        <!--<navigation-case>-->
+            <!--<from-action>#{navigationController.processStartseite}</from-action>-->
+            <!--<to-view-id>/home.xhtml</to-view-id>-->
+        <!--</navigation-case>-->
+    <!--</navigation-rule>-->
 </faces-config>
