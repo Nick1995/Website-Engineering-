@@ -661,3 +661,19 @@ ul.nostyle i {
 .auswahlPanel{
   margin: 5px;
 }
+ .blue-background {
+  color: white;
+
+  border-color: black;
+   border-width: 1px;
+   border-style: solid;
+  background-color: #00F;
+   text-align: center;
+}
+ .text-centered{
+   text-align: center;
+ }
+ .big-sized {
+   font-size: large;
+
+ }
