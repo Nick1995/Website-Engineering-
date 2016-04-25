@@ -19,6 +19,18 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
+
+                        <ui:repeat value="#{dropdownProjekteBean.sektoren}" var="sektor">
+
+                            <li class="scroll">
+                                <h:form>
+                                <h:commandLink styleClass="btn btn-link" value="#{sektor}" action="#{dropdownProjekteBean.actionListener(sektor)}">
+                                    <!--<f:param name="sek" value="#{sektor}" />-->
+                                </h:commandLink>
+                                </h:form>
+                                <!--<h:outputLabel value="#{sektor}" />-->
+                            </li>
+                        </ui:repeat>
                         <li><a href="/home.xhtml"> #{msg['pNavListe_Startseite']} </a></li>
 
                         <li class="scroll">
@@ -44,19 +56,8 @@
             </div><!--/.container-->
         </div><!--/nav-->
     </div><!--/header-->
+    
 
-    <h:form id="sectors">
-        <div class="container">
-            <label for="sektorchoice">Sektor: </label>
-            <div id="sektorchoice">
-                <h:selectOneMenu value="#{dropdownProjekteBean.selectedItem}">
-                    <f:selectItem itemValue="#{null}" itemLabel="Sektor auswählen"/>
-                    <f:selectItems value="#{dropdownProjekteBean.sektoren}"/>
-                    <f:ajax listener="#{dropdownProjekteBean.ajaxListener}" render="projects"/>
-                </h:selectOneMenu>
-            </div>
-        </div>
-    </h:form>
 
 
     <h:form id="projects">

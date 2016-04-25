@@ -5,6 +5,7 @@ import de.website.database.Nutzer;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
 import java.util.ArrayList;
@@ -31,6 +32,11 @@ public class DropdownProjekteBean {
     public void init() {
         sektoren = new ArrayList<String>();
         sektoren = dbCon.getSektor(ex.getCid());
+    }
+
+    public void actionListener(String sektor){
+        int sid = dbCon.getSID(sektor);
+        ex.setSid(sid);
     }
 
     public void ajaxListener(AjaxBehaviorEvent event) {

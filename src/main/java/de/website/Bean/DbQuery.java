@@ -229,6 +229,7 @@ public class DbQuery {
             ResultSet result = myState.executeQuery("SELECT " + type +" FROM " + table +" WHERE ID =" + pid + ";");
             while (result.next()) {
                 value = result.getString(type);
+                value = value.replace("\r\n", "<br/>");
             }
         }catch (Exception e){
             logger.error("Fehler Datenbank-Abfrage: ", e);
