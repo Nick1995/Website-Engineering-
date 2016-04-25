@@ -15,7 +15,6 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 @ManagedBean(name = "projectImageBean")
 public class ProjectImageBean {
-//    private int projectID;
     private int imageID;
     Statement stmt = null;
     PreparedStatement ps;
@@ -38,7 +37,7 @@ public class ProjectImageBean {
                 imageInfo.add(idb);
             }
         } catch (SQLException e) {
-            System.out.println("Exception in getAllImage::" + e.getMessage());
+            System.out.println("Exception in getAllImage:" + e.getMessage());
         }
         return imageInfo;
     }
@@ -61,6 +60,17 @@ public class ProjectImageBean {
         return imageInfo;
     }
 
+    public void deleteImage(String id) {
+        Connection con = ex.getConnection();
+
+        try {
+            PreparedStatement preState = con.prepareStatement("delete from bilder where id = " + id);
+            preState.execute();
+        } catch (SQLException e) {
+            System.out.println("Exception in deleteImage:" + e.getMessage());
+        }
+    }
+
     public int getImageID() {
         return imageID;
     }
@@ -78,13 +88,13 @@ public class ProjectImageBean {
             stmt = con.createStatement();
             String strSql = "select id from projekte where kid = " + kid + " order by id";
             rs = stmt.executeQuery(strSql);
-            while (rs.next()){
+            while (rs.next()) {
                 wobauPid.add(rs.getString("id"));
             }
-            if(! rs.next()){
+            if (!rs.next()) {
                 int sid = ex.getSid();
-                if(rs.first()){
-                }else if(sid == 0){
+                if (rs.first()) {
+                } else if (sid == 0) {
                     strSql = "select id from sektor where kid = " + kid + " order by id";
                     rs = stmt.executeQuery(strSql);
                     while (rs.next()) {
@@ -99,7 +109,7 @@ public class ProjectImageBean {
                     while (rs.next()) {
                         wobauPid.add(rs.getString("id"));
                     }
-                }else{
+                } else {
                     strSql = "select id from projekte where sid = " + sid + " order by id";
                     rs = stmt.executeQuery(strSql);
                     while (rs.next()) {
@@ -108,9 +118,9 @@ public class ProjectImageBean {
                 }
             }
         } catch (Exception e) {
-        e.printStackTrace();
+            e.printStackTrace();
             return null;
-    }
+        }
 
         return wobauPid;
     }
