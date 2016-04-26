@@ -179,13 +179,18 @@ ul.nostyle i {
   height: 39px;
   padding: 22px 15px 21px;
 }
+.navbar.navbar-default .navbar-brand2 {
+  width: 80px;
+  padding-top: 21px;
+}
 .navbar-default .btn-link {
   padding-top: 40px;
   padding-bottom: 40px;
+
 }
 #logo_klein {
   /*height: 100%;*/
-  width: 25%;
+  width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
