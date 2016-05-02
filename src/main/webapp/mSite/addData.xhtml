@@ -18,6 +18,8 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
+                        <li class="scroll"><h:link value="#{msg['addData_caption']}" fragment="addData"/></li>
+                        <li class="scroll"><h:link value="#{msg['navListe_Startseite']}" fragment="hitCounter"/></li>
                         <li><a href="/home.xhtml"> #{msg['pNavListe_Startseite']} </a></li>
                     </ul>
                 </div>
@@ -26,8 +28,8 @@
     </div><!--/header-->
 
 
-    <div>
 
+<section id="addData">
         <div class="section-header">
             <h2 class="section-title text-center wow fadeInDown">#{msg['addData_caption']}</h2>
         </div>
@@ -281,5 +283,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </ui:composition>

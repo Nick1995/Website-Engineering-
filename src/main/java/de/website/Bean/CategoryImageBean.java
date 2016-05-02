@@ -25,7 +25,6 @@ public class CategoryImageBean {
     final static Logger logger = Logger.getLogger(DbQuery.class);
     private String imageID;
     Statement stmt = null;
-    PreparedStatement ps;
     ResultSet rs;
 
 

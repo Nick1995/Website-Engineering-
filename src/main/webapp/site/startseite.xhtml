@@ -28,11 +28,11 @@
                         </h:link>
                     </div>
 
-                            <div class="navbar-brand hidden-lg hidden-md hidden-sm" style="padding-top: 13px;">
-                                <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
-                                    <h:graphicImage library="images" name="logo.png" width="80%"/>
-                                </h:link>
-                            </div>
+                    <div class="navbar-brand hidden-lg hidden-md hidden-sm" style="padding-top: 13px;">
+                        <h:link action="home.xhtml"> <!--class="navbar-brand" href=""-->
+                            <h:graphicImage library="images" name="logo.png" width="80%"/>
+                        </h:link>
+                    </div>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-right">
@@ -43,30 +43,24 @@
                         <li class="scroll"><h:link value="#{msg['navListe_Karriere']}" fragment="karriere"/></li>
                         <li class="scroll"><h:link value="#{msg['navListe_Login']}" fragment="login"/></li>
                         <li class="scroll"><h:link value="#{msg['navListe_Kontakt']}" fragment="impressum"/></li>
-                        <li class="scroll">
-                            <h:form>
-                                <h:commandLink styleClass="btn btn-link" action="#{language.changeLang('de')}"
-                                               immediate="true">
-                                    <h:graphicImage library="images" name="germanflag.png"/>
-                                </h:commandLink>
-                            </h:form>
-                        </li>
-                        <li class="scroll">
-                            <h:form>
-                                <h:commandLink styleClass="btn btn-link" action="#{language.changeLang('en')}"
-                                               immediate="true">
-                                    <h:graphicImage library="images" name="English-Flag-Icon.png"/>
-                                </h:commandLink>
-                            </h:form>
-                        </li>
-
                     </ul>
 
                 </div>
             </div><!--/.container-->
         </div><!--/nav-->
     </div><!--/header-->
-
+    <a href="http://www.freecounterstat.com" title="hit counter">
+    </a>
+    <div class="page-count">
+        <script type="text/javascript">
+            if (localStorage.pagecount) {
+                localStorage.pagecount = Number(localStorage.pagecount) + 1;
+            }
+            else {
+                localStorage.pagecount = 1;
+            }
+        </script>
+    </div>
     <div id="main-slider">
         <div class="container-fluid">
             <div class="owl-carousel">
